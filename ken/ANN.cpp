@@ -26,8 +26,8 @@ class Neuron {
 		void calcHiddenGradients(const Layer &nextLayer);
 		void updateInputWeights(Layer &prevLayer);
 	private:
-		static double eta;
-		static double alpha;
+		static double eta;//Individual input, magnified by the gradient and train rate:
+		static double alpha;//Also add momentum = a fraction of the previous delta weight
 		static double transferFunction(double x);
 		static double transferFunctionDerivative(double x);
 		static double randomWeight(void){return rand() / double(RAND_MAX);}
@@ -38,10 +38,13 @@ class Neuron {
 		double m_gradient;
 };
 
-double Neuron::eta = 0.1;
-double Neuron::alpha = 0.5;
+double Neuron::eta = 0.1;//overall net learning rate,[0,0..1.0]
+double Neuron::alpha = 0.5;//momentum,multiplier of last deltaweight,[0,0..n]
 
 void Neuron::updateInputWeights(Layer &prevLayer){
+	
+	//The weight to be updated are in the Connection container
+	//in the neurons in the preceding layer
 	for(unsigned n = 0; n < prevLayer.size(); ++n){
 		Neuron &neuron = prevLayer[n];
 		double oldDeltaWeight = neuron.m_outputWeights[m_myIndex].deltaWeight;
@@ -56,6 +59,8 @@ void Neuron::updateInputWeights(Layer &prevLayer){
 
 double Neuron::sumDOW(const Layer &nextLayer)const {
 	double sum = 0.0;
+	
+	//Sum our contributions of the errrors at the nodes we feed
 	
 	for(unsigned n = 0;n < nextLayer.size() - 1; ++n){
 		sum += m_outputWeights[n].weight * nextLayer[n].m_gradient;
@@ -75,15 +80,19 @@ void Neuron::calcOutputGradients(double targetVal){
 }
 
 double Neuron::transferFunction(double x){
+	//tanh - output range[-1.0..1.0]
 	return tanh(x);
 }
 
 double Neuron::transferFunctionDerivative(double x){
+	//tanh derivative
 	return 1.0 - x * x;
 }
 
 void Neuron::feedForward(const Layer &prevLayer){
 	double sum = 0.0;
+	//Sum the previous layer's outputs (which are out inputs)
+	//Include the bias node from the previous layer.
 	for(unsigned n = 0;n < prevLayer.size();++n){
 		sum += prevLayer[n].getOutputVal() *
 				prevLayer[n].m_outputWeights[m_myIndex].weight;
@@ -125,6 +134,7 @@ void Net::getResults(vector<double> &resultVals)const{
 
 void Net::backProp(const vector<double> &targetVals){
 	
+	//Calculate overall net error(RMS of output neuron errors)
 	Layer &outputLayer = m_layers.back();
 	m_error = 0.0;
 	
@@ -195,6 +205,8 @@ Net::Net(const vector<unsigned> &topology){
 		m_layers.push_back(Layer());
 		unsigned numOutputs = layerNum == topology.size() - 1 ? 0 : topology[layerNum + 1];
 		
+		//We have a new layer, now fill it with neurons,and
+		// add a bias neuron in each layer
 		for(unsigned neuronNum = 0; neuronNum <= topology[layerNum]; ++neuronNum){
 			m_layers.back().push_back(Neuron(numOutputs, neuronNum));
 			cout << "Made a Neuron!" << endl;
