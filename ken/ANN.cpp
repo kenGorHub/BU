@@ -278,6 +278,7 @@ Net::Net(const vector<unsigned> &topology){
 	unsigned numLayers = topology.size();
 	for(unsigned layerNum = 0; layerNum < numLayers; ++layerNum){
 		m_layers.push_back(Layer());
+		
 		unsigned numOutputs = layerNum == topology.size() - 1 ? 0 : topology[layerNum + 1];
 		
 		//We have a new layer, now fill it with neurons,and
