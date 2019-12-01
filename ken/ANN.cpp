@@ -161,7 +161,7 @@ double Neuron::transferFunction(double x){//active function
 	return 1 / (1 + exp(-x));
 }
 
-double Neuron::transferFunctionDerivative(double x){//loss function??
+double Neuron::transferFunctionDerivative(double x){
 	//tanh derivative
 	return 1.0 - ( 1 / (1 + exp(-x)) );
 }
@@ -220,12 +220,12 @@ void Net::backProp(const vector<double> &targetVals){
 		double delta = targetVals[n] - outputLayer[n].getOutputVal();
 		m_error += delta * delta; 
 	}
-	m_error /= outputLayer.size() - 1; // get average error squared
-	m_error = sqrt(m_error);// RMS
+	m_error = m_error*0.5; // get average error squared
+	//m_error = sqrt(m_error);// RMS
 	
 	//Implement a recent average measurement
 	
-	m_recentAverageError = (m_recentAverageError * m_recentAverageSmoothingFactor + m_error)/(m_recentAverageSmoothingFactor + 1.0);
+	//m_recentAverageError = (m_recentAverageError * m_recentAverageSmoothingFactor + m_error)/(m_recentAverageSmoothingFactor + 1.0);
 	
 	//Calculate output layer gradients
 	
@@ -305,7 +305,7 @@ void showVectorVals(string label,vector<double> &v){
 
 int main(){
 		
-	TrainingData trainData("../train.txt");
+	TrainingData trainData("../train_small.txt");
 	
 	
 	vector<unsigned> topology;
