@@ -25,14 +25,12 @@ class TrainingData{
 
 void TrainingData::getTopology(vector<unsigned> &topology){
 	string line;
-	string label;
+	
 	
 	getline(m_trainingDataFile,line);
 	stringstream ss(line);
-	ss >> label;
-	if(this->isEof()||label.compare("topology:") != 0){
-		cout << "hi";//abort();
-	}
+
+
 	while (!ss.eof()){
 		unsigned n;
 		ss >> n;
@@ -53,14 +51,13 @@ unsigned TrainingData::getNextInputs(vector<double> &inputVals){
 	getline(m_trainingDataFile,line);
 	stringstream ss(line);
 	
-	string label;
-	ss>>label;
-	if(label.compare("in:") == 0){
+
+
 		double oneValue;
 		while(ss>>oneValue){
 			inputVals.push_back(oneValue);
 		}
-	}
+	
 	return inputVals.size();
 }
 
@@ -71,14 +68,13 @@ unsigned TrainingData::getTargetOutputs(vector<double> &targetOutputVals){
 	getline(m_trainingDataFile,line);
 	stringstream ss(line);
 	
-	string label;
-	ss>>label;
-	if(label.compare("out:") == 0){
+
+	
 		double oneValue;
 		while(ss>>oneValue){
 			targetOutputVals.push_back(oneValue);
 		}
-	}
+	
 	return targetOutputVals.size();
 }
 
