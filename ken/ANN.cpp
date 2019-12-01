@@ -155,12 +155,12 @@ void Neuron::calcOutputGradients(double targetVal){
 	m_gradient = delta * Neuron::transferFunctionDerivative(m_outputVal);
 }
 
-double Neuron::transferFunction(double x){
-	//tanh - output range[-1.0..1.0]
+double Neuron::transferFunction(double x){//active function
+
 	return tanh(x);
 }
 
-double Neuron::transferFunctionDerivative(double x){
+double Neuron::transferFunctionDerivative(double x){//loss function??
 	//tanh derivative
 	return 1.0 - x * x;
 }
