@@ -27,16 +27,17 @@ void TrainingData::getTopology(vector<unsigned> &topology){
 	string line;
 	
 	
-	getline(m_trainingDataFile,line);
-	stringstream ss(line);
+	while(getline(m_trainingDataFile,line)){
+		stringstream ss(line);
 
-
-	while (!ss.eof()){
-		unsigned n;
-		ss >> n;
-		topology.push_back(n);
+		vector<unsigned> temp;
+		while (!ss.eof()){
+			unsigned n;
+			ss >> n;
+			temp.push_back(n);
+		}
+		topology.push_back(temp);
 	}
-	
 	return;
 }
 
@@ -65,15 +66,17 @@ unsigned TrainingData::getTargetOutputs(vector<double> &targetOutputVals){
 	targetOutputVals.clear();
 	
 	string line;
-	getline(m_trainingDataFile,line);
-	stringstream ss(line);
-	
+	while(getline(m_trainingDataFile,line)){
+		stringstream ss(line);
+		
 
-	
-		double oneValue;
-		while(ss>>oneValue){
-			targetOutputVals.push_back(oneValue);
-		}
+		vector<unsigned> temp;
+			double oneValue;
+			while(ss>>oneValue){
+				temp.push_back(oneValue);
+			}
+			targetOutputVals.push_back(temp);
+	}
 	
 	return targetOutputVals.size();
 }
