@@ -16,7 +16,7 @@ int main(int argc, const char * argv[]) {
 	vector< vector<float> > X_train;
 	vector<float> y_train;
 
-	ifstream myfile("train.txt");
+	ifstream myfile("train_small.txt");
 
 	if (myfile.is_open())
 	{
@@ -41,7 +41,7 @@ int main(int argc, const char * argv[]) {
 		
 			for (int i = 1; i < 28 * 28; i++) {
 
-				if(X_train[i] == 0){
+				if(X_train[0][i] == 0){
 					cout << "0";
 				}else{
 					cout << "*";
@@ -51,7 +51,7 @@ int main(int argc, const char * argv[]) {
 				}
 			}
 			cout << endl;
-			cout << endl;
+			cout << "The first number is " <<y_train[0] << endl;
 		
 		cout << "X_train have " << X_train.size() << "sample" << endl;
 		cout << "y_train have " << y_train.size() << "sample" << endl;
