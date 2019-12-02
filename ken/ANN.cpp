@@ -310,6 +310,6 @@ int main(){
 
 	Net myNet(tp);
 	
-	
+	vector<float> inputVals,targetVals,resultVals;
 	myNet.feedForward()
 }
