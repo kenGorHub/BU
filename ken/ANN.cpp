@@ -236,7 +236,7 @@ int main(){
 	topology.push_back(10);
 	
 	Net myNet(topology);
-	vector< vector<float> > X_train;
+	/*vector< vector<float> > X_train;
 	vector<float> y_train;
 
 	ifstream myfile("../train_small.txt");
@@ -305,37 +305,9 @@ int main(){
 		cout << "Answer is "<< y_train[counter] << endl;
 		
 	}
-	cout << "Done!"<< endl;
+	cout << "Done!"<< endl;*/
 
-	vector<vector<float>> testQ;
-	vector<float> testAns;
-	ifstream ifs("../train_small.txt");
-	if (ifs.is_open())
-	{
-		cout << "Loading data ...\n";
-		string line;
-		while (getline(ifs, line))
-		{
-			int x, y;
-			vector<float> X;
-			stringstream ss(line);
-			ss >> y;
-			testAns.push_back(y);
-			for (int i = 0; i < 28 * 28; i++) {
-				ss >> x;
-				X.push_back(x/255.0);
-			}
-			testQ.push_back(X);
-		}
 
-		ifs.close();
-		cout << "Loading data finished.\n";
-	} 
-	
-	myNet.inference(testQ[254]);
-	cout << "Answer: " << testAns[254]<<endl;
-	myNet.inference(testQ[5]);
-	cout << "Answer: " << testAns[5]<<endl;
 }
 
 void Net::inference(const vector<float> &inputVals){
