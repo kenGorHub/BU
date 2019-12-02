@@ -303,45 +303,13 @@ void showVectorVals(string label,vector<unsigned> &v){
 
 int main(){
 		
-	TrainingData trainData("../train_small.txt");
-	
-	
-	vector<vector<unsigned>> topology;
-	trainData.getTopology(topology);
-	vector<unsigned> x(16);
-	Net myNet(x);
+	vector<unsigned> tp;
+	tp.push_back(784);
+	tp.push_back(16);
+	tp.push_back(10);
 
-	vector<unsigned> inputVals,targetVals,resultVals;
-	int trainingPass = 0;
+	Net myNet(tp);
 	
 	
-	for(int i=0;i<topology.size();i++){
-		cout << "Start Training" << endl;
-		++trainingPass;
-		cout << endl << "Pass" << trainingPass;
-		
-		//Get new Input data and feed it forward:
-		inputVals = topology[i];
-		showVectorVals(": Inputs:",inputVals);
-		myNet.feedForward(inputVals);
-		
-		//Collect the net's actual output resules:
-		myNet.getResults(resultVals);
-		showVectorVals(": Outputs:",resultVals);
-		
-		//Train the net what the outputs should have been:
-		trainData.getTargetOutputs(targetVals);
-		showVectorVals(": Targets:",targetVals);
-		assert(targetVals.size() == topology[0].back());
-		
-		myNet.backProp(targetVals);
-		
-		//Report how well the training is working. average over recent samples:
-		cout << "Net recent average error:" << myNet.getRecentAverageError() << endl;
-	}
-
-
-	cout << endl << "Done" << endl;
-
-	
+	myNet.feedForward()
 }
