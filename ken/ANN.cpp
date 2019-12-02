@@ -8,80 +8,10 @@
 
 using namespace std;
 
-//Silly class to read training data from a file
-
-class TrainingData{
-	public:
-		TrainingData(const string filename);
-		bool isEof(void){return m_trainingDataFile.eof();}
-		void getTopology(vector<vector<unsigned>> &topology);
-		//Returns the number of input values read from the file:
-		unsigned getNextInputs(vector<unsigned> &inputVals);
-		unsigned getTargetOutputs(vector<unsigned> &targetOutputVals);
-	
-	private:
-		ifstream m_trainingDataFile;
-};
-
-void TrainingData::getTopology(vector<vector<unsigned>> &topology){
-	string line;
-	
-	
-	while(getline(m_trainingDataFile,line)){
-		stringstream ss(line);
-		string s;
-		ss >> s;
-		vector<unsigned> temp;
-		while (!ss.eof()){
-			float n;
-			ss >> n;
-			temp.push_back(n);
-		}
-		topology.push_back(temp);
-	}
-	return;
-}
-
-TrainingData::TrainingData(const string filename){
-	m_trainingDataFile.open(filename.c_str());
-}
-
-unsigned TrainingData::getNextInputs(vector<unsigned> &inputVals){
-	inputVals.clear();
-	
-	string line;
-	getline(m_trainingDataFile,line);
-	stringstream ss(line);
-		string s;
-		ss >> s;
-		while (!ss.eof()){
-			unsigned oneValue;
-			ss >> oneValue;
-			inputVals.push_back(oneValue);
-		}
-	return inputVals.size();
-}
-
-unsigned TrainingData::getTargetOutputs(vector<unsigned> &targetOutputVals){
-	targetOutputVals.clear();
-	
-	string line;
-	while(getline(m_trainingDataFile,line)){
-		stringstream ss(line);
-		
-			unsigned oneValue;
-			while(ss>>oneValue){
-				targetOutputVals.push_back(oneValue);
-			}
-			
-	}
-	
-	return targetOutputVals.size();
-}
 
 struct Connection{
-	double weight;
-	double deltaWeight;
+	float weight;
+	float deltaWeight;
 };
 
 class Neuron;
@@ -92,27 +22,27 @@ typedef vector<Neuron> Layer;
 class Neuron {
 	public:
 		Neuron(unsigned numOutputs,unsigned myIndex);
-		void setOutputVal(double val){m_outputVal = val;}
-		double getOutputVal(void) const {return m_outputVal;}
+		void setOutputVal(float val){m_outputVal = val;}
+		float getOutputVal(void) const {return m_outputVal;}
 		void feedForward(const Layer &prevLayer);
-		void calcOutputGradients(double targetVal);
+		void calcOutputGradients(float targetVal);
 		void calcHiddenGradients(const Layer &nextLayer);
 		void updateInputWeights(Layer &prevLayer);
 	private:
-		static double eta;//Individual input, magnified by the gradient and train rate:
-		static double alpha;//Also add momentum = a fraction of the previous delta weight
-		static double transferFunction(double x);
-		static double transferFunctionDerivative(double x);
-		static double randomWeight(void){return rand() / double(RAND_MAX);}
-		double sumDOW(const Layer &nextLayer)const;
-		double m_outputVal;
+		static float eta;//Individual input, magnified by the gradient and train rate:
+		static float alpha;//Also add momentum = a fraction of the previous delta weight
+		static float transferFunction(float x);
+		static float transferFunctionDerivative(float x);
+		static float randomWeight(void){return rand() / float(RAND_MAX);}
+		float sumDOW(const Layer &nextLayer)const;
+		float m_outputVal;
 		vector<Connection> m_outputWeights;
 		unsigned m_myIndex;
-		double m_gradient;
+		float m_gradient;
 };
 
-double Neuron::eta = 0.1;//overall net learning rate,[0,0..1.0]
-double Neuron::alpha = 0.5;//momentum,multiplier of last deltaweight,[0,0..n]
+float Neuron::eta = 0.1;//overall net learning rate,[0,0..1.0]
+float Neuron::alpha = 0.5;//momentum,multiplier of last deltaweight,[0,0..n]
 
 void Neuron::updateInputWeights(Layer &prevLayer){
 	
@@ -120,8 +50,8 @@ void Neuron::updateInputWeights(Layer &prevLayer){
 	//in the neurons in the preceding layer
 	for(unsigned n = 0; n < prevLayer.size(); ++n){
 		Neuron &neuron = prevLayer[n];
-		double oldDeltaWeight = neuron.m_outputWeights[m_myIndex].deltaWeight;
-		double newDeltaWeight = eta * neuron.getOutputVal() * m_gradient + alpha * oldDeltaWeight;
+		float oldDeltaWeight = neuron.m_outputWeights[m_myIndex].deltaWeight;
+		float newDeltaWeight = eta * neuron.getOutputVal() * m_gradient + alpha * oldDeltaWeight;
 		
 		
 		neuron.m_outputWeights[m_myIndex].deltaWeight = newDeltaWeight;
@@ -130,8 +60,8 @@ void Neuron::updateInputWeights(Layer &prevLayer){
 	}
 }
 
-double Neuron::sumDOW(const Layer &nextLayer)const {
-	double sum = 0.0;
+float Neuron::sumDOW(const Layer &nextLayer)const {
+	float sum = 0.0;
 	
 	//Sum our contributions of the errrors at the nodes we feed
 	
@@ -143,35 +73,34 @@ double Neuron::sumDOW(const Layer &nextLayer)const {
 }
 
 void Neuron::calcHiddenGradients(const Layer &nextLayer){
-	double dow = sumDOW(nextLayer);
+	float dow = sumDOW(nextLayer);
 	m_gradient = dow * Neuron::transferFunctionDerivative(m_outputVal);
 }
 
-void Neuron::calcOutputGradients(double targetVal){
-	double delta = targetVal - m_outputVal;
+void Neuron::calcOutputGradients(float targetVal){
+	float delta = targetVal - m_outputVal;
 	m_gradient = delta * Neuron::transferFunctionDerivative(m_outputVal);
 }
 
-double Neuron::transferFunction(double x){//active function
-	//tanh - output range[-1.0..1.0]
+float Neuron::transferFunction(float x){//active function
 	//return tanh(x);
 	return 1 / (1 + exp(-x));
 }
 
-double Neuron::transferFunctionDerivative(double x){
+float Neuron::transferFunctionDerivative(float x){
 	//tanh derivative
 	return 1.0 - ( 1 / (1 + exp(-x)) );
 }
 
 void Neuron::feedForward(const Layer &prevLayer){
-	double sum = 0.0;
+	float sum = 0.0;
 	//Sum the previous layer's outputs (which are out inputs)
 	//Include the bias node from the previous layer.
 	for(unsigned n = 0;n < prevLayer.size();++n){
 		sum += prevLayer[n].getOutputVal() *
 				prevLayer[n].m_outputWeights[m_myIndex].weight;
 	}
-	
+
 	m_outputVal = Neuron::transferFunction(sum);
 }
 
@@ -186,43 +115,47 @@ Neuron::Neuron(unsigned numOutputs, unsigned myIndex){
 //*********************class Net*******************************
 class Net{
 public:
-	Net(const vector<unsigned> &topology);
-	void feedForward(const vector<unsigned> &inputVals);
-	void backProp(const vector<unsigned> &targetVals);
-	void getResults(vector<unsigned> &resultVals)const;
-	double getRecentAverageError(void)const{return m_recentAverageError;}
+	Net(const vector<unsigned> &tp);
+	void feedForward(const vector<float> &inputVals);
+	void inference(const vector<float> &inputVals);
+	void backProp(const vector<float> &targetVals);
+	void getResults(vector<float> &resultVals)const;
+	float getRecentAverageError(void)const{return m_recentAverageError;}
+	
 	
 private:
 	vector<Layer> m_layers;
-	double m_error;
-	double m_recentAverageError;
-	double m_recentAverageSmoothingFactor;
+	float m_error;
+	float m_recentAverageError;
+	float m_recentAverageSmoothingFactor;
 };
 
-void Net::getResults(vector<unsigned> &resultVals)const{
+void Net::getResults(vector<float> &resultVals)const{
+	
 	resultVals.clear();
 	
 	for(unsigned n = 0;n < m_layers.back().size() - 1;++n){
+		
 		resultVals.push_back(m_layers.back()[n].getOutputVal());
 	}
 }
 
-void Net::backProp(const vector<unsigned> &targetVals){
+void Net::backProp(const vector<float> &targetVals){
 	
 	//Calculate overall net error(RMS of output neuron errors)
 	Layer &outputLayer = m_layers.back();
 	m_error = 0.0;
 	
 	for(unsigned n = 0; n < outputLayer.size() - 1;++n){
-		double delta = targetVals[n] - outputLayer[n].getOutputVal();
+		float delta = targetVals[n] - outputLayer[n].getOutputVal();
 		m_error += delta * delta; 
 	}
 	m_error = m_error*0.5; // get average error squared
-	//m_error = sqrt(m_error);// RMS
+	m_error = sqrt(m_error);// RMS
 	
 	//Implement a recent average measurement
 	
-	//m_recentAverageError = (m_recentAverageError * m_recentAverageSmoothingFactor + m_error)/(m_recentAverageSmoothingFactor + 1.0);
+	m_recentAverageError = (m_recentAverageError * m_recentAverageSmoothingFactor + m_error)/(m_recentAverageSmoothingFactor + 1.0);
 	
 	//Calculate output layer gradients
 	
@@ -257,8 +190,9 @@ void Net::backProp(const vector<unsigned> &targetVals){
 	
 }
 
-void Net::feedForward(const vector<unsigned> &inputVals){
+void Net::feedForward(const vector<float> &inputVals){
 	assert(inputVals.size() == m_layers[0].size() - 1);
+	
 	
 	// Assign (latch) the input values into the input neurons
 	for(unsigned i = 0;i < inputVals.size(); ++i){
@@ -285,31 +219,106 @@ Net::Net(const vector<unsigned> &topology){
 		// add a bias neuron in each layer
 		for(unsigned neuronNum = 0; neuronNum <= topology[layerNum]; ++neuronNum){
 			m_layers.back().push_back(Neuron(numOutputs, neuronNum));
-			cout << "Made a Neuron!" << endl;
 		}
 		
 		//Force the bias node's output value to 1.0.It's the last neuron created above
-		m_layers.back().back().setOutputVal(1.0);
+		//m_layers.back().back().setOutputVal(1.0);
 	}
 }
 
-void showVectorVals(string label,vector<unsigned> &v){
-	cout << label << " ";
-	for(unsigned i = 0;i < v.size(); ++i){
-		cout << v[i] << " ";
-	}
-	cout << endl;
-}
+
 
 int main(){
-		
-	vector<unsigned> tp;
-	tp.push_back(784);
-	tp.push_back(16);
-	tp.push_back(10);
-
-	Net myNet(tp);
+	vector<unsigned> topology;
+	topology.push_back(784);
+	topology.push_back(1);
+	topology.push_back(10);
 	
-	vector<float> inputVals,targetVals,resultVals;
-	myNet.feedForward()
+	Net myNet(topology);
+	vector< vector<float> > X_train;
+	vector<float> y_train;
+
+	ifstream myfile("../train_small.txt");
+	if (myfile.is_open())
+	{
+		cout << "Loading data ...\n";
+		string line;
+		while (getline(myfile, line))
+		{
+			int x, y;
+			vector<float> X;
+			stringstream ss(line);
+			ss >> y;
+			y_train.push_back(y);
+			for (int i = 0; i < 28 * 28; i++) {
+				ss >> x;
+				X.push_back(x/255.0);
+			}
+			X_train.push_back(X);
+		}
+
+		myfile.close();
+		cout << "Loading data finished.\n";
+	} 
+	else 
+		cout << "Unable to open file" << '\n';
+	
+	for(int counter = 0; counter < X_train.size();counter++){
+		myNet.feedForward(X_train[counter]);
+		cout << "input:" <<endl;
+		for (int i = 1; i < 28 * 28; i++) {
+				if(X_train[counter][i] == 0){
+					cout << "0";
+				}else{
+					cout << "*";
+				}
+				if(i%28 == 0){
+				cout << endl;
+			}
+		}
+		cout << "0" << endl;
+		vector<float> resultsStorage;
+		myNet.getResults(resultsStorage);
+		cout << "output:" << endl;
+		cout<<"Outputs: ";
+			float num = resultsStorage[0];
+			int index = 0;
+			for (int x=0;x<10;x++){
+				if (num<resultsStorage[x]){
+					num=resultsStorage[x];
+					index=x;
+				}
+			}
+			cout<<"Prob "<<index<<" ("<<num<<")" << endl;
+		vector<float> answer;
+		for(int i = 0; i < 10; i++){
+			if(i == y_train[counter+1]){
+				answer.push_back(1);
+			}else{
+				answer.push_back(-1);
+			}
+		}
+		myNet.backProp(answer);
+		cout << "Answer is "<< y_train[counter] << endl;
+		
+	}
+	cout << "Done!"<< endl;
+	
+}
+
+void Net::inference(const vector<float> &inputVals){
+	assert(inputVals.size() == m_layers[0].size() - 1);
+	
+	// Assign (latch) the input values into the input neurons
+	for(unsigned i = 0;i < inputVals.size(); ++i){
+		m_layers[0][i].setOutputVal(inputVals[i]);
+	}
+	
+	//forward propagate
+	for(unsigned layerNum = 1; layerNum < m_layers.size(); ++layerNum){
+		Layer &prevLayer = m_layers[layerNum - 1];
+		for(unsigned n = 0;n < m_layers[layerNum].size() - 1; ++n){
+			m_layers[layerNum][n].feedForward(prevLayer);
+		}
+	}
 }
