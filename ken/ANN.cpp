@@ -102,6 +102,7 @@ void Neuron::feedForward(const Layer &prevLayer){
 	}
 
 	m_outputVal = Neuron::transferFunction(sum);
+	cout << "m_outputVal: " << m_outputVal << endl;
 }
 
 Neuron::Neuron(unsigned numOutputs, unsigned myIndex){
@@ -222,7 +223,7 @@ Net::Net(const vector<unsigned> &topology){
 		}
 		
 		//Force the bias node's output value to 1.0.It's the last neuron created above
-		//m_layers.back().back().setOutputVal(1.0);
+		m_layers.back().back().setOutputVal(1.0);
 	}
 }
 
@@ -305,80 +306,50 @@ int main(){
 		
 	}
 	cout << "Done!"<< endl;
-	//Testing----------------------------------------------------------
-	vector<vector<float>> a;
-	vector<float> b;
-	ifstream myfile2("../train_small.txt");
-	if (myfile2.is_open())
+
+	vector<vector<float>> testQ;
+	vector<float> testAns;
+	ifstream ifs("../train_small.txt");
+	if (ifs.is_open())
 	{
 		cout << "Loading data ...\n";
 		string line;
-		while (getline(myfile2, line))
+		while (getline(ifs, line))
 		{
 			int x, y;
 			vector<float> X;
 			stringstream ss(line);
 			ss >> y;
-			b.push_back(y);
+			testAns.push_back(y);
 			for (int i = 0; i < 28 * 28; i++) {
 				ss >> x;
 				X.push_back(x/255.0);
 			}
-			a.push_back(X);
+			testQ.push_back(X);
 		}
 
-		myfile2.close();
+		ifs.close();
 		cout << "Loading data finished.\n";
 	} 
-	else 
-		cout << "Unable to open file" << '\n';
-	//Input--------------------------------------------------------
-		for(int counter = 0; counter < 10;counter++){
-			myNet.feedForward(a[counter]);
-			cout << "input:" <<endl;
-			for (int i = 1; i < 28 * 28; i++) {
-					if(a[counter][i] == 0){
-						cout << "0";
-					}else{
-						cout << "*";
-					}
-					if(i%28 == 0){
-					cout << endl;
-				}
-			}
-		
-		cout << "0" << endl;
-	//Output------------------------------------------------------
-		vector<float> resultsStorage;
-		myNet.getResults(resultsStorage);
-		cout << "output:" << endl;
-			float num = resultsStorage[0];
-			int index = 0;
-			for (int x=0;x<10;x++){
-				if (num<resultsStorage[x]){
-					num=resultsStorage[x];
-					index=x;
-				}
-			}
-		cout<<"Prob "<<index<<" ("<<num<<")" << endl;
-		
-	}
-
+	
+	myNet.inference(testQ[254]);
+	cout << "Answer: " << testAns[254]<<endl;
+	myNet.inference(testQ[5]);
+	cout << "Answer: " << testAns[5]<<endl;
 }
 
 void Net::inference(const vector<float> &inputVals){
-	assert(inputVals.size() == m_layers[0].size() - 1);
-	
-	// Assign (latch) the input values into the input neurons
-	for(unsigned i = 0;i < inputVals.size(); ++i){
-		m_layers[0][i].setOutputVal(inputVals[i]);
-	}
-	
-	//forward propagate
-	for(unsigned layerNum = 1; layerNum < m_layers.size(); ++layerNum){
-		Layer &prevLayer = m_layers[layerNum - 1];
-		for(unsigned n = 0;n < m_layers[layerNum].size() - 1; ++n){
-			m_layers[layerNum][n].feedForward(prevLayer);
-		}
-	}
+	Net::feedForward(inputVals);
+	vector<float> s;
+	Net::getResults(s);
+	cout << "Output:"<<endl;
+	float n = s[0];
+	int i = 0;
+	for (int x=0;x<10;x++){
+				if (n<s[x]){
+					n=s[x];
+					i=x;
+				}
+			}
+	cout<<"Prob "<<i<<" ("<<n<<")" << endl;
 }
