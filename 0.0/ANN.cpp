@@ -343,14 +343,26 @@ int main(){
 		
 		//Collect the net's actual output resules:
 		myNet.getResults(resultVals);
-		showVectorVals(": Outputs:",resultVals);
-		
+		//showVectorVals(": Outputs:",resultVals);
+		cout<<"Outputs: ";
+		for (int x=0;x<10;x++){
+			cout<<"Prob"<<x<<"("<<resultVals[x]<<")	";
+		}
+		cout<<endl;
 		//Train the net what the outputs should have been:
 		//trainData.getTargetOutputs(targetVals);
 		//showVectorVals(": Targets:",targetVals);
 		//assert(targetVals.size() == topology[0].back());
 		
-		myNet.backProp(targetVals);
+		vector<float> temp;
+		for (int x=0;x<10;x++){
+			if (x==targetVals[i]){
+				temp.push_back(1);
+			}else{
+				temp.push_back(0);
+			}
+		}
+		myNet.backProp(temp);
 		
 		//Report how well the training is working. average over recent samples:
 		cout << "Net recent average error:" << myNet.getRecentAverageError() << endl;
