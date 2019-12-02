@@ -16,7 +16,7 @@ int main(int argc, const char * argv[]) {
 	vector< vector<float> > X_train;
 	vector<float> y_train;
 
-	ifstream myfile("train_small.txt");
+	ifstream myfile("test.txt");
 
 	if (myfile.is_open())
 	{
@@ -41,7 +41,7 @@ int main(int argc, const char * argv[]) {
 		
 			for (int i = 1; i < 28 * 28; i++) {
 
-				if(X_train[0][i] == 0){
+				if(X_train[1][i] == 0){
 					cout << "0";
 				}else{
 					cout << "*";

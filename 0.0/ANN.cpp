@@ -189,6 +189,7 @@ class Net{
 public:
 	Net(const vector<unsigned> &tp);
 	void feedForward(const vector<float> &inputVals);
+	void inference(const vector<float> &inputVals);
 	void backProp(const vector<float> &targetVals);
 	void getResults(vector<float> &resultVals)const;
 	float getRecentAverageError(void)const{return m_recentAverageError;}
@@ -201,9 +202,11 @@ private:
 };
 
 void Net::getResults(vector<float> &resultVals)const{
+	
 	resultVals.clear();
 	
 	for(unsigned n = 0;n < m_layers.back().size() - 1;++n){
+		
 		resultVals.push_back(m_layers.back()[n].getOutputVal());
 	}
 }
@@ -286,7 +289,6 @@ Net::Net(const vector<unsigned> &topology){
 		// add a bias neuron in each layer
 		for(unsigned neuronNum = 0; neuronNum <= topology[layerNum]; ++neuronNum){
 			m_layers.back().push_back(Neuron(numOutputs, neuronNum));
-			cout << "Made a Neuron!" << endl;
 		}
 		
 		//Force the bias node's output value to 1.0.It's the last neuron created above
@@ -318,9 +320,9 @@ int main(){
 	Net myNet(tp);
 
 	int trainingPass = 0;
-	inputVals = topology[0];
 	
-	for(int i=0;i<topology.size();i++){
+	
+	for(int i=0;i<2;i++){
 		cout << "Start Training" << endl;
 		++trainingPass;
 		cout << endl << "Pass" << trainingPass;
@@ -353,21 +355,85 @@ int main(){
 				index=x;
 			}
 		}
-		cout<<"Prob"<<index<<" ("<<num<<")";
+		cout<<"Prob "<<index<<" ("<<num<<")";
 		cout<<endl;
 		//Train the net what the outputs should have been:
 		//trainData.getTargetOutputs(targetVals);
 		//showVectorVals(": Targets:",targetVals);
 		//assert(targetVals.size() == topology[0].back());
 		
-		myNet.backProp(targetVals[i]);
-		
+		vector<float> temp;
+        for (int x=0;x<10;x++){
+            if (x==targetVals[i]){
+                temp.push_back(1);
+            }else{
+                temp.push_back(0);
+            }
+        }
+		myNet.backProp(temp);
 		//Report how well the training is working. average over recent samples:
 		cout << "Net recent average error:" << myNet.getRecentAverageError() << endl;
 	}
 
 
 	cout << endl << "Done" << endl;
-
 	
+	cout << "testing" << endl;
+	vector< vector<float> > test;
+	
+	ifstream myfile("../test.txt");
+	if (myfile.is_open())
+	{
+		string line;
+		while(getline(myfile, line)){
+			int x;
+			vector<float> X;
+			stringstream ss(line);
+			float s;
+			ss >> s;
+			for (int i = 0; i < 28 * 28; i++) {
+				
+					ss >> x;
+					X.push_back(x/255.0);
+				}
+			test.push_back(X);
+			
+		}
+		myfile.close();
+		
+	}
+	//for(int i = 0 ; i < test.size();i++){}
+		
+	
+	myNet.inference(test[1]);
+	myNet.getResults(resultVals);
+	
+	cout<<"Outputs: ";
+		float num = resultVals[0];
+		int index = 0;
+		for (int x=1;x<10;x++){
+			if (num<resultVals[x]){
+				num=resultVals[x];
+				index=x;
+			}
+		}
+		cout<<"Answer "<<index<<" ("<<num<<")";
+		cout<<endl;
+}
+
+void Net::inference(const vector<float> &inputVals){
+	assert(inputVals.size() == m_layers[0].size() - 1);
+	
+	// Assign (latch) the input values into the input neurons
+	for(unsigned i = 0;i < inputVals.size(); ++i){
+		m_layers[0][i].setOutputVal(inputVals[i]);
+	}
+	
+	//forward propagate
+	for(unsigned layerNum = 1; layerNum < m_layers.size(); ++layerNum){
+		Layer &prevLayer = m_layers[layerNum - 1];
+		for(unsigned n = 0;n < m_layers[layerNum].size() - 1; ++n){
+			m_layers[layerNum][n].feedForward(prevLayer);
+		}
+	}
 }
