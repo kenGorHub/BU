@@ -89,7 +89,7 @@ float Neuron::transferFunction(float x){//active function
 
 float Neuron::transferFunctionDerivative(float x){
 	//tanh derivative
-	return 1.0 - ( 1 / (1 + exp(-x)) );
+	return (1 + exp(-x))*(1.0 - ( 1 / (1 + exp(-x)) ));
 }
 
 void Neuron::feedForward(const Layer &prevLayer){
@@ -151,7 +151,7 @@ void Net::backProp(const vector<float> &targetVals){
 		m_error += delta * delta; 
 	}
 	m_error = m_error*0.5; // get average error squared
-	m_error = sqrt(m_error);// RMS
+	//m_error = sqrt(m_error);// RMS
 	
 	//Implement a recent average measurement
 	
@@ -262,7 +262,7 @@ int main(){
 	} 
 	else 
 		cout << "Unable to open file" << '\n';
-	
+		//Input--------------------------------------------------------
 	for(int counter = 0; counter < X_train.size();counter++){
 		myNet.feedForward(X_train[counter]);
 		cout << "input:" <<endl;
@@ -277,6 +277,7 @@ int main(){
 			}
 		}
 		cout << "0" << endl;
+		//Output------------------------------------------------------
 		vector<float> resultsStorage;
 		myNet.getResults(resultsStorage);
 		cout << "output:" << endl;
@@ -289,7 +290,8 @@ int main(){
 					index=x;
 				}
 			}
-			cout<<"Prob "<<index<<" ("<<num<<")" << endl;
+		cout<<"Prob "<<index<<" ("<<num<<")" << endl;
+		//Answer-------------------------------------------------------
 		vector<float> answer;
 		for(int i = 0; i < 10; i++){
 			if(i == y_train[counter+1]){
@@ -303,7 +305,65 @@ int main(){
 		
 	}
 	cout << "Done!"<< endl;
-	
+	//Testing----------------------------------------------------------
+	vector<vector<float>> a;
+	vector<float> b;
+	ifstream myfile2("../train_small.txt");
+	if (myfile2.is_open())
+	{
+		cout << "Loading data ...\n";
+		string line;
+		while (getline(myfile2, line))
+		{
+			int x, y;
+			vector<float> X;
+			stringstream ss(line);
+			ss >> y;
+			b.push_back(y);
+			for (int i = 0; i < 28 * 28; i++) {
+				ss >> x;
+				X.push_back(x/255.0);
+			}
+			a.push_back(X);
+		}
+
+		myfile2.close();
+		cout << "Loading data finished.\n";
+	} 
+	else 
+		cout << "Unable to open file" << '\n';
+	//Input--------------------------------------------------------
+		for(int counter = 0; counter < 10;counter++){
+			myNet.feedForward(a[counter]);
+			cout << "input:" <<endl;
+			for (int i = 1; i < 28 * 28; i++) {
+					if(a[counter][i] == 0){
+						cout << "0";
+					}else{
+						cout << "*";
+					}
+					if(i%28 == 0){
+					cout << endl;
+				}
+			}
+		
+		cout << "0" << endl;
+	//Output------------------------------------------------------
+		vector<float> resultsStorage;
+		myNet.getResults(resultsStorage);
+		cout << "output:" << endl;
+			float num = resultsStorage[0];
+			int index = 0;
+			for (int x=0;x<10;x++){
+				if (num<resultsStorage[x]){
+					num=resultsStorage[x];
+					index=x;
+				}
+			}
+		cout<<"Prob "<<index<<" ("<<num<<")" << endl;
+		
+	}
+
 }
 
 void Net::inference(const vector<float> &inputVals){
