@@ -102,7 +102,6 @@ void Neuron::feedForward(const Layer &prevLayer){
 	}
 
 	m_outputVal = Neuron::transferFunction(sum);
-	cout << "m_outputVal: " << m_outputVal << endl;
 }
 
 Neuron::Neuron(unsigned numOutputs, unsigned myIndex){
@@ -118,7 +117,7 @@ class Net{
 public:
 	Net(const vector<unsigned> &tp);
 	void feedForward(const vector<float> &inputVals);
-	void inference(const vector<float> &inputVals);
+	float inference(const vector<float> &inputVals);
 	void backProp(const vector<float> &targetVals);
 	void getResults(vector<float> &resultVals)const;
 	float getRecentAverageError(void)const{return m_recentAverageError;}
@@ -151,7 +150,7 @@ void Net::backProp(const vector<float> &targetVals){
 		float delta = targetVals[n] - outputLayer[n].getOutputVal();
 		m_error += delta * delta; 
 	}
-	m_error = m_error*0.5; // get average error squared
+	m_error = m_error*0.5;
 	//m_error = sqrt(m_error);// RMS
 	
 	//Implement a recent average measurement
@@ -232,11 +231,12 @@ Net::Net(const vector<unsigned> &topology){
 int main(){
 	vector<unsigned> topology;
 	topology.push_back(784);
-	topology.push_back(1);
+	topology.push_back(3);
+	topology.push_back(4);
 	topology.push_back(10);
 	
 	Net myNet(topology);
-	/*vector< vector<float> > X_train;
+	vector< vector<float> > X_train;
 	vector<float> y_train;
 
 	ifstream myfile("../train_small.txt");
@@ -303,25 +303,29 @@ int main(){
 		}
 		myNet.backProp(answer);
 		cout << "Answer is "<< y_train[counter] << endl;
+		cout << "RecentAverageError is " << myNet.getRecentAverageError() << endl;
 		
 	}
-	cout << "Done!"<< endl;*/
+	cout << "Done!"<< endl;
 
-
+	myNet.inference(X_train[1]);
 }
 
-void Net::inference(const vector<float> &inputVals){
-	Net::feedForward(inputVals);
-	vector<float> s;
-	Net::getResults(s);
-	cout << "Output:"<<endl;
-	float n = s[0];
-	int i = 0;
-	for (int x=0;x<10;x++){
-				if (n<s[x]){
-					n=s[x];
-					i=x;
-				}
+float Net::inference(const vector<float> &inputVals){
+	float sum = 0.0;
+
+	for(unsigned layerNum = 1; layerNum < m_layers.size(); ++layerNum){
+		Layer &prevLayer = m_layers[layerNum - 1];
+		for(unsigned n = 0;n < m_layers[layerNum].size() - 1; ++n){
+			for(unsigned n = 0;n < inputVals.size();++n){
+				sum += inputVals[n] *
+						prevLayer[n].m_outputWeights[m_myIndex].weight;
 			}
-	cout<<"Prob "<<i<<" ("<<n<<")" << endl;
+		}
+	}
+	
+	
+
+	float result = Neuron::transferFunction(sum);
+	return result;
 }
