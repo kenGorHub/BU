@@ -11,28 +11,37 @@ using namespace std;
 
 class Neuron{
 	public:
-		Neuron(){};
+		Neuron(int numOutputs);
 		void setBias(float b){bais = b;}
-		void setWeight(vector<float> w){weight = w;}
 		void setOutput(float output){this->output = output;}
 		float getBias(){return bais;}
-		float getWeight(){return weight;}
 		float getOutput(){return output;}
-	private:
 		vector<float> weight;
+	private:
 		float bais;
 		float output;
 };
+
+Neuron::Neuron(int numOutputs){
+	for(int c = 0; c < numOutputs; c++){	
+		weight.push_back(rand() / float(RAND_MAX));
+	}
+	bais = rand() / float(RAND_MAX);
+}
 
 class ANN{
 	public:
 		ANN(vector<int> input);
 		void feedforward(vector<float> inputData);
-		float activefunction(float sum);
-		void backpropagation(vector<float> resultData);
+		float activationfunction(float sum);
+		float derivativeactivationfunction(float sum);
+		void train(vector<float> resultData);
 		void printResult();
+		float lossfunction(vector<float> y);
 	private:
 		vector<vector<Neuron>> neuron;
+		float learingRate = 0.01;
+		int epoch = 10;
 };
 
 void ANN::printResult(){
@@ -43,11 +52,47 @@ void ANN::printResult(){
 	cout << "]" << endl;
 }
 
-void ANN::backpropagation(vector<float> resultData){
-	
+float ANN::lossfunction(vector<float> y){
+	vector<float> dAverageLoss;
+ 	for(int i=0;i<neuron.back().size();i++){
+		dAverageLoss.push_back(neuron.back()[i].getOutput() - y[i]);
+	}
+	vector<float> dOutput;
+	for(int i = 0; i<neuron.back().size();i++){
+		float sum = 0;
+		for(int j = 0;j<neuron[neuron.size()-1].size();j++){
+			sum +=neuron[i][j].weight[i] * neuron.back()[j].getOutput();
+		}
+		sum += neuron.back()[i].getBias();
+		dOutput.push_back(derivativeactivationfunction(sum));
+	}
+	float error = 0;
+	for(int i =0;i<dAverageLoss.size();i++){
+		error += dAverageLoss[i] * dOutput[i];
+	}
+	return error;
 }
 
-float ANN::activefunction(float sum){
+void ANN::train(vector<float> resultData){
+	float error;
+	vector<float> y;
+	
+	for(int i = 0;i<10;i++){
+		if(resultData[0] == i){
+			y.push_back(1);
+		}else{
+			y.push_back(0);
+		}
+	}
+	
+	error = lossfunction(y);
+}
+
+float ANN::derivativeactivationfunction(float sum){
+	return 1/(1+exp(-sum))*(1-1/(1+exp(-sum)));
+}
+
+float ANN::activationfunction(float sum){
 	return 1/(1+exp(-sum));
 }
 
@@ -58,44 +103,40 @@ void ANN::feedforward(vector<float> inputData){
 	for(int i=0;i<inputData.size();i++){
 		neuron[0][i].setOutput(inputData[i]);
 	}
-	
-	for(int i = 0;i<neuron.size()-1;i++){
-		float sum = 0;
-		cout << "Layer "<<i<<endl;
-		for(int j = 0;j<neuron[i].size();j++){
-			cout<<"Neuron "<< j<< " output: "<< neuron[i][j].getOutput()<< " weight: "<< neuron[i][j].getWeight() << endl;
-			sum += neuron[i][j].getOutput() * neuron[i][j].getWeight(); 
+
+	for(int layerNum = 0;layerNum < neuron.size()-1;layerNum++){
+		for(int nextNeuronNum = 0;nextNeuronNum<neuron[layerNum+1].size();nextNeuronNum++){
+			float sum = 0;				
+			for(int outputNum = 0;outputNum<neuron[layerNum].size();outputNum++){
+				sum += neuron[layerNum][outputNum].getOutput() * neuron[layerNum][outputNum].weight[nextNeuronNum];
+			}
+			sum += neuron[layerNum+1][nextNeuronNum].getBias();
+			neuron[layerNum+1][nextNeuronNum].setOutput(activationfunction(sum));
+			cout << "Layer:" << layerNum << " nextNeuronNum:" << nextNeuronNum  << " Output :" << neuron[layerNum+1][nextNeuronNum].getOutput() << endl;
+			
 		}
-		for(int k = 0;k<neuron[i+1].size();k++){
-			float temp = sum;
-			temp += neuron[i+1][k].getBias();
-			neuron[i+1][k].setOutput(activefunction(temp));
-		}
-		
-		
 	}
-}
+	
+};
 
 ANN::ANN(vector<int> input){
 	
 	for(int i = 0; i < input.size();i++){
 		neuron.push_back(vector<Neuron>());
-		
+		int numOutputs = i == input.size() - 1 ? 0 : input[i + 1];
 		for(int j = 0;j < input[i];j++){
-			float weight = rand() / float(RAND_MAX);
-			neuron[i].push_back(Neuron());
-			if(i != 0)neuron[i][j].setBias(1);
-			neuron[i][j].setWeight(weight);
+			neuron[i].push_back(Neuron(numOutputs));
 		}
 	}
-};
+
+}
 
 
 
 int main(){
 	vector<int> test;
 	test.push_back(784); 	//input layer
-	test.push_back(3);		//hidden layer
+	test.push_back(2);		//hidden layer
 	test.push_back(10);		//output layer
 	ANN mynet(test);
 	
@@ -132,9 +173,9 @@ int main(){
 	inputData = X_train[0];
 	mynet.feedforward(inputData);
 	
-	mynet.printResult();
+	//mynet.printResult();
 	
 	//vector<float> resultData;
-	//mynet.backpropagation(resultData);
+	//mynet.train(resultData);
 	return 0;
 }
