@@ -246,7 +246,7 @@ int main(){
 	inputData = X_train[0];
 	mynet.feedforward(inputData);
 	
-	mynet.printResult();//p 8
+	mynet.printResult();//output
 	
 	vector<float> resultData;
 	resultData = y_train;
