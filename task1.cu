@@ -37,14 +37,14 @@ void randMatInit(Matrix A)
 
 __global__ void MatMulKernel(const Matrix A, const Matrix B, Matrix C)
 {
-	int column = ;
-	int row = ;
+	int column = blockIdx.y * blockDim.y + threadIdx.y;
+	int row = blockIdx.x * blockDim.x + threadIdx.x;
 	
 	float pValue = 0.0;
 	
 	for(int index = 0; index < A.width; ++index)
 	{
-		pValue = ;
+		pValue = A.elements[row * A.width + index] * B.elements[index * B.width + col];
 	}
 	
 	C.elements[row * C.width + column] = pValue;
