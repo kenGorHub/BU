@@ -15,8 +15,10 @@ class Neuron{
 		void setOutput(float output){this->output = output;}
 		float getOutput(){return output;}
 		vector<float> weight;
+		float gradient;
 	private:
 		float output;
+		
 };
 
 Neuron::Neuron(int numOutputs){
@@ -35,7 +37,7 @@ class ANN{
 		void train(vector<float> resultData,int counter);
 		void printResult();
 		void lossfunction(vector<float> y);
-		void updateWeight(vector<float> error,int nowlayer);
+		void updateWeight(int nowlayer);
 		void importfile(string filename);
 		void exportfile(string filename);
 	private:
@@ -63,7 +65,7 @@ void ANN::lossfunction(vector<float> y){
 	for(int j = 0;j<neuron[neuron.size()-2].size();j++){
 		float sum = 0;
 		for(int i = 0; i<neuron.back().size();i++){
-			sum +=neuron[neuron.size()-2][j].weight[i] * neuron.back()[i].getOutput();
+			sum =neuron[neuron.size()-2][j].weight[i] * neuron.back()[i].getOutput();
 			
 		}
 		sum += bias.back();
@@ -71,15 +73,15 @@ void ANN::lossfunction(vector<float> y){
 		
 	}
 
-	vector<float> error;
+	//vector<float> error;//==gradient
 	
 	for(int i =0;i<dAverageLoss.size();i++){
-		error.push_back(dAverageLoss[i] * dOutput[i]);
+
+		neuron.back()[i].gradient = dAverageLoss[i] * dOutput[i];
 	}
 
-	updateWeight(error,2);
-	
-	vector<vector<float>> m_w;//updated weight
+	//calculate hidden layer
+	vector<vector<float>> m_w;
 	for(int j= 0;j < neuron[neuron.size()-2].size();j++){
 		m_w.push_back(vector<float>(neuron.back().size()));
 		for(int i = 0;i< neuron.back().size();i++){
@@ -87,67 +89,64 @@ void ANN::lossfunction(vector<float> y){
 		}
 	}
 	vector<float> temp;
-	for(int i=0;i<m_w.size();i++){
+	for(int i=m_w.size()-1;i>0;i--){
 		float sum =0;
 		for(int j=0;j<m_w[i].size();j++){
-			sum += m_w[i][j] * error[i];
+			sum += m_w[i][j] * neuron[i][j].gradient;
 		}
 		temp.push_back(sum);
 	}
-	
+
 	dOutput.clear();
-	for(int k =neuron.size()-2; k>=1  ;k--){
+	for(int k =neuron.size()-2; k > 0  ;k--){
 		for(int j = 0;j<neuron[k].size();j++){
 			float sum = 0;
 			for(int i = 0; i<neuron[k-1].size();i++){
-				cout << "weight " << neuron[k-1][i].weight[j] << " | output " <<neuron[k][j].getOutput() << endl; 
-				sum +=neuron[k-1][i].weight[j] * neuron[k][j].getOutput();
+				sum = neuron[k-1][i].weight[j];// * neuron[k][j].getOutput();
 			}
 			sum += bias[k];
 			//cout << bias[k] << endl;
 			dOutput.push_back(derivativeactivationfunction(sum));
+			neuron[k][j].gradient = dOutput[j]*temp[j];
 		}
 	}
 	
-	error.clear();
-	for(int i =0;i<dOutput.size();i++){
-
-		error.push_back(dOutput[i]*temp[i]);
-	}
 	
-	updateWeight(error,1);
+	updateWeight(neuron.size()-1);
 	
 	
 }
 
-void ANN::updateWeight(vector<float> error,int nowlayer){
+void ANN::updateWeight(int nowlayer){
 
 	float sum2 = 0;
-		//update last hidden's weight
+		//update weight
 
-		for(int i = 0;i<error.size();i++){
-			float sum = 0;
+		for(int k= nowlayer-1;k>0 ;k--){
+			for(int i = 0;i<neuron[k].size();i++){
+				float sum = 0;
+				
+				sum2 += neuron[k][i].gradient ;
+				
+				sum += neuron[k][i].gradient * neuron[k][i].getOutput();
+				
+
 			
-			sum2 += error[i] ;
-
-			//cout<< i << endl;
-			for(int j = 0;j<neuron[nowlayer-1].size();j++){
-				sum += error[i] * neuron[nowlayer-1][j].getOutput();
+				sum = sum * learingRate / neuron[k].size();
+			
+			
+				for(int j = 0;j<neuron[nowlayer].size();j++){
+					
+					neuron[k][i].weight[j] -= sum;	
+				}
 			}
+				
+			sum2 = sum2 * learingRate / neuron[nowlayer-1].size();
 
-			
-			sum = sum * learingRate / neuron[nowlayer-1].size();
-			
-			
-			for(int j = 0;j<neuron[nowlayer-1].size();j++){
-					//cout<< neuron[nowlayer-1][j].weight[0] << endl;
-					neuron[nowlayer-1][j].weight[i] -= sum;	
-			}
+			bias[nowlayer] -= sum2;
 		}
-		
-	sum2 = sum2 * learingRate / neuron[nowlayer-1].size();
 
-	bias[nowlayer] -= sum2;
+
 }
 
 void ANN::train(vector<float> resultData,int counter){
@@ -283,15 +282,17 @@ int main(){
 		inputData = X_train[i];
 		mynet.feedforward(inputData);
 		
-		//mynet.printResult();//output
+		mynet.printResult();//output
 		
 		vector<float> resultData;
 		resultData = y_train;
 		mynet.train(resultData,i);
 		mynet.exportfile("C:\\Users\\ken\\Desktop\\COMP3046\\ken\\inputafter.txt");
 		
-		//cout <<"Answer me:" << y_train[i] << endl;
+		cout <<"Answer me:" << y_train[i] << endl;
+		mynet.feedforward(inputData);
 		
+		mynet.printResult();//output
 	}
 	
 	
