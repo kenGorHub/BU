@@ -9,10 +9,11 @@
 typedef struct {
   int width;
   int height;
+  int stride;
   float* elements;
 } Matrix;
 
-#define WIDTH_A 2048
+#define WIDTH_A 2048	
 #define HEIGHT_A 2048
 
 #define WIDTH_B 2048
@@ -34,20 +35,61 @@ void randMatInit(Matrix A)
 	}
 }
 
-
-__global__ void MatMulKernel(const Matrix A, const Matrix B, Matrix C)
+__device__ float GetElement(const Matrix A, int row, int col)
 {
-	int column = blockIdx.y * blockDim.y + threadIdx.y;
-	int row = blockIdx.x * blockDim.x + threadIdx.x;
+	return A.elements[A.stride * row + col];
+}
+
+__device__ void SetElement(Matrix A, int row, int col, float value)
+{
+	A.elements[A.stride * row + col] = value;
+}
+
+__device__ Matrix GetSubMatrix(Matrix A, int row, int col)
+{
+	Matrix Asub;
+	Asub.width = BLOCK_SIZE;
+	Asub.height = BLOCK_SIZE;
+	Asub.stride = A.stride;
+	Asub.elements = &A.elements[A.stride * BLOCK_SIZE * row + BLOCK_SIZE *col];
+	
+	return Asub;
+}
+
+__global__ void MatMulKernel_Share(const Matrix A, const Matrix B, Matrix C)
+{
+	int blockRow = blockIdx.y;
+	int blockCol = blockIdx.x; 
+	
+	Matrix Csub = GetSubMatrix(C, blockRow, blockCol);
 	
 	float pValue = 0.0;
 	
-	for(int index = 0; index < A.width; ++index)
-	{
-		pValue = A.elements[row * A.width + index] * B.elements[index * B.width + col];
+	int row = threadIdx.y;
+	int col = threadIdx.x;
+	
+	for(int index = 0; index < (A.width / BLOCK_SIZE); ++index)
+	{	
+		Matrix Asub = GetSubMatrix(A, blockRow, index);
+		Matrix Bsub = GetSubMatrix(B, index, blockCol);
+		
+		__shared__ float As[BLOCK_SIZE][BLOCK_SIZE];
+		__shared__ float Bs[BLOCK_SIZE][BLOCK_SIZE];
+		
+		As[row][col] = GetElement(Asub, row, col);
+		Bs[row][col] = GetElement(Bsub, row, col);
+		
+		__syncthreads();// Synchronize to make sure the sub-matrices As and Bs are loaded over before starting the computation
+		
+		for(int subIndex = 0 ; subIndex < BLOCK_SIZE; ++subIndex)
+		{
+			pValue += As[row][subIndex] * Bs[subIndex][col];
+		}
+		
+		__syncthreads(); // Synchronize to make sure the computation completed for all threads before next load and computation round
 	}
 	
-	C.elements[row * C.width + column] = pValue;
+	SetElement(Csub, row, col, pValue);
 }
 
 int MatCompare(const Matrix A, const Matrix B)
@@ -88,12 +130,15 @@ void MatMul_GPU(const Matrix A, const Matrix B, Matrix C)
 	
 	d_A.width = A.width;
 	d_A.height = A.height;
-	
+	d_A.stride = d_A.width;
+
 	d_B.width = B.width;
 	d_B.height = B.height;
+	d_B.stride = d_B.width;
 	
 	d_C.width = B.width;
 	d_C.height = A.height;
+	d_C.stride = d_B.width;
 	
 	cudaMalloc(&(d_A.elements), d_A.width * d_A.height * sizeof(float));
 	cudaMemcpy(d_A.elements, A.elements, d_A.width * d_A.height * sizeof(float), cudaMemcpyHostToDevice);
@@ -108,7 +153,7 @@ void MatMul_GPU(const Matrix A, const Matrix B, Matrix C)
 	dim3 dimGrid(ceil(1.0 * d_C.height / dimBlock.x), ceil(1.0 * d_C.width / dimBlock.y));
 	
 	cudaEventRecord(start);
-	MatMulKernel<<<dimGrid, dimBlock>>>(d_A, d_B, d_C);
+	MatMulKernel_Share<<<dimGrid, dimBlock>>>(d_A, d_B, d_C);
 	cudaEventRecord(stop);
 	
 	cudaEventSynchronize(stop);
