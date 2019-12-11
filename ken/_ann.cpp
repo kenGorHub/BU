@@ -121,7 +121,7 @@ void ANN::updateWeight(int nowlayer){
 
 	float sum2 = 0;
 		//update weight
-
+		cout <<"nowlayer :"<< nowlayer << endl;
 		for(int k= nowlayer-1;k>0 ;k--){
 			for(int i = 0;i<neuron[k].size();i++){
 				float sum = 0;
@@ -136,8 +136,9 @@ void ANN::updateWeight(int nowlayer){
 			
 			
 				for(int j = 0;j<neuron[nowlayer].size();j++){
-					
+					cout << nowlayer << " SUM: " << sum << endl;
 					neuron[k][i].weight[j] -= sum;	
+					cout << " SUM: " << neuron[k][i].weight[j] << endl;
 				}
 			}
 				
