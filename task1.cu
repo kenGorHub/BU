@@ -44,7 +44,7 @@ __global__ void MatMulKernel(const Matrix A, const Matrix B, Matrix C)
 	
 	for(int index = 0; index < A.width; ++index)
 	{
-		pValue = A.elements[row * A.width + index] * B.elements[index * B.width + col];
+		pValue = A.elements[row * A.width + index] * B.elements[index * B.width + column];
 	}
 	
 	C.elements[row * C.width + column] = pValue;
