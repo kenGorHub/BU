@@ -141,7 +141,7 @@ vector<float> network::sigmoid_d(vector<float> result){
 	vector<float> temp(result.size());
 	//cout<<"sigmoid start"<<endl;
 	for(int i=0;i<result.size();i++)
-		temp[i]=(1 / (1 + exp(-result[i])))*(1-(1 / (1 + exp(-result[i]))));
+		temp[i]=(result[i])*(1-result[i]);
 	//cout<<"sigmoid end"<<endl;
 	return temp;
 }
@@ -263,7 +263,7 @@ int main(int argc, const char * argv[]) {
 			net.backpropagation(answer,correct);
 		}
 		auto stop = high_resolution_clock::now(); 
-		auto duration = duration_cast<microseconds>(stop - start); 
+		auto duration = duration_cast<milliseconds>(stop - start); 
 		cout<<"Time: "<<duration.count()<<"ms\t Correct: "<<correct/batch_size<<endl;
 		//correct=0;
 	}
