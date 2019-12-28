@@ -97,8 +97,11 @@ void Neuron::feedForward(const Layer &prevLayer){
 	//Sum the previous layer's outputs (which are out inputs)
 	//Include the bias node from the previous layer.
 	for(unsigned n = 0;n < prevLayer.size();++n){
+
+				
 		sum += prevLayer[n].getOutputVal() *
 				prevLayer[n].m_outputWeights[m_myIndex].weight;
+
 	}
 
 	m_outputVal = Neuron::transferFunction(sum);
@@ -150,8 +153,8 @@ void Net::backProp(const vector<float> &targetVals){
 		float delta = targetVals[n] - outputLayer[n].getOutputVal();
 		m_error += delta * delta; 
 	}
-	m_error = m_error*0.5;
-	//m_error = sqrt(m_error);// RMS
+
+	m_error = sqrt(m_error);// RMS
 	
 	//Implement a recent average measurement
 	
@@ -231,8 +234,7 @@ Net::Net(const vector<unsigned> &topology){
 int main(){
 	vector<unsigned> topology;
 	topology.push_back(784);
-	topology.push_back(3);
-	topology.push_back(4);
+	topology.push_back(16);
 	topology.push_back(10);
 	
 	Net myNet(topology);
@@ -264,7 +266,7 @@ int main(){
 	else 
 		cout << "Unable to open file" << '\n';
 		//Input--------------------------------------------------------
-	for(int counter = 0; counter < X_train.size();counter++){
+	for(int counter = 0; counter < 1;counter++){
 		myNet.feedForward(X_train[counter]);
 		cout << "input:" <<endl;
 		for (int i = 1; i < 28 * 28; i++) {
@@ -306,26 +308,22 @@ int main(){
 		cout << "RecentAverageError is " << myNet.getRecentAverageError() << endl;
 		
 	}
+	/*
 	cout << "Done!"<< endl;
 
-	myNet.inference(X_train[1]);
-}
-
-float Net::inference(const vector<float> &inputVals){
-	float sum = 0.0;
-
-	for(unsigned layerNum = 1; layerNum < m_layers.size(); ++layerNum){
-		Layer &prevLayer = m_layers[layerNum - 1];
-		for(unsigned n = 0;n < m_layers[layerNum].size() - 1; ++n){
-			for(unsigned n = 0;n < inputVals.size();++n){
-				sum += inputVals[n] *
-						prevLayer[n].m_outputWeights[m_myIndex].weight;
+	myNet.feedForward(X_train[3]);
+	vector<float> resultsStorage;
+	myNet.getResults(resultsStorage);
+	cout << "output:" << endl;
+		cout<<"Outputs: ";
+			float num = resultsStorage[0];
+			int index = 0;
+			for (int x=0;x<10;x++){
+				if (num<resultsStorage[x]){
+					num=resultsStorage[x];
+					index=x;
+				}
 			}
-		}
-	}
-	
-	
-
-	float result = Neuron::transferFunction(sum);
-	return result;
+		cout<<"Prob "<<index<<" ("<<num<<")" << endl;*/
 }
+
