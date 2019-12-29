@@ -7,6 +7,7 @@
 #include <sstream>
 #include <algorithm> 
 #include <chrono> 
+#include <omp.h>
 
 using namespace std;
 using namespace std::chrono; 
@@ -164,16 +165,16 @@ void Net::backProp(const vector<float> &targetVals){
 	
 	Layer &outputLayer = m_layers.back();
 	m_error = 0.0;
-	
-	for(unsigned n = 0; n < outputLayer.size() - 1;++n){
-		float delta = targetVals[n] - outputLayer[n].getOutputVal();
-		m_error += delta * delta;
+	for(int n=0;n<10;n++){
+		for(unsigned n = 0; n < outputLayer.size() - 1;++n){
+			float delta = targetVals[n] - outputLayer[n].getOutputVal();
+			m_error += delta * delta;
+		}
+		m_error /= outputLayer.size() - 1;
+		m_error = sqrt(m_error);
 	}
-	//m_error /= outputLayer.size() - 1;
-	m_error = sqrt(m_error);
-	
 	m_recentAverageError = (m_recentAverageError  + m_error);//m_recentAverageSmoothingFactor
-	cout<<"Error:"<<m_recentAverageError<<endl;
+	cout<<"Total loss value:"<<m_recentAverageError<<endl;
 	for(unsigned n = 0; n < outputLayer.size() - 1; ++n){
 		outputLayer[n].calcOutputGradients(targetVals[n]);
 	}
@@ -246,8 +247,6 @@ void Net::inference(const vector<float> &inputVals){
 }
 
 int main(){
-		
-	auto start = high_resolution_clock::now();
 	
 	vector<unsigned> topology;
 	topology.push_back(784);
@@ -256,79 +255,69 @@ int main(){
 	Net myNet(topology);
 	
 	ifstream myfile("train_small.txt");
-	string line;
-	int count=1;
-	while(getline(myfile, line)){
-		cout<<"Train case"<<count<<":"<<endl;
-		count++;
-		int x,y;
-		stringstream ss(line);
-		ss>>y;
-		vector<float> inputVals;
-		for (int i = 0; i < 28 * 28; i++) {
-			ss >> x;
-			inputVals.push_back(x/255.0);
-		}
-		myNet.feedForward(inputVals);
-		/*cout<<"Input:"<<endl;
-		for (int i = 1; i < 28 * 28+1; i++) {
-				if(inputVals[i] == 0){
-					cout << "0";
-				}else{
-					cout << "*";
-				}
-				if(i%28 == 0){
-				cout << endl;
+	vector< vector<float> > X_train;
+	vector<float> y_train;
+	if (myfile.is_open())
+	{
+		cout << "Loading data ...\n";
+		string line;
+		while (getline(myfile, line))
+		{
+			int x, y;
+			vector<float> X;
+			stringstream ss(line);
+			ss >> y;
+			y_train.push_back(y);
+			for (int i = 0; i < 28 * 28; i++) {
+				ss >> x;
+				X.push_back(x/255.0);
 			}
+			X_train.push_back(X);
 		}
-		cout<<endl;*/
+
+		myfile.close();
+		cout << "Loading data finished.\n";
+	} 
+	int epoch=4;
+	
+	vector<int> index;
+	for(int i=0;i<X_train.size();i++)index.push_back(i);
+	shuffle(index.begin(),index.end(),default_random_engine(i));
+	vector<vector<int>> temp;
+	for(int j=0;j<epoch;j++){
+		vector<float> a;
+		for(int i=0+j*index.size()/epoch;i<(j+1)*index.size()/epoch;i++)
+			a.push_back(index[i]);
+		temp.push_back(a);
+	}
+	vector<float> inputVals;
+	vector<int> indVal;
+	
+	for(int i=0;i<epoch;i++){
 		
-		vector<float> targetVals;
-		for(int i = 0; i < 10; i++){
-			if(i == y){
-				targetVals.push_back(1);
-			}else{
-				targetVals.push_back(-1);
-			}
-		}
-		myNet.backProp(targetVals);
+		indVal = temp[i];
 		
-		vector<float> resultVals;
-		myNet.getResults(resultVals);
-		float max=0;
-		int n=0;
-		cout<<"output:"<<endl;
-		for(int i=0;i<resultVals.size();i++){
-			cout<<resultVals[i]<<"  ";
-			if(max<resultVals[i]){
-				max=resultVals[i];
-				n=i;
-			}
+		cout<<"Epoch "<<i+1<<"/"<<epoch<<endl;
+		auto start = high_resolution_clock::now();
+		for(int j=0;j<indVal.size();j++){
+			
+			myNet.feedForward(inputVals[indVal[j]]);
+			
+			vector<float> targetVals;
+			vector<float> answer(10,-1);
+			answer[y_train[indVal[j]]]=1;
+			myNet.backProp(answer);
+			
 		}
-		cout<<endl<<"this? "<<n<<"("<<max<<")"<<endl;
-		cout<<"correct answer:"<<y<<endl<<endl;
+		auto stop = high_resolution_clock::now(); 
+	
+		auto duration = duration_cast<milliseconds>(stop - start); 
+		
+		cout << "CPU Running Time : "<< duration.count() << " ms" << endl; 
 	}
 	
-	auto stop = high_resolution_clock::now(); 
 	
-	auto duration = duration_cast<microseconds>(stop - start); 
   
-    cout << "Training Time taken : "<< duration.count() << " microseconds" << endl; 
-		 
-	myNet.exportfile("a.txt");
-	/*ifstream myfile2("test.txt");
-	count=1;
-	while(getline(myfile2, line)&&count<3){
-		int x,y;
-		count++;
-		stringstream ss(line);
-		ss>>y;
-		vector<float> inputVals;
-		for (int i = 0; i < 28 * 28; i++) {
-			ss >> x;
-			inputVals.push_back(x/255.0);
-		}
-		cout<<"correct:"<<y<<endl;
-		myNet.inference(inputVals);
-	}*/
+    
+	
 }
