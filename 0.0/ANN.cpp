@@ -250,11 +250,11 @@ int main(){
 	
 	vector<unsigned> topology;
 	topology.push_back(784);
-	topology.push_back(4);
+	topology.push_back(64);
 	topology.push_back(10);
 	Net myNet(topology);
 	
-	ifstream myfile("train_small.txt");
+	ifstream myfile("test.txt");
 	vector< vector<float> > X_train;
 	vector<float> y_train;
 	if (myfile.is_open())
@@ -278,34 +278,29 @@ int main(){
 		myfile.close();
 		cout << "Loading data finished.\n";
 	} 
-	int epoch=4;
-	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+	int epoch=10;
+	
 	vector<int> index;
 	for(int i=0;i<X_train.size();i++)index.push_back(i);
-	shuffle(index.begin(),index.end(),default_random_engine(seed));
-	vector<vector<int>> temp;
-	for(int j=0;j<epoch;j++){
-		vector<int> a;
-		for(int i=0+j*index.size()/epoch;i<(j+1)*index.size()/epoch;i++)
-			a.push_back(index[i]);
-		temp.push_back(a);
-	}
+
+	
+
+	
 	vector<float> inputVals;
-	vector<int> indVal;
+
 	
 	for(int i=0;i<epoch;i++){
-		
-		indVal = temp[i];
-		
+		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+		shuffle(index.begin(),index.end(),default_random_engine(seed));
 		cout<<"Epoch "<<i+1<<"/"<<epoch<<endl;
 		auto start = high_resolution_clock::now();
-		for(int j=0;j<indVal.size();j++){
-			inputVals=X_train[indVal[j]];
+		for(int j=0;j<X_train.size();j++){
+			inputVals=X_train[j];
 			myNet.feedForward(inputVals);
 			
 			vector<float> targetVals;
 			vector<float> answer(10,-1);
-			answer[y_train[indVal[j]]]=1;
+			answer[y_train[j]]=1;
 			myNet.backProp(answer);
 			
 		}
