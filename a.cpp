@@ -141,7 +141,9 @@ vector<float> network::sigmoid_d(vector<float> result){
 	vector<float> temp(result.size());
 	//cout<<"sigmoid start"<<endl;
 	for(int i=0;i<result.size();i++)
-		temp[i]=(result[i])*(1-result[i]);
+
+		temp[i]=result[i]*(1-result[i]);
+
 	//cout<<"sigmoid end"<<endl;
 	return temp;
 }
@@ -166,8 +168,8 @@ void prints(vector<float> t){
 void network::backpropagation(vector<float> answer, float &correct){
 	if(max(Layers.back().output)==max(answer))
 		correct++;
-	//cout<<max(Layers.back().output)<<":"<<max(answer)<<endl;
-	//prints(Layers.back().output);
+	cout<<max(Layers.back().output)<<":"<<max(answer)<<endl;
+	prints(Layers.back().output);
 	
 	//calculate error of each layer
 	//cout<<"errors start"<<endl;
@@ -175,7 +177,7 @@ void network::backpropagation(vector<float> answer, float &correct){
 	//cout<<"loss done"<<endl;
 	vector<vector<float>> errors(2);
 	//cout<<loss.size()<<":"<<sigmoid_d(Layers.back().result).size()<<endl;
-	errors[0]=loss*sigmoid_d(Layers.back().result);
+	errors[0]=loss*sigmoid_d(Layers.back().output);
 	//cout<<"errors 0 done"<<endl;
 	errors[1]=dot(Layers[1].neurons,errors[0])*sigmoid_d(Layers[0].result);
 	//cout<<"errors 1 done"<<endl;
