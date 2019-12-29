@@ -8,6 +8,7 @@
 #include <random>
 #include <algorithm> 
 #include <chrono> 
+#include <omp.h>
 
 using namespace std;
 using namespace std::chrono; 
@@ -48,7 +49,10 @@ float Neuron::eta = 0.1;
 float Neuron::alpha = 0.5;
 
 void Neuron::updateInputWeights(Layer &prevLayer){
-	for(unsigned n = 0; n < prevLayer.size(); ++n){
+	int n;
+# pragma omp parallel for num_threads(8) \
+	default(none) private(n) shared(prevLayer)
+	for(n = 0; n < prevLayer.size(); ++n){
 		Neuron &neuron = prevLayer[n];
 		float oldDeltaWeight = neuron.m_outputWeights[m_myIndex].deltaWeight;
 		float newDeltaWeight = eta * neuron.getOutputVal() * m_gradient ;//alpha * oldDeltaWeight;+ oldDeltaWeight
@@ -62,8 +66,10 @@ void Neuron::updateInputWeights(Layer &prevLayer){
 
 float Neuron::sumDOW(const Layer &nextLayer)const {
 	float sum = 0.0;
-	
-	for(unsigned n = 0;n < nextLayer.size() - 1; ++n){
+	int n;
+# pragma omp parallel for num_threads(8) \
+	default(none) private(n) shared(nextLayer,sum)
+	for(n = 0;n < nextLayer.size() - 1; ++n){
 		sum += m_outputWeights[n].weight * nextLayer[n].m_gradient;
 	}
 	
@@ -91,7 +97,10 @@ float Neuron::transferFunctionDerivative(float x){
 
 void Neuron::feedForward(const Layer &prevLayer){
 	float sum = 0.0;
-	for(unsigned n = 0;n < prevLayer.size();++n){
+	int n;
+# pragma omp parallel for num_threads(8) \
+	default(none) private(n) shared(prevLayer,sum)
+	for(n = 0;n < prevLayer.size();++n){
 		sum += prevLayer[n].getOutputVal() *
 				prevLayer[n].m_outputWeights[m_myIndex].weight;
 	}
@@ -164,7 +173,8 @@ void Net::getResults(vector<float> &resultVals)const{
 void Net::backProp(const vector<float> &targetVals){
 	
 	Layer &outputLayer = m_layers.back();
-	m_error = 0.0;
+	/*m_error = 0.0;
+	m_error
 	for(int n=0;n<10;n++){
 		for(unsigned n = 0; n < outputLayer.size() - 1;++n){
 			float delta = targetVals[n] - outputLayer[n].getOutputVal();
@@ -173,17 +183,24 @@ void Net::backProp(const vector<float> &targetVals){
 		m_error /= outputLayer.size() - 1;
 		m_error = sqrt(m_error);
 	}
-	m_recentAverageError = (m_recentAverageError  + m_error);//m_recentAverageSmoothingFactor
+	m_recentAverageError = (m_recentAverageError  + m_error);//m_recentAverageSmoothingFactor*/
 	//cout<<"Total loss value:"<<m_recentAverageError<<endl;
-	for(unsigned n = 0; n < outputLayer.size() - 1; ++n){
+	int n;
+# pragma omp parallel for num_threads(8) \
+	default(none) private(n) shared(outputLayer)
+	for(n = 0; n < outputLayer.size() - 1; ++n){
 		outputLayer[n].calcOutputGradients(targetVals[n]);
 	}
-	
-	for(unsigned layerNum = m_layers.size() - 2;layerNum > 0;--layerNum){
+	int layerNum;
+# pragma omp parallel for num_threads(8) \
+	default(none) private(layerNum)
+	for(layerNum = m_layers.size() - 2;layerNum > 0;--layerNum){
 		Layer &hiddenLayer = m_layers[layerNum];
 		Layer &nextLayer = m_layers[layerNum + 1];
-		
-		for(unsigned n = 0; n < hiddenLayer.size(); ++n){
+
+# pragma omp parallel for num_threads(8) \
+	default(none) private(n) shared(hiddenLayer)
+		for(n = 0; n < hiddenLayer.size(); ++n){
 			hiddenLayer[n].calcHiddenGradients(nextLayer);
 		}
 	}
@@ -278,24 +295,30 @@ int main(){
 		myfile.close();
 		cout << "Loading data finished.\n";
 	} 
-	int epoch=10;
+	int epoch=4;
 	
 	vector<int> index;
 	for(int i=0;i<X_train.size();i++)index.push_back(i);
 
 	
+	auto start = high_resolution_clock::now();
 
 	
-	vector<float> inputVals;
 
-	auto start = high_resolution_clock::now();
 	for(int i=0;i<epoch;i++){
+		
+
+		//cout << "thread NUM" << my_rank << " num thread " << thread_count << endl;
+
+		
 		unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 		shuffle(index.begin(),index.end(),default_random_engine(seed));
 		//cout<<"Epoch "<<i+1<<"/"<<epoch<<endl;
-		
+
 		for(int j=0;j<X_train.size();j++){
+			vector<float> inputVals;
 			inputVals=X_train[j];
+
 			myNet.feedForward(inputVals);
 			
 			vector<float> targetVals;
@@ -304,14 +327,14 @@ int main(){
 			myNet.backProp(answer);
 			
 		}
+
+		
 		
 	}
-	
-	auto stop = high_resolution_clock::now(); 
-	
-		auto duration = duration_cast<milliseconds>(stop - start); 
-		
-		cout << "CPU Running Time : "<< duration.count() << " ms" << endl; 
+	auto stop = high_resolution_clock::now();
+
+	auto duration = duration_cast<milliseconds>(stop - start);
+	cout << "CPU Running Time : " << duration.count() << " ms" << endl;
   
     
 	
