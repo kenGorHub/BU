@@ -266,7 +266,7 @@ int main(){
 	else 
 		cout << "Unable to open file" << '\n';
 		//Input--------------------------------------------------------
-	for(int counter = 0; counter < 1;counter++){
+	for(int counter = 0; counter < X_train.size();counter++){
 		myNet.feedForward(X_train[counter]);
 		cout << "input:" <<endl;
 		for (int i = 1; i < 28 * 28; i++) {
@@ -297,10 +297,10 @@ int main(){
 		//Answer-------------------------------------------------------
 		vector<float> answer;
 		for(int i = 0; i < 10; i++){
-			if(i == y_train[counter+1]){
+			if(i == y_train[counter]){
 				answer.push_back(1);
 			}else{
-				answer.push_back(-1);
+				answer.push_back(0);
 			}
 		}
 		myNet.backProp(answer);
