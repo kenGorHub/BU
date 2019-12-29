@@ -5,9 +5,9 @@
 #include <cmath>
 #include <fstream>
 #include <sstream>
+#include <random>
 #include <algorithm> 
 #include <chrono> 
-#include <omp.h>
 
 using namespace std;
 using namespace std::chrono; 
@@ -174,7 +174,7 @@ void Net::backProp(const vector<float> &targetVals){
 		m_error = sqrt(m_error);
 	}
 	m_recentAverageError = (m_recentAverageError  + m_error);//m_recentAverageSmoothingFactor
-	cout<<"Total loss value:"<<m_recentAverageError<<endl;
+	//cout<<"Total loss value:"<<m_recentAverageError<<endl;
 	for(unsigned n = 0; n < outputLayer.size() - 1; ++n){
 		outputLayer[n].calcOutputGradients(targetVals[n]);
 	}
@@ -279,13 +279,15 @@ int main(){
 		cout << "Loading data finished.\n";
 	} 
 	int epoch=4;
-	
+	unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
 	vector<int> index;
 	for(int i=0;i<X_train.size();i++)index.push_back(i);
-	shuffle(index.begin(),index.end(),default_random_engine(10));
+
+	shuffle(index.begin(),index.end(),default_random_engine(seed));
+
 	vector<vector<int>> temp;
 	for(int j=0;j<epoch;j++){
-		vector<float> a;
+		vector<int> a;
 		for(int i=0+j*index.size()/epoch;i<(j+1)*index.size()/epoch;i++)
 			a.push_back(index[i]);
 		temp.push_back(a);
@@ -300,8 +302,8 @@ int main(){
 		cout<<"Epoch "<<i+1<<"/"<<epoch<<endl;
 		auto start = high_resolution_clock::now();
 		for(int j=0;j<indVal.size();j++){
-			
-			myNet.feedForward(inputVals[indVal[j]]);
+			inputVals=X_train[indVal[j]];
+			myNet.feedForward(inputVals);
 			
 			vector<float> targetVals;
 			vector<float> answer(10,-1);
