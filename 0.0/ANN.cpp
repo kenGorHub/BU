@@ -282,7 +282,7 @@ int main(){
 	
 	vector<int> index;
 	for(int i=0;i<X_train.size();i++)index.push_back(i);
-	shuffle(index.begin(),index.end(),default_random_engine(i));
+	shuffle(index.begin(),index.end(),default_random_engine(10));
 	vector<vector<int>> temp;
 	for(int j=0;j<epoch;j++){
 		vector<float> a;
