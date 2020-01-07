@@ -28,6 +28,7 @@ class Neuron {
 		void calcOutputGradients(float targetVal);
 		void calcHiddenGradients(const Layer &nextLayer);
 		void updateInputWeights(Layer &prevLayer);
+		vector<Connection> m_outputWeights;
 	private:
 		static float eta;//Individual input, magnified by the gradient and train rate:
 		static float alpha;//Also add momentum = a fraction of the previous delta weight
@@ -36,7 +37,7 @@ class Neuron {
 		static float randomWeight(void){return rand() / float(RAND_MAX);}
 		float sumDOW(const Layer &nextLayer)const;
 		float m_outputVal;
-		vector<Connection> m_outputWeights;
+		
 		unsigned m_myIndex;
 		float m_gradient;
 };
@@ -51,7 +52,9 @@ void Neuron::updateInputWeights(Layer &prevLayer){
 	for(unsigned n = 0; n < prevLayer.size(); ++n){
 		Neuron &neuron = prevLayer[n];
 		float oldDeltaWeight = neuron.m_outputWeights[m_myIndex].deltaWeight;
-		float newDeltaWeight = eta * neuron.getOutputVal() * m_gradient + alpha * oldDeltaWeight;
+		//float newDeltaWeight = eta * neuron.getOutputVal() * m_gradient + alpha * oldDeltaWeight;
+		cout << "outVal " <<  oldDeltaWeight << endl;
+		float newDeltaWeight = eta * neuron.getOutputVal() * m_gradient + oldDeltaWeight;
 		
 		
 		neuron.m_outputWeights[m_myIndex].deltaWeight = newDeltaWeight;
@@ -124,7 +127,8 @@ public:
 	void backProp(const vector<float> &targetVals);
 	void getResults(vector<float> &resultVals)const;
 	float getRecentAverageError(void)const{return m_recentAverageError;}
-	
+	void importfile(string filename);
+	void exportfile(string filename);
 	
 private:
 	vector<Layer> m_layers;
@@ -153,7 +157,7 @@ void Net::backProp(const vector<float> &targetVals){
 		float delta = targetVals[n] - outputLayer[n].getOutputVal();
 		m_error += delta * delta; 
 	}
-
+	m_error = m_error/outputLayer.size()-1;
 	m_error = sqrt(m_error);// RMS
 	
 	//Implement a recent average measurement
@@ -265,10 +269,13 @@ int main(){
 	} 
 	else 
 		cout << "Unable to open file" << '\n';
+	
+	myNet.exportfile("./inputbefore.txt");	//import weight
+	
 		//Input--------------------------------------------------------
 	for(int counter = 0; counter < X_train.size();counter++){
 		myNet.feedForward(X_train[counter]);
-		cout << "input:" <<endl;
+		/*cout << "input:" <<endl;
 		for (int i = 1; i < 28 * 28; i++) {
 				if(X_train[counter][i] == 0){
 					cout << "0";
@@ -279,7 +286,7 @@ int main(){
 				cout << endl;
 			}
 		}
-		cout << "0" << endl;
+		cout << "0" << endl;*/
 		//Output------------------------------------------------------
 		vector<float> resultsStorage;
 		myNet.getResults(resultsStorage);
@@ -304,26 +311,39 @@ int main(){
 			}
 		}
 		myNet.backProp(answer);
-		cout << "Answer is "<< y_train[counter] << endl;
-		cout << "RecentAverageError is " << myNet.getRecentAverageError() << endl;
+		//cout << "Answer is "<< y_train[counter] << endl;
+		//cout << "RecentAverageError is " << myNet.getRecentAverageError() << endl;
 		
 	}
-	/*
+	myNet.exportfile("./inputafter.txt");	//export weight
 	cout << "Done!"<< endl;
 
-	myNet.feedForward(X_train[3]);
-	vector<float> resultsStorage;
-	myNet.getResults(resultsStorage);
-	cout << "output:" << endl;
-		cout<<"Outputs: ";
-			float num = resultsStorage[0];
-			int index = 0;
-			for (int x=0;x<10;x++){
-				if (num<resultsStorage[x]){
-					num=resultsStorage[x];
-					index=x;
-				}
-			}
-		cout<<"Prob "<<index<<" ("<<num<<")" << endl;*/
 }
 
+void Net::exportfile(string filename){
+	ofstream outFile;
+    outFile.open(filename);
+
+    for (int i = 0; i < m_layers.size(); i++){
+		for(int j = 0; j < m_layers[i].size(); j++){
+			for(int k = 0; k < m_layers[i][j].m_outputWeights.size(); k++){		
+				outFile << m_layers[i][j].m_outputWeights[k].weight << endl;
+			}
+		}
+    } 
+
+    outFile.close();
+}
+
+void Net::importfile(string filename){
+	ifstream inFile;
+    inFile.open(filename);
+
+	for (int i = 0; i < m_layers.size(); i++){
+		for(int j = 0; j < m_layers[i].size(); j++){
+			for(int k = 0; k < m_layers[i][j].m_outputWeights.size(); k++){		
+				inFile >> m_layers[i][j].m_outputWeights[k].weight;
+			}
+		}
+    }
+}
