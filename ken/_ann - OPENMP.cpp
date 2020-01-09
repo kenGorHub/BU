@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <fstream>
 #include <sstream>
+#include <omp.h>
 #include <chrono> 
 
 using namespace std;
@@ -29,6 +30,7 @@ Neuron::Neuron(int numOutputs){
 	for(int c = 0; c < numOutputs; c++){	
 		weight.push_back(rand() / float(RAND_MAX));
 	}
+	//bais = rand() / float(RAND_MAX);
 }
 
 class ANN{
@@ -137,14 +139,19 @@ void ANN::lossfunction(vector<float> y){
 }
 
 void ANN::updateWeight(){
-
-	for(int layer = neuron.size()-1; layer > 0 ; layer--){
+	int layer;
+	int n;
+	int prevN;
+	
+# pragma omp parallel for num_threads(8) \
+	default(none) private(layer,n,prevN)
+	for(layer = neuron.size()-1; layer > 0 ; layer--){
 		int prevLayer = layer - 1;
 
 		//cout<<"Layer! " << prevLayer<<endl;
-		for(int n = 0; n < neuron[layer].size(); n++){
+		for(n = 0; n < neuron[layer].size(); n++){
 			//cout<<"Neuron!" << n<<endl;
-			for(int prevN = 0; prevN < neuron[prevLayer].size(); prevN++){			
+			for(prevN = 0; prevN < neuron[prevLayer].size(); prevN++){			
 
 				
 				if(prevN == neuron[prevLayer].size()-1){
@@ -192,10 +199,12 @@ float ANN::activationfunction(float sum){
 void ANN::feedforward(vector<float> &inputData){
 	assert(inputData.size() == (neuron[0].size() - 1));
 
+
 	//set input layer Output
 	for(int i=0;i<inputData.size();i++){
 		neuron[0][i].setOutput(inputData[i]);
 	}
+	
 
 	for(int layer = 0 ; layer < neuron.size()-1; layer++){
 		int nextsize = neuron[layer+1].size();
@@ -270,12 +279,12 @@ void ANN::importfile(string filename){
 int main(){
 	vector<int> test;
 	test.push_back(784); 		//input layer
-	test.push_back(16);		//hidden layer
+	test.push_back(32);		//hidden layer
 	test.push_back(10);		//output layer
 	ANN mynet(test);
 
 	auto start = high_resolution_clock::now();
-	mynet.importFile("train.txt");
+	mynet.importFile("test.txt");
 	
 	mynet.exportfile("./inputbefore.txt");	//export weight before
 	vector<float> inputData;
