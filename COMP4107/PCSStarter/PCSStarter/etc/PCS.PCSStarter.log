@@ -1,0 +1,33 @@
+200317-14:08:12 [INFO] -- 
+200317-14:08:12 [INFO] -- 
+200317-14:08:12 [INFO] -- ============================================================
+200317-14:08:12 [INFO] -- PCSStarter: Application Starting...
+200317-14:08:12 [FINE] -- PCSStarter: registering timer
+200317-14:08:12 [FINE] -- timer: created!
+200317-14:08:12 [FINE] -- PCSStarter: registering PCSCore
+200317-14:08:12 [FINE] -- PCSCore: created!
+200317-14:08:12 [FINE] -- PCSStarter: registering GateHandler
+200317-14:08:12 [FINE] -- GateHandler: created!
+200317-14:08:12 [INFO] -- timer: starting...
+200317-14:08:12 [INFO] -- GateHandler: starting...
+200317-14:08:12 [INFO] -- PCSCore: starting...
+200317-14:08:17 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- [00002]: Time's up!].
+200317-14:08:17 [INFO] -- ------------------------------------------------------------
+200317-14:08:17 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200317-14:08:17 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200317-14:08:17 [INFO] -- GateHandler: gate open request received
+200317-14:08:17 [INFO] -- GateHandler: send signal to open the gate now.
+200317-14:08:17 [INFO] -- GateHandler: sending gate open signal to hardware.
+200317-14:08:17 [FINE] -- GateHandler: gate status change: GateClosed --> GateOpening
+200317-14:08:22 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- [00002]: Time's up!].
+200317-14:08:22 [INFO] -- ------------------------------------------------------------
+200317-14:08:22 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200317-14:08:22 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200317-14:08:22 [INFO] -- GateHandler: gate open request received
+200317-14:08:22 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
+200317-14:08:27 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- [00002]: Time's up!].
+200317-14:08:27 [INFO] -- ------------------------------------------------------------
+200317-14:08:27 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200317-14:08:27 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200317-14:08:27 [INFO] -- GateHandler: gate open request received
+200317-14:08:27 [WARNING] -- GateHandler: gate is already opening!!  Ignore request.
