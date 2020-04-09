@@ -1,5 +1,3 @@
-package PCS;
-
 import AppKickstarter.timer.Timer;
 
 import PCS.PCSCore.PCSCore;
