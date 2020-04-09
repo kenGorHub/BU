@@ -1,0 +1,64 @@
+200318-02:49:06 [INFO] -- 
+200318-02:49:06 [INFO] -- 
+200318-02:49:06 [INFO] -- ============================================================
+200318-02:49:06 [INFO] -- PCSStarter: Application Starting...
+200318-02:49:07 [FINE] -- PCSStarter: registering timer
+200318-02:49:07 [FINE] -- timer: created!
+200318-02:49:07 [FINE] -- PCSStarter: registering PCSCore
+200318-02:49:07 [FINE] -- PCSCore: created!
+200318-02:49:07 [FINE] -- PCSStarter: registering GateHandler
+200318-02:49:07 [FINE] -- GateHandler: created!
+200318-02:49:08 [INFO] -- timer: starting...
+200318-02:49:08 [INFO] -- GateHandler: starting...
+200318-02:49:08 [INFO] -- PCSCore: starting...
+200318-02:49:13 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200318-02:49:13 [INFO] -- ------------------------------------------------------------
+200318-02:49:13 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200318-02:49:13 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200318-02:49:13 [INFO] -- GateHandler: gate open request received
+200318-02:49:13 [INFO] -- GateHandler: send signal to open the gate now.
+200318-02:49:13 [FINE] -- GateHandlerEmulator: Gate open signal received.  [autoOpen is on]
+200318-02:49:13 [FINE] -- GateHandlerEmulator: Gate open timer started.
+200318-02:49:13 [FINE] -- GateHandler: gate status change: GateClosed --> GateOpening
+200318-02:49:15 [FINE] -- GateHandler: message received: [Timer (TimesUp) -- TimesUp 00001 0].
+200318-02:49:15 [FINE] -- GateHandlerEmulator: Times up received.
+200318-02:49:15 [FINE] -- GateHandlerEmulator: Gate open timer is up.  [autoOpen is on]
+200318-02:49:15 [FINE] -- GateHandlerEmulator: Send gate open reply
+200318-02:49:15 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateOpenReply) -- Gate Open Reply].
+200318-02:49:15 [INFO] -- GateHandler: gate open reply received
+200318-02:49:15 [INFO] -- GateHandler: inform PCS Core that gate has finished opening.
+200318-02:49:15 [FINE] -- GateHandler: gate status change: GateOpening --> GateOpened
+200318-02:49:15 [FINE] -- PCSCore: message received: [GateHandler (GateOpenReply) -- ].
+200318-02:49:15 [INFO] -- PCSCore: Gate is opened.
+200318-02:49:18 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200318-02:49:18 [INFO] -- ------------------------------------------------------------
+200318-02:49:18 [INFO] -- PCSCore: Close the gate now (for demo only!!!)
+200318-02:49:18 [FINE] -- GateHandler: message received: [PCSCore (GateCloseRequest) -- ].
+200318-02:49:18 [INFO] -- GateHandler: gate close request received
+200318-02:49:18 [INFO] -- GateHandler: send signal to close the gate now.
+200318-02:49:18 [FINE] -- GateHandlerEmulator: Gate close signal received.  [autoClose is on]
+200318-02:49:18 [FINE] -- GateHandlerEmulator: Gate close timer started.
+200318-02:49:18 [FINE] -- GateHandler: gate status change: GateOpened --> GateClosing
+200318-02:49:19 [FINE] -- GateHandler: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200318-02:49:19 [FINE] -- GateHandlerEmulator: Times up received.
+200318-02:49:19 [FINE] -- GateHandlerEmulator: Gate close timer is up.  [autoClose is on]
+200318-02:49:19 [FINE] -- GateHandlerEmulator: Send gate close reply
+200318-02:49:19 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateCloseReply) -- Gate Close Reply].
+200318-02:49:19 [INFO] -- GateHandler: gate close reply received
+200318-02:49:19 [INFO] -- GateHandler: inform PCS Core that gate has finished closing.
+200318-02:49:19 [FINE] -- PCSCore: message received: [GateHandler (GateCloseReply) -- ].
+200318-02:49:19 [FINE] -- GateHandler: gate status change: GateClosing --> GateClosed
+200318-02:49:19 [INFO] -- PCSCore: Gate is closed.
+200318-02:49:19 [INFO] -- 
+200318-02:49:19 [INFO] -- 
+200318-02:49:19 [INFO] -- ============================================================
+200318-02:49:19 [INFO] -- PCSStarter: Application Stopping...
+200318-02:49:19 [FINE] -- GateHandler: message received: [PCSStarter (Terminate) -- Terminate now!].
+200318-02:49:19 [INFO] -- timer: received terminate!
+200318-02:49:19 [FINE] -- PCSCore: message received: [PCSStarter (Terminate) -- Terminate now!].
+200318-02:49:19 [FINE] -- PCSStarter: unregistering GateHandler
+200318-02:49:19 [FINE] -- PCSStarter: unregistering PCSCore
+200318-02:49:19 [INFO] -- PCSCore: terminating...
+200318-02:49:19 [FINE] -- PCSStarter: unregistering timer
+200318-02:49:19 [INFO] -- GateHandler: terminating...
+200318-02:49:19 [INFO] -- timer: terminating...

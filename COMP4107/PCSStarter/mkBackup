@@ -1,0 +1,140 @@
+#!/usr/bin/tcsh
+
+
+#----------------------------------------
+# constants
+#set archName = "AppKickstarter"
+set archName = "PCSStarter"
+
+
+#----------------------------------------
+# get options
+cd "`dirname $0`"
+set cmdname  = "`basename $0`"
+set listMode = 0
+set bkupMode = 0
+while ( $# != 0)
+  if ( x$1 == "x-l" ) then					# l -- list mode
+    if ( $bkupMode != 0 ) then
+      echo $cmdname": can't use -l and -b together\!"
+      exit
+    endif
+    set listMode = 1
+  else if ( x$1 == "x-b" ) then					# backup mode (src only)
+    if ( $listMode != 0 ) then
+      echo $cmdname": can't use -l and -b together\!"
+      exit
+    endif
+    set bkupMode = 1
+  else if ( x$1 == "x-B" ) then					# full (IntelliJ) backup mode
+    if ( $listMode != 0 ) then
+      echo $cmdname": can't use -l and -b together\!"
+      exit
+    endif
+    set bkupMode = 2
+  else if ( x$1 == "x-h" ) then
+    echo "Usage: $cmdname [-l | -b | -B]"
+    exit
+  else
+    echo $cmdname": unknown option ($1)"
+    echo "Usage: $cmdname [-l | -b | -B]"
+    exit
+  endif
+  shift
+end
+# echo "listMode: $listMode"
+# echo "bkupMode: $bkupMode"
+# exit
+
+
+#----------------------------------------
+# init
+set timeStmp = `date +%g%m%d@%H%M`
+set srcFList = "flist.$timeStmp"
+set bkupdir = "backup"
+set bkupNote = "$bkupdir/bkup_note"
+set reffname = `ls -1t backup/$archName-* |  grep -v Updates | head -1`
+if ( $bkupMode == 1 ) then
+  set dstfname = "$bkupdir/$archName-$timeStmp.zip"
+else if ( $bkupMode == 2 ) then
+  set dstfname = "$bkupdir/$archName-FullBackup-$timeStmp.zip"
+else
+  set dstfname = "$bkupdir/$archName-Updates-$timeStmp.tgz"
+endif
+# echo "listMode: $listMode"
+# echo "bkupMode: $bkupMode"
+# echo "reffname: $reffname"
+# echo "dstfname: $dstfname"
+# echo "srcFList: $srcFList"
+# exit
+
+
+#----------------------------------------
+# Update backup note
+if ( $listMode != 1) then
+  mv -f $bkupNote $bkupNote.bak
+  echo "*" `basename $dstfname`	>  $bkupNote
+  echo "  "			>> $bkupNote
+  echo ""			>> $bkupNote
+  cat $bkupNote.bak		>> $bkupNote
+  vi +2 $bkupNote
+endif
+
+
+#----------------------------------------
+# backup mode
+if ( $bkupMode == 1) then
+  set bkupList=""
+  set bkupList="$bkupList $cmdname"
+  set bkupList="$bkupList `find $archName -type d -name src`"
+  echo "############################################################"
+  echo "# Backup to $dstfname"
+  echo "############################################################"
+  zip -r $dstfname $bkupList -x *libs*
+  chmod 400 $dstfname
+  exit
+else if ( $bkupMode == 2) then
+  set bkupList=""
+  set bkupList="$bkupList $cmdname"
+  set bkupList="$bkupList $archName"
+  echo "############################################################"
+  echo "# Full Backup to $dstfname"
+  echo "############################################################"
+  zip -r $dstfname $bkupList -x *libs*
+  chmod 400 $dstfname
+  exit
+endif
+
+
+#----------------------------------------
+# prepare flist
+echo $cmdname		>  $srcFList
+ls $archName/etc/*.cfg	>> $srcFList
+set srcDirs="$archName/docs"
+set srcDirs="$srcDirs `find $archName -type d -name src`"
+foreach d ( $srcDirs )
+  find -L $d -newer $reffname -type f >> flist.$timeStmp
+end
+
+
+#----------------------------------------
+# list mode
+if ( $listMode == 1) then
+  echo "############################################################"
+  echo "# Files to save..."
+  echo "############################################################"
+  cat $srcFList
+  rm $srcFList
+  exit
+endif
+
+
+#----------------------------------------
+# bkup now
+echo "############################################################"
+echo "# Saving updates to $dstfname"
+echo "############################################################"
+tar cvzf $dstfname -T $srcFList
+chmod 400 $dstfname
+rm $srcFList
+exit
