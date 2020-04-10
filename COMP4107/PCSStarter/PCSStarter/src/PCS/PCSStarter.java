@@ -1,5 +1,3 @@
-package PCS;
-
 import AppKickstarter.AppKickstarter;
 import AppKickstarter.misc.Msg;
 import AppKickstarter.timer.Timer;
