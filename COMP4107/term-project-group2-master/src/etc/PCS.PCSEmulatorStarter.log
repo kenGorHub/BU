@@ -1,0 +1,35 @@
+200414-18:03:48 [INFO] -- 
+200414-18:03:48 [INFO] -- 
+200414-18:03:48 [INFO] -- ============================================================
+200414-18:03:48 [INFO] -- PCSStarter: Application Starting...
+200414-18:03:48 [FINE] -- PCSStarter: registering timer
+200414-18:03:48 [FINE] -- timer: created!
+200414-18:03:48 [FINE] -- PCSStarter: registering PCSCore
+200414-18:03:48 [FINE] -- PCSCore: created!
+200414-18:03:48 [FINE] -- PCSStarter: registering GateHandler
+200414-18:03:48 [FINE] -- GateHandler: created!
+200414-18:03:48 [FINE] -- PCSStarter: registering SensorHandler
+200414-18:03:48 [FINE] -- SensorHandler: created!
+200414-18:03:49 [INFO] -- SensorHandler: starting...
+200414-18:03:49 [INFO] -- timer: starting...
+200414-18:03:49 [INFO] -- GateHandler: starting...
+200414-18:03:49 [INFO] -- PCSCore: starting...
+200414-18:03:54 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
+200414-18:03:54 [INFO] -- ------------------------------------------------------------
+200414-18:03:54 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
+200414-18:03:54 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
+200414-18:03:54 [INFO] -- GateHandler: gate open request received
+200414-18:03:54 [INFO] -- GateHandler: send signal to open the gate now.
+200414-18:03:54 [FINE] -- GateHandlerEmulator: Gate open signal received.  [autoOpen is on]
+200414-18:03:54 [FINE] -- GateHandlerEmulator: Gate open timer started.
+200414-18:03:54 [FINE] -- GateHandler: gate status change: GateClosed --> GateOpening
+200414-18:03:56 [FINE] -- GateHandler: message received: [Timer (TimesUp) -- TimesUp 00001 0].
+200414-18:03:56 [FINE] -- GateHandlerEmulator: Times up received.
+200414-18:03:56 [FINE] -- GateHandlerEmulator: Gate open timer is up.  [autoOpen is on]
+200414-18:03:56 [FINE] -- GateHandlerEmulator: Send gate open reply
+200414-18:03:56 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateOpenReply) -- Gate Open Reply].
+200414-18:03:56 [INFO] -- GateHandler: gate open reply received
+200414-18:03:56 [INFO] -- GateHandler: inform PCS Core that gate has finished opening.
+200414-18:03:56 [FINE] -- PCSCore: message received: [GateHandler (GateOpenReply) -- ].
+200414-18:03:56 [FINE] -- GateHandler: gate status change: GateOpening --> GateOpened
+200414-18:03:56 [INFO] -- PCSCore: Gate is opened.

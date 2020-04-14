@@ -4,7 +4,9 @@ import AppKickstarter.timer.Timer;
 
 import PCS.PCSCore.PCSCore;
 import PCS.GateHandler.GateHandler;
+import PCS.SensorHandler.SensorHandler;
 import PCS.GateHandler.Emulator.GateEmulator;
+import PCS.SensorHandler.Emulator.SensorEmulator;
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -16,7 +18,7 @@ public class PCSEmulatorStarter extends PCSStarter {
     //------------------------------------------------------------
     // main
     public static void main(String [] args) {
-	new PCSEmulatorStarter().startApp();
+		new PCSEmulatorStarter().startApp();
     } // main
 
 
@@ -34,41 +36,46 @@ public class PCSEmulatorStarter extends PCSStarter {
     public static class Emulators extends Application {
         private static PCSEmulatorStarter pcsEmulatorStarter;
 
-	//----------------------------------------
-	// start
+		//----------------------------------------
+		// start
         public void start() {
             launch();
-	} // start
+		} // start
 
 	//----------------------------------------
 	// start
         public void start(Stage primaryStage) {
-	    Timer timer = null;
-	    PCSCore pcsCore = null;
-	    GateEmulator gateEmulator = null;
+			Timer timer = null;
+			PCSCore pcsCore = null;
+			GateEmulator gateEmulator = null;
+			SensorEmulator sensorEmulator = null;
 
-	    // create emulators
-	    try {
-	        timer = new Timer("timer", pcsEmulatorStarter);
-	        pcsCore = new PCSCore("PCSCore", pcsEmulatorStarter);
-	        gateEmulator = new GateEmulator("GateHandler", pcsEmulatorStarter);
+			// create emulators
+			try {
+				timer = new Timer("timer", pcsEmulatorStarter);
+				pcsCore = new PCSCore("PCSCore", pcsEmulatorStarter);
+				gateEmulator = new GateEmulator("GateHandler", pcsEmulatorStarter);
+				//sensorEmulator = new SensorEmulator("SensorHandler", pcsEmulatorStarter);
 
-		// start emulator GUIs
-		gateEmulator.start();
-	    } catch (Exception e) {
-		System.out.println("Emulators: start failed");
-		e.printStackTrace();
-		Platform.exit();
-	    }
-	    pcsEmulatorStarter.setTimer(timer);
-	    pcsEmulatorStarter.setPCSCore(pcsCore);
-	    pcsEmulatorStarter.setGateHandler(gateEmulator);
+				// start emulator GUIs
+				gateEmulator.start();
+				//sensorEmulator.start();
+			} catch (Exception e) {
+				System.out.println("Emulators: start failed");
+				e.printStackTrace();
+				Platform.exit();
+			}
+			pcsEmulatorStarter.setTimer(timer);
+			pcsEmulatorStarter.setPCSCore(pcsCore);
+			pcsEmulatorStarter.setGateHandler(gateEmulator);
+			//pcsEmulatorStarter.setSensorHandler(sensorEmulator);
 
-	    // start threads
-	    new Thread(timer).start();
-	    new Thread(pcsCore).start();
-	    new Thread(gateEmulator).start();
-	} // start
+			// start threads
+			new Thread(timer).start();
+			new Thread(pcsCore).start();
+			new Thread(gateEmulator).start();
+			//new Thread(sensorEmulator).start();
+		} // start
     } // Emulators
 
 
@@ -81,6 +88,9 @@ public class PCSEmulatorStarter extends PCSStarter {
         this.pcsCore = pcsCore;
     }
     private void setGateHandler(GateHandler gateHandler) {
-	this.gateHandler = gateHandler;
+		this.gateHandler = gateHandler;
+	}
+    private void setSensorHandler(SensorHandler sensorHandler) {
+		this.sensorHandler = sensorHandler;
     }
 } // PCSEmulatorStarter
