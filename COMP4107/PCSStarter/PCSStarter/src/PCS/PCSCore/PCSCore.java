@@ -4,6 +4,11 @@ import AppKickstarter.AppKickstarter;
 import AppKickstarter.misc.*;
 import AppKickstarter.timer.Timer;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 //======================================================================
 // PCSCore
@@ -15,6 +20,7 @@ public class PCSCore extends AppThread {
     private final int openCloseGateTime;		// for demo only!!!
     private final int OpenCloseGateTimerID=2;		// for demo only!!!
     private boolean gateIsClosed = true;		// for demo only!!!
+	private DateFormat datetimeFormat;
 
 
     //------------------------------------------------------------
@@ -23,6 +29,7 @@ public class PCSCore extends AppThread {
 	super(id, appKickstarter);
 	this.pollTime = Integer.parseInt(appKickstarter.getProperty("PCSCore.PollTime"));
 	this.openCloseGateTime = Integer.parseInt(appKickstarter.getProperty("PCSCore.OpenCloseGateTime"));		// for demo only!!!
+	datetimeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
     } // PCSCore
 
 
@@ -62,16 +69,24 @@ public class PCSCore extends AppThread {
 		    break;
 
 		case GetParkingFeeReply:
-			DateFormat datetimeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-			Date Enter = datetimeFormat.parse(msg);
-			Date Leave = datetimeFormat.parse(new Date());
+			Date Enter = null;
+			try {
+				Enter = datetimeFormat.parse(msg.getDetails());
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
+			Date Leave = null;
+			try {
+				Leave = datetimeFormat.parse(String.valueOf(new Date()));
+			} catch (ParseException e) {
+				e.printStackTrace();
+			}
 			long ParkingFee = (Leave.getTime() - Enter.getTime())/ (60 * 60 * 1000)*100;
-			paymachineMBox.send(new Msg(id, mbox, Msg.Type.handleDisplayFeeReply, Long.toString(ParkingFee)));
+			paymachineMBox.send(new Msg(id, mbox, Msg.Type.DisplayFeeReply, Long.toString(ParkingFee)));
 			break;
 
-		case handlePrintingTicketReply:
-			DateFormat datetimeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-			paymachineMBox.send(new Msg(id, mbox, Msg.Type.handlePrintingTicketReply, dateFormat.format(new Date())));
+		case PrintingTicketReply:
+			paymachineMBox.send(new Msg(id, mbox, Msg.Type.PrintingTicketReply, datetimeFormat.format(new Date())));
 			break;
 
 		case Terminate:

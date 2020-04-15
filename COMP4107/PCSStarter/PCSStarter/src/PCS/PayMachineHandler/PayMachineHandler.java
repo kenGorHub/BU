@@ -9,14 +9,12 @@ import AppKickstarter.misc.*;
 public class PayMachineHandler extends AppThread {
     protected final MBox pcsCore;
     private Double ParkingFee;
-    private PayMachineStatus paymachineStatus;
 
     //------------------------------------------------------------
     // PayMachineHandler
     public PayMachineHandler(String id, AppKickstarter appKickstarter) {
 		super(id, appKickstarter);
 		pcsCore = appKickstarter.getThread("PCSCore").getMBox();
-		paymachineStatus = PayMachineStatus.PM_idle;
     } // PayMachineHandler
 
 
@@ -26,12 +24,12 @@ public class PayMachineHandler extends AppThread {
 		Thread.currentThread().setName(id);
 		log.info(id + ": starting...");
 
-		for (true) {
+		for (boolean quit = false; !quit;) {
 			Msg msg = mbox.receive();
 
 			log.fine(id + ": message received: [" + msg + "].");
 
-			processMsg(msg);
+			quit = processMsg(msg);
 		}
 
 		// declaring our departure
@@ -42,17 +40,20 @@ public class PayMachineHandler extends AppThread {
 
     //------------------------------------------------------------
     // processMsg
-    protected void processMsg(Msg msg) {
+    protected boolean processMsg(Msg msg) {
+		boolean quit = false;
 
 		switch (msg.getType()) {
-			case ReadingTicketRequest:  	handleReadingTicketRequest(msg.toString());  break;
-			case DisplayFeeReply: 			handleDisplayFeeReply(Double.valueOf(msg.toString())); break;
-			case PayingFeeRequest:	   		handlePayingFeeRequest(Double.valueOf(msg.toString())); break;
-			case PrintingTicketReply:	   	handlePrintingTicketReply(msg.toString()); break;
+			case ReadingTicketRequest:  	handleReadingTicketRequest(msg.getDetails());  break;
+			case DisplayFeeReply: 			handleDisplayFeeReply(Double.valueOf(msg.getDetails())); break;
+			case PayingFeeRequest:	   		handlePayingFeeRequest(Double.valueOf(msg.getDetails())); break;
+			case PrintingTicketRequest:	   	handlePrintingTicketRequest(msg.getDetails()); break;
 			case ReturnTicketReply:	   		handleReturnTicketReply(); break;
+			case Terminate:	   				quit = true;		     break;
 			default:
 			log.warning(id + ": unknown message type: [" + msg + "]");
 		}
+		return quit;
     } // processMsg
 
 
@@ -61,23 +62,22 @@ public class PayMachineHandler extends AppThread {
     protected final void handleReadingTicketRequest(String Ticket) {
 		log.info(id + ": Reading Ticket");
 
-		String[] Ticket_inf = string.split(" ");
+		String[] Ticket_inf = Ticket.split(" ");
 		String TicketStatus = Ticket_inf[0];
 		String Enter_Time = Ticket_inf[1];
 
         switch (TicketStatus) {
-			case can_not_read:
+			case "can_not_read":
 			log.warning(id + ": can not read ticket ,please try again !!  Ignore request.");
 			break;
 
-			case already_paid:
+			case "already_paid":
 			log.warning(id + ": ticket is already paid!!  Ignore request.");
 			break;
 
-			case unpaid:
+			case "unpaid":
 			log.info(id + ": ticket is unpaid.  Send information to PCS.");
 			pcsCore.send(new Msg(id, mbox, Msg.Type.GetParkingFeeReply, Enter_Time));
-			paymachineStatus = PayMachineStatus.Waiting_PCS;
 			break;
 		}
     } // handleReadingTicketRequest
@@ -103,41 +103,28 @@ public class PayMachineHandler extends AppThread {
 		else{
 			log.info(id + ": payment success");
 			log.info(id + "Printing_ticket");
-			pcsCore.send(new Msg(id, mbox, Msg.Type.handlePrintingTicketReply, ""));
+			pcsCore.send(new Msg(id, mbox, Msg.Type.PrintingTicketReply, ""));
 		}
 	}
-
-    } // handlePayingFeeRequest()
+	 // handlePayingFeeRequest()
 
 
     //------------------------------------------------------------
-    // handlePrintingTicketReply
-    protected final void handlePrintingTicketReply(String LeaveDateTime) {
+    // handlePrintingTicketRequest
+    protected final void handlePrintingTicketRequest(String LeaveDateTime) {
 		log.info(id + ": leave information received");
 
 		log.info(id + "leave datetime:"+LeaveDateTime);
 		log.info(id + "parking fee:"+ParkingFee);
-    } // handlePrintingTicketReply
+    } // handlePrintingTicketRequest
 
 
     //------------------------------------------------------------
     // handleReturnTicketReply
     protected final void handleReturnTicketReply() {
 		log.info(id + ": ticket removed");
-		paymachineStatus = PayMachineStatus.PM_idle;
     } // handleReturnTicketReply
 
     //------------------------------------------------------------
-    // Pay Machine Status
-    private enum PayMachineStatus {
-		PM_idle,
-		reading_ticket,
-		Waiting_PCS,
-		Display_fee,
-		Paying_fee,
-		Pay_fail,
-		Pay_success,
-		Printing_ticket,
-		Return_ticket
-    }
+
 } // PayMachineHandler

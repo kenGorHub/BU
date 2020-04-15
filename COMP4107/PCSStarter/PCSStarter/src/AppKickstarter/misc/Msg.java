@@ -80,7 +80,7 @@ public class Msg {
      * @see Msg
      */
     public enum Type {
-        /** Terminate the running thread */	Terminate,
+    /** Terminate the running thread */	Terminate,
 	/** Generic error msg */		Error,
 	/** Set a timer */			SetTimer,
 	/** Set a timer */			CancelTimer,
@@ -95,5 +95,18 @@ public class Msg {
 	/** Toggling Gate Emulator AutoOpen */	GateEmulatorAutoOpenToggle,
 	/** Toggling Gate Emulator AutoClose */	GateEmulatorAutoCloseToggle,
 	/** Toggling Gate Emulator AutoPoll */	GateEmulatorAutoPollToggle,
+    /** Reading Ticket Request */ ReadingTicketRequest,
+    /** Display Fee Request */ DisplayFeeReply,
+    /** Paying Fee Request */ PayingFeeRequest,
+    /** Printing Ticket Request */ PrintingTicketRequest,
+    /** Return Ticket Request */ ReturnTicketReply,
+    /** Get Parking Fee Reply */ GetParkingFeeReply,
+    /** Return Ticket Reply */ PrintingTicketReply,
+    /** Toggling Pay Machine Emulator Auto Read_CNR */	 PayMachineEmulatorAutoRead_CNRToggle,
+    /** Toggling Pay Machine Emulator Auto Read_AP */	 PayMachineEmulatorAutoRead_APToggle,
+    /** Toggling Pay Machine Emulator Auto Read_UP */	 PayMachineEmulatorAutoRead_UPToggle,
+    /** Toggling Pay Machine Emulator Auto Pay_S */	 PayMachineEmulatorAutoPay_SToggle,
+    /** Toggling Pay Machine Emulator Auto Pay_F */	 PayMachineEmulatorAutoPay_FToggle,
+    /** Toggling Pay Machine Emulator Auto Return */	 PayMachineEmulatorAutoReturnToggle,
     } // Type
 } // Msg

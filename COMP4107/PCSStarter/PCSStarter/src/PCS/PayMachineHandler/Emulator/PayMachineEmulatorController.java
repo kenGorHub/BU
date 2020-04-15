@@ -27,8 +27,9 @@ public class PayMachineEmulatorController {
     public Button auto_Read_CNR_Button;
 	public Button auto_Read_AP_Button;
 	public Button auto_Read_UP_Button;
-    public Button autoCloseButton;
-    public Button autoPollButton;
+    public Button auto_Pay_S_Button;
+    public Button auto_Pay_F_Button;
+	public Button auto_Return_Button;
     private int lineNo = 0;
 	private DateFormat datetimeFormat;
 	private String Enter;
@@ -100,42 +101,42 @@ public class PayMachineEmulatorController {
 		break;
 
 		case "Auto Reading Ticket Request unpaid: On":
-		Platform.runLater(() -> auto_Read_AP_Button.setText("Auto Read_UP: Off"));
+		Platform.runLater(() -> auto_Read_UP_Button.setText("Auto Read_UP: Off"));
 		paymachineMBox.send(new Msg(id, null, Msg.Type.PayMachineEmulatorAutoRead_UPToggle, "ToggleAutoRead_UP"));
 		break;
 
 		case "Auto Reading Ticket Request unpaid: Off":
-		Platform.runLater(() -> auto_Read_AP_Button.setText("Auto Read_UP: On"));
+		Platform.runLater(() -> auto_Read_UP_Button.setText("Auto Read_UP: On"));
 		paymachineMBox.send(new Msg(id, null, Msg.Type.PayMachineEmulatorAutoRead_UPToggle, "ToggleAutoRead_UP"));
 		break;
 
 		case "Auto Paying Fee Request enought balance: On":
-		Platform.runLater(() -> auto_Read_AP_Button.setText("Auto Read_UP: Off"));
+		Platform.runLater(() -> auto_Pay_S_Button.setText("Auto Read_UP: Off"));
 		paymachineMBox.send(new Msg(id, null, Msg.Type.PayMachineEmulatorAutoPay_SToggle, "ToggleAutoPay_S"));
 		break;
 
 		case "Auto Paying Fee Request enought balance: Off":
-		Platform.runLater(() -> auto_Read_AP_Button.setText("Auto Read_UP: On"));
+		Platform.runLater(() -> auto_Pay_S_Button.setText("Auto Read_UP: On"));
 		paymachineMBox.send(new Msg(id, null, Msg.Type.PayMachineEmulatorAutoPay_SToggle, "ToggleAutoPay_S"));
 		break;
 
-		case "Auto Reading Ticket Request unpaid: On":
-		Platform.runLater(() -> auto_Read_AP_Button.setText("Auto Read_UP: Off"));
+		case "Auto Paying Fee Request not enought balance: On":
+		Platform.runLater(() -> auto_Pay_F_Button.setText("Auto Read_UP: Off"));
 		paymachineMBox.send(new Msg(id, null, Msg.Type.PayMachineEmulatorAutoPay_FToggle, "ToggleAutoPay_F"));
 		break;
 
-		case "Auto Reading Ticket Request unpaid: Off":
-		Platform.runLater(() -> auto_Read_AP_Button.setText("Auto Read_UP: On"));
+		case "Auto Paying Fee Request not enought balance: Off":
+		Platform.runLater(() -> auto_Pay_F_Button.setText("Auto Read_UP: On"));
 		paymachineMBox.send(new Msg(id, null, Msg.Type.PayMachineEmulatorAutoPay_FToggle, "ToggleAutoPay_F"));
 		break;
 
 		case "Auto Return Ticket: On":
-		Platform.runLater(() -> auto_Read_AP_Button.setText("Auto Read_UP: Off"));
+		Platform.runLater(() -> auto_Return_Button.setText("Auto Read_UP: Off"));
 		paymachineMBox.send(new Msg(id, null, Msg.Type.PayMachineEmulatorAutoReturnToggle, "ToggleAutoReturn"));
 		break;
 
 		case "Auto Return Ticket: Off":
-		Platform.runLater(() -> auto_Read_AP_Button.setText("Auto Read_UP: On"));
+		Platform.runLater(() -> auto_Return_Button.setText("Auto Read_UP: On"));
 		paymachineMBox.send(new Msg(id, null, Msg.Type.PayMachineEmulatorAutoReturnToggle, "ToggleAutoReturn"));
 		break;
 

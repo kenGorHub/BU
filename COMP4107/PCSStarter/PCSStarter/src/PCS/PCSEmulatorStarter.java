@@ -6,6 +6,8 @@ import PCS.PCSCore.PCSCore;
 import PCS.GateHandler.GateHandler;
 import PCS.GateHandler.Emulator.GateEmulator;
 
+import PCS.PayMachineHandler.Emulator.PayMachineEmulator;
+import PCS.PayMachineHandler.PayMachineHandler;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -46,15 +48,18 @@ public class PCSEmulatorStarter extends PCSStarter {
 	    Timer timer = null;
 	    PCSCore pcsCore = null;
 	    GateEmulator gateEmulator = null;
+	    PayMachineEmulator paymachineEmulator = null;
 
 	    // create emulators
 	    try {
 	        timer = new Timer("timer", pcsEmulatorStarter);
 	        pcsCore = new PCSCore("PCSCore", pcsEmulatorStarter);
 	        gateEmulator = new GateEmulator("GateHandler", pcsEmulatorStarter);
+            paymachineEmulator = new PayMachineEmulator("PayMachineHandler", pcsEmulatorStarter);
 
 		// start emulator GUIs
 		gateEmulator.start();
+		paymachineEmulator.start();
 	    } catch (Exception e) {
 		System.out.println("Emulators: start failed");
 		e.printStackTrace();
@@ -63,6 +68,7 @@ public class PCSEmulatorStarter extends PCSStarter {
 	    pcsEmulatorStarter.setTimer(timer);
 	    pcsEmulatorStarter.setPCSCore(pcsCore);
 	    pcsEmulatorStarter.setGateHandler(gateEmulator);
+	    pcsEmulatorStarter.setPayMachineHandler(paymachineEmulator);
 
 	    // start threads
 	    new Thread(timer).start();
@@ -83,4 +89,5 @@ public class PCSEmulatorStarter extends PCSStarter {
     private void setGateHandler(GateHandler gateHandler) {
 	this.gateHandler = gateHandler;
     }
+    private void setPayMachineHandler(PayMachineHandler paymachineHandlerHandler) { this.paymachineHandlerHandler = paymachineHandlerHandler; }
 } // PCSEmulatorStarter

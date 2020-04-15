@@ -5,6 +5,7 @@ import AppKickstarter.timer.Timer;
 import PCS.PCSCore.PCSCore;
 import PCS.GateHandler.GateHandler;
 
+import PCS.PayMachineHandler.PayMachineHandler;
 import javafx.application.Platform;
 
 
@@ -14,6 +15,7 @@ public class PCSStarter extends AppKickstarter {
     protected Timer timer;
     protected PCSCore pcsCore;
     protected GateHandler gateHandler;
+    protected PayMachineHandler paymachineHandler;
 
 
     //------------------------------------------------------------
@@ -51,6 +53,7 @@ public class PCSStarter extends AppKickstarter {
 	    timer = new Timer("timer", this);
 	    pcsCore = new PCSCore("PCSCore", this);
 	    gateHandler = new GateHandler("GateHandler", this);
+		paymachineHandler = new PayMachineHandler("PayMachineHandler",this);
 	} catch (Exception e) {
 	    System.out.println("AppKickstarter: startApp failed");
 	    e.printStackTrace();
@@ -61,6 +64,7 @@ public class PCSStarter extends AppKickstarter {
 	new Thread(timer).start();
 	new Thread(pcsCore).start();
 	new Thread(gateHandler).start();
+	new Thread(paymachineHandler).start();
     } // startHandlers
 
 
@@ -73,6 +77,7 @@ public class PCSStarter extends AppKickstarter {
 	log.info(id + ": Application Stopping...");
 	pcsCore.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
 	gateHandler.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
+	paymachineHandler.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
 	timer.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
     } // stopApp
 } // PCS.PCSStarter

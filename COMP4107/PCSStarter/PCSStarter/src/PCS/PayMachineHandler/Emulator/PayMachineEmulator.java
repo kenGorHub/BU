@@ -22,10 +22,6 @@ public class PayMachineEmulator extends PayMachineHandler {
     private PayMachineEmulatorController paymachineEmulatorController;
     private final PCSStarter pcsStarter;
     private final String id;
-    private final int gateOpenTime;
-    private final int gateCloseTime;
-    private final int GateOpenTimerID = 1;
-    private final int GateCloseTimerID = 2;
     private boolean autoRead_CNR;
     private boolean autoRead_AP;
     private boolean autoRead_UP;
@@ -80,9 +76,6 @@ public class PayMachineEmulator extends PayMachineHandler {
         boolean quit = false;
 
 	switch (msg.getType()) {
-	    case TimesUp:
-	        handleTimesUp(msg);
-	        break;
 
 	    case PayMachineEmulatorAutoRead_CNRToggle:
 		handlePayMachineEmulatorAutoRead_CNRToggle();
@@ -113,76 +106,6 @@ public class PayMachineEmulator extends PayMachineHandler {
 	}
 	return quit;
     } // processMsg
-
-
-    //------------------------------------------------------------
-    // sendGateOpenSignal
-    @Override
-    protected void sendGateOpenSignal() {
-	logFine("Gate open signal received.  [autoOpen is " + (autoOpen ? "on]" : "off]"));
-        if (autoOpen) {
-	    logFine("Gate open timer started.");
-	    Timer.setTimer(id, mbox, gateOpenTime, GateOpenTimerID);
-	}
-    } // sendGateOpenSignal
-
-
-    //------------------------------------------------------------
-    // sendGateCloseSignal
-    @Override
-    protected void sendGateCloseSignal() {
-	logFine("Gate close signal received.  [autoClose is " + (autoClose ? "on]" : "off]"));
-	if (autoClose) {
-	    logFine("Gate close timer started.");
-	    Timer.setTimer(id, mbox, gateCloseTime, GateCloseTimerID);
-	}
-    } // sendGateCloseSignal
-
-
-    //------------------------------------------------------------
-    // sendPollReq
-    @Override
-    protected void sendPollReq() {
-	logFine("Poll request received.  [autoPoll is " + (autoPoll ? "on]" : "off]"));
-	if (autoPoll) {
-	    logFine("Send poll ack.");
-	    mbox.send(new Msg(id, mbox, Msg.Type.PollAck, ""));
-	}
-    } // sendPollReq
-
-
-    //------------------------------------------------------------
-    // handleTimesUp
-    public final void handleTimesUp(Msg msg) {
-	logFine("Times up received.");
-
-	switch (Timer.getTimesUpMsgTimerId(msg)) {
-	    case GateOpenTimerID:
-		logFine("Gate open timer is up.  [autoOpen is " + (autoOpen ? "on]" : "off]"));
-	        if (autoOpen) {
-		    logFine("Send gate open reply");
-		    mbox.send(new Msg(id, mbox, Msg.Type.GateOpenReply, "Gate Open Reply"));
-		} else {
-	            // autoOpen is off.  just ignore timeout msg
-		    logFine("Auto open is off.  Timer ignored.");
-		}
-		break;
-
-	    case GateCloseTimerID:
-		logFine("Gate close timer is up.  [autoClose is " + (autoClose ? "on]" : "off]"));
-		if (autoClose) {
-		    logFine("Send gate close reply");
-		    mbox.send(new Msg(id, mbox, Msg.Type.GateCloseReply, "Gate Close Reply"));
-		} else {
-		    // autoClose is off.  just ignore timeout msg
-		    logFine("Auto close is off.  Timer ignored.");
-		}
-		break;
-
-	    default:
-		logSevere("Unknown timer id!!");
-	}
-    } // handleTimesUp
 
 
     //------------------------------------------------------------
@@ -273,7 +196,7 @@ public class PayMachineEmulator extends PayMachineHandler {
     //------------------------------------------------------------
     // logSevere
     private final void logSevere(String logMsg) {
-	gateEmulatorController.appendTextArea("[SEVERE]: " + logMsg);
+	paymachineEmulatorController.appendTextArea("[SEVERE]: " + logMsg);
 	log.severe(id + ": " + logMsg);
     } // logSevere
 } // GateEmulator
