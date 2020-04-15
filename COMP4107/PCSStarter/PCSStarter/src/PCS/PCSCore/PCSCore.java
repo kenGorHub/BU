@@ -9,6 +9,7 @@ import AppKickstarter.timer.Timer;
 // PCSCore
 public class PCSCore extends AppThread {
     private MBox gateMBox;
+	private MBox paymachineMBox;
     private final int pollTime;
     private final int PollTimerID=1;
     private final int openCloseGateTime;		// for demo only!!!
@@ -34,6 +35,7 @@ public class PCSCore extends AppThread {
 	log.info(id + ": starting...");
 
 	gateMBox = appKickstarter.getThread("GateHandler").getMBox();
+	paymachineMBox = appKickstarter.getThread("PayMachineHandler").getMBox();
 
 	for (boolean quit = false; !quit;) {
 	    Msg msg = mbox.receive();
@@ -58,6 +60,19 @@ public class PCSCore extends AppThread {
 		case PollAck:
 		    log.info("PollAck: " + msg.getDetails());
 		    break;
+
+		case GetParkingFeeReply:
+			DateFormat datetimeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			Date Enter = datetimeFormat.parse(msg);
+			Date Leave = datetimeFormat.parse(new Date());
+			long ParkingFee = (Leave.getTime() - Enter.getTime())/ (60 * 60 * 1000)*100;
+			paymachineMBox.send(new Msg(id, mbox, Msg.Type.handleDisplayFeeReply, Long.toString(ParkingFee)));
+			break;
+
+		case handlePrintingTicketReply:
+			DateFormat datetimeFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+			paymachineMBox.send(new Msg(id, mbox, Msg.Type.handlePrintingTicketReply, dateFormat.format(new Date())));
+			break;
 
 		case Terminate:
 		    quit = true;
