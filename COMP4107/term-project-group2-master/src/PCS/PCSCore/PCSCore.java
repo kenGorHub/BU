@@ -9,11 +9,12 @@ import AppKickstarter.timer.Timer;
 // PCSCore
 public class PCSCore extends AppThread {
     private MBox gateMBox;
+    private MBox sensorMBox;
     private final int pollTime;
     private final int PollTimerID=1;
-    private final int openCloseGateTime;		// for demo only!!!
-    private final int OpenCloseGateTimerID=2;		// for demo only!!!
-    private boolean gateIsClosed = true;		// for demo only!!!
+    //private final int openCloseGateTime;		// for demo only!!!
+    //private final int OpenCloseGateTimerID=2;		// for demo only!!!
+    //private boolean gateIsClosed = true;		// for demo only!!!
 
 
     //------------------------------------------------------------
@@ -21,7 +22,7 @@ public class PCSCore extends AppThread {
     public PCSCore(String id, AppKickstarter appKickstarter) throws Exception {
 	super(id, appKickstarter);
 	this.pollTime = Integer.parseInt(appKickstarter.getProperty("PCSCore.PollTime"));
-	this.openCloseGateTime = Integer.parseInt(appKickstarter.getProperty("PCSCore.OpenCloseGateTime"));		// for demo only!!!
+	//this.openCloseGateTime = Integer.parseInt(appKickstarter.getProperty("PCSCore.OpenCloseGateTime"));		// for demo only!!!
     } // PCSCore
 
 
@@ -30,10 +31,11 @@ public class PCSCore extends AppThread {
     public void run() {
         Thread.currentThread().setName(id);
 	Timer.setTimer(id, mbox, pollTime, PollTimerID);
-	Timer.setTimer(id, mbox, openCloseGateTime, OpenCloseGateTimerID);	// for demo only!!!
+	//Timer.setTimer(id, mbox, openCloseGateTime, OpenCloseGateTimerID);	// for demo only!!!
 	log.info(id + ": starting...");
 
-	gateMBox = appKickstarter.getThread("GateHandler").getMBox();
+	//gateMBox = appKickstarter.getThread("GateHandler").getMBox();
+	sensorMBox = appKickstarter.getThread("SensorHandler").getMBox();
 
 	for (boolean quit = false; !quit;) {
 	    Msg msg = mbox.receive();
@@ -41,7 +43,7 @@ public class PCSCore extends AppThread {
 	    log.fine(id + ": message received: [" + msg + "].");
 
 	    switch (msg.getType()) {
-		case TimesUp:
+		/*case TimesUp:
 		    handleTimesUp(msg);
 		    break;
 
@@ -53,7 +55,7 @@ public class PCSCore extends AppThread {
 		case GateCloseReply:
 		    log.info(id + ": Gate is closed.");
 		    gateIsClosed = true;
-		    break;
+		    break;*/
 
 		case PollAck:
 		    log.info("PollAck: " + msg.getDetails());
@@ -76,29 +78,29 @@ public class PCSCore extends AppThread {
 
     //------------------------------------------------------------
     // run
-    private void handleTimesUp(Msg msg) {
+    /*private void handleTimesUp(Msg msg) {
 	log.info("------------------------------------------------------------");
         switch (Timer.getTimesUpMsgTimerId(msg)) {
-	    case PollTimerID:
-		log.info("Poll: " + msg.getDetails());
-		gateMBox.send(new Msg(id, mbox, Msg.Type.Poll, ""));
-		Timer.setTimer(id, mbox, pollTime, PollTimerID);
-	        break;
+			case PollTimerID:
+			log.info("Poll: " + msg.getDetails());
+			gateMBox.send(new Msg(id, mbox, Msg.Type.Poll, ""));
+			Timer.setTimer(id, mbox, pollTime, PollTimerID);
+				break;
 
-	    case OpenCloseGateTimerID:					// for demo only!!!
-	        if (gateIsClosed) {
-		    log.info(id + ": Open the gate now (for demo only!!!)");
-		    gateMBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, ""));
-		} else {
-		    log.info(id + ": Close the gate now (for demo only!!!)");
-		    gateMBox.send(new Msg(id, mbox, Msg.Type.GateCloseRequest, ""));
+			case OpenCloseGateTimerID:					// for demo only!!!
+				if (gateIsClosed) {
+				log.info(id + ": Open the gate now (for demo only!!!)");
+				gateMBox.send(new Msg(id, mbox, Msg.Type.GateOpenRequest, ""));
+			} else {
+				log.info(id + ": Close the gate now (for demo only!!!)");
+				gateMBox.send(new Msg(id, mbox, Msg.Type.GateCloseRequest, ""));
+			}
+			Timer.setTimer(id, mbox, openCloseGateTime, OpenCloseGateTimerID);
+			break;
+
+			default:
+				log.severe(id + ": why am I receiving a timeout with timer id " + Timer.getTimesUpMsgTimerId(msg));
+				break;
 		}
-		Timer.setTimer(id, mbox, openCloseGateTime, OpenCloseGateTimerID);
-		break;
-
-	    default:
-	        log.severe(id + ": why am I receiving a timeout with timer id " + Timer.getTimesUpMsgTimerId(msg));
-	        break;
-	}
-    } // handleTimesUp
+    } // handleTimesUp*/
 } // PCSCore

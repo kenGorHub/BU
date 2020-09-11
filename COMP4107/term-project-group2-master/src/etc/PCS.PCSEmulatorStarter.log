@@ -1,35 +1,46 @@
-200414-18:03:48 [INFO] -- 
-200414-18:03:48 [INFO] -- 
-200414-18:03:48 [INFO] -- ============================================================
-200414-18:03:48 [INFO] -- PCSStarter: Application Starting...
-200414-18:03:48 [FINE] -- PCSStarter: registering timer
-200414-18:03:48 [FINE] -- timer: created!
-200414-18:03:48 [FINE] -- PCSStarter: registering PCSCore
-200414-18:03:48 [FINE] -- PCSCore: created!
-200414-18:03:48 [FINE] -- PCSStarter: registering GateHandler
-200414-18:03:48 [FINE] -- GateHandler: created!
-200414-18:03:48 [FINE] -- PCSStarter: registering SensorHandler
-200414-18:03:48 [FINE] -- SensorHandler: created!
-200414-18:03:49 [INFO] -- SensorHandler: starting...
-200414-18:03:49 [INFO] -- timer: starting...
-200414-18:03:49 [INFO] -- GateHandler: starting...
-200414-18:03:49 [INFO] -- PCSCore: starting...
-200414-18:03:54 [FINE] -- PCSCore: message received: [Timer (TimesUp) -- TimesUp 00002 0].
-200414-18:03:54 [INFO] -- ------------------------------------------------------------
-200414-18:03:54 [INFO] -- PCSCore: Open the gate now (for demo only!!!)
-200414-18:03:54 [FINE] -- GateHandler: message received: [PCSCore (GateOpenRequest) -- ].
-200414-18:03:54 [INFO] -- GateHandler: gate open request received
-200414-18:03:54 [INFO] -- GateHandler: send signal to open the gate now.
-200414-18:03:54 [FINE] -- GateHandlerEmulator: Gate open signal received.  [autoOpen is on]
-200414-18:03:54 [FINE] -- GateHandlerEmulator: Gate open timer started.
-200414-18:03:54 [FINE] -- GateHandler: gate status change: GateClosed --> GateOpening
-200414-18:03:56 [FINE] -- GateHandler: message received: [Timer (TimesUp) -- TimesUp 00001 0].
-200414-18:03:56 [FINE] -- GateHandlerEmulator: Times up received.
-200414-18:03:56 [FINE] -- GateHandlerEmulator: Gate open timer is up.  [autoOpen is on]
-200414-18:03:56 [FINE] -- GateHandlerEmulator: Send gate open reply
-200414-18:03:56 [FINE] -- GateHandler: message received: [GateHandlerEmulator (GateOpenReply) -- Gate Open Reply].
-200414-18:03:56 [INFO] -- GateHandler: gate open reply received
-200414-18:03:56 [INFO] -- GateHandler: inform PCS Core that gate has finished opening.
-200414-18:03:56 [FINE] -- PCSCore: message received: [GateHandler (GateOpenReply) -- ].
-200414-18:03:56 [FINE] -- GateHandler: gate status change: GateOpening --> GateOpened
-200414-18:03:56 [INFO] -- PCSCore: Gate is opened.
+200419-04:26:05 [INFO] -- 
+200419-04:26:05 [INFO] -- 
+200419-04:26:05 [INFO] -- ============================================================
+200419-04:26:05 [INFO] -- PCSStarter: Application Starting...
+200419-04:26:05 [FINE] -- PCSStarter: registering timer
+200419-04:26:05 [FINE] -- timer: created!
+200419-04:26:05 [FINE] -- PCSStarter: registering PCSCore
+200419-04:26:05 [FINE] -- PCSCore: created!
+200419-04:26:05 [FINE] -- PCSStarter: registering SensorHandler
+200419-04:26:05 [FINE] -- SensorHandler: created!
+200419-04:26:05 [INFO] -- timer: starting...
+200419-04:26:05 [INFO] -- SensorHandler: starting...
+200419-04:26:05 [INFO] -- PCSCore: starting...
+200419-04:26:08 [FINE] -- SensorHandler: message received: [SensorHandlerEmulator (FloorNumber) -- 1].
+200419-04:26:08 [FINE] -- SensorHandler: Now floor: 1 Car number:0
+200419-04:26:10 [FINE] -- SensorHandler: message received: [SensorHandlerEmulator (FloorNumber) -- 0].
+200419-04:26:10 [FINE] -- SensorHandler: Now floor: 0 Car number:5
+200419-04:26:16 [FINE] -- SensorHandler: message received: [SensorHandlerEmulator (FloorNumber) -- 3].
+200419-04:26:16 [FINE] -- SensorHandler: Now floor: 3 Car number:0
+200419-04:26:19 [FINE] -- SensorHandler: message received: [SensorHandlerEmulator (FloorNumber) -- 2].
+200419-04:26:19 [FINE] -- SensorHandler: Now floor: 2 Car number:0
+200419-04:26:21 [FINE] -- SensorHandler: message received: [SensorHandlerEmulator (FloorNumber) -- 1].
+200419-04:26:21 [FINE] -- SensorHandler: Now floor: 1 Car number:0
+200419-04:26:24 [FINE] -- SensorHandler: message received: [SensorHandlerEmulator (FloorNumber) -- 0].
+200419-04:26:24 [FINE] -- SensorHandler: Now floor: 0 Car number:5
+200419-04:26:25 [FINE] -- SensorHandler: message received: [SensorHandlerEmulator (GoingUp) -- Car is going up].
+200419-04:26:25 [FINE] -- SensorHandler: Car is going up.
+200419-04:26:25 [FINE] -- SensorHandler: message received: [SensorHandlerEmulator (FloorNumber) -- 0].
+200419-04:26:25 [FINE] -- SensorHandler: Now floor: 0 Car number:4
+200419-04:26:28 [FINE] -- SensorHandler: message received: [SensorHandlerEmulator (FloorNumber) -- 1].
+200419-04:26:28 [FINE] -- SensorHandler: Now floor: 1 Car number:1
+200419-04:26:31 [FINE] -- SensorHandler: message received: [SensorHandlerEmulator (FloorNumber) -- 0].
+200419-04:26:31 [FINE] -- SensorHandler: Now floor: 0 Car number:4
+200419-04:26:37 [INFO] -- 
+200419-04:26:37 [INFO] -- 
+200419-04:26:37 [INFO] -- ============================================================
+200419-04:26:37 [INFO] -- PCSStarter: Application Stopping...
+200419-04:26:37 [FINE] -- SensorHandler: message received: [PCSStarter (Terminate) -- Terminate now!].
+200419-04:26:37 [FINE] -- PCSCore: message received: [PCSStarter (Terminate) -- Terminate now!].
+200419-04:26:37 [INFO] -- timer: received terminate!
+200419-04:26:37 [FINE] -- PCSStarter: unregistering SensorHandler
+200419-04:26:37 [FINE] -- PCSStarter: unregistering PCSCore
+200419-04:26:37 [FINE] -- PCSStarter: unregistering timer
+200419-04:26:37 [INFO] -- SensorHandler: terminating...
+200419-04:26:37 [INFO] -- PCSCore: terminating...
+200419-04:26:37 [INFO] -- timer: terminating...

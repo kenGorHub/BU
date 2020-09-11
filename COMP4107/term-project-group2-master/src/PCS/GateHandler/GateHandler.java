@@ -42,20 +42,20 @@ public class GateHandler extends AppThread {
     //------------------------------------------------------------
     // processMsg
     protected boolean processMsg(Msg msg) {
-        boolean quit = false;
+		boolean quit = false;
 
-	switch (msg.getType()) {
-	    case GateOpenRequest:  handleGateOpenRequest();  break;
-	    case GateCloseRequest: handleGateCloseRequest(); break;
-	    case GateOpenReply:	   handleGateOpenReply();    break;
-	    case GateCloseReply:   handleGateCloseReply();   break;
-	    case Poll:		   handlePollReq();	     break;
-	    case PollAck:	   handlePollAck();	     break;
-	    case Terminate:	   quit = true;		     break;
-	    default:
-		log.warning(id + ": unknown message type: [" + msg + "]");
-	}
-	return quit;
+		switch (msg.getType()) {
+			case GateOpenRequest:  handleGateOpenRequest();  break;
+			case GateCloseRequest: handleGateCloseRequest(); break;
+			case GateOpenReply:	   handleGateOpenReply();    break;
+			case GateCloseReply:   handleGateCloseReply();   break;
+			case Poll:		   handlePollReq();	     break;
+			case PollAck:	   handlePollAck();	     break;
+			case Terminate:	   quit = true;		     break;
+			default:
+			log.warning(id + ": unknown message type: [" + msg + "]");
+		}
+		return quit;
     } // processMsg
 
 

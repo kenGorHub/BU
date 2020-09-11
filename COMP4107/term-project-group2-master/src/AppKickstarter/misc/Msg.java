@@ -19,10 +19,10 @@ public class Msg {
      * @param details details of the msg (free format String)
      */
     public Msg(String sender, MBox senderMBox, Type type, String details) {
-	this.sender = sender;
-	this.senderMBox = senderMBox;
-	this.type = type;
-	this.details = details;
+		this.sender = sender;
+		this.senderMBox = senderMBox;
+		this.type = type;
+		this.details = details;
     } // Msg
 
 
@@ -95,5 +95,11 @@ public class Msg {
 	/** Toggling Gate Emulator AutoOpen */	GateEmulatorAutoOpenToggle,
 	/** Toggling Gate Emulator AutoClose */	GateEmulatorAutoCloseToggle,
 	/** Toggling Gate Emulator AutoPoll */	GateEmulatorAutoPollToggle,
+	/**  going up */	GoingUp,
+	/**  going down */	GoingDown,
+	/**  get Floor number */	FloorNumber,
+	/**  Send Car Number */	SendCarNumber,
+	/**  Car Exit */	CarExit,
+	/**  Car Entrance */	CarEntrance,
     } // Type
 } // Msg

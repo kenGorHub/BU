@@ -96,8 +96,8 @@ public abstract class AppKickstarter {
      * @param appThread the appThread to register
      */
     public void regThread(AppThread appThread) {
-	log.fine(id + ": registering " + appThread.getID());
-	synchronized (appThreads) { appThreads.put(appThread.getID(), appThread); }
+		log.fine(id + ": registering " + appThread.getID());
+		synchronized (appThreads) { appThreads.put(appThread.getID(), appThread); }
     } // regThread
 
 
@@ -108,8 +108,8 @@ public abstract class AppKickstarter {
      * @param appThread the appThread to unregister
      */
     public void unregThread(AppThread appThread) {
-	log.fine(id + ": unregistering " + appThread.getID());
-	synchronized (appThreads) { appThreads.remove(appThread.getID()); }
+		log.fine(id + ": unregistering " + appThread.getID());
+		synchronized (appThreads) { appThreads.remove(appThread.getID()); }
     } // unregThread
 
 
@@ -121,7 +121,7 @@ public abstract class AppKickstarter {
      * @return the corresponding appThread (null if not found)
      */
     public AppThread getThread(String id) {
-	synchronized (appThreads) { return appThreads.get(id); }
+		synchronized (appThreads) { return appThreads.get(id); }
     } // getThread
 
 
@@ -132,7 +132,7 @@ public abstract class AppKickstarter {
      * @return the logger created by the AppKickstarter
      */
     public Logger getLogger() {
-	return log;
+		return log;
     } // getLogger
 
 

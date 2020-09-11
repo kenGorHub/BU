@@ -78,7 +78,8 @@ public class PCSStarter extends AppKickstarter {
 		log.info("============================================================");
 		log.info(id + ": Application Stopping...");
 		pcsCore.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
-		gateHandler.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
+		//gateHandler.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
+		sensorHandler.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
 		timer.getMBox().send(new Msg(id, null, Msg.Type.Terminate, "Terminate now!"));
     } // stopApp
 } // PCS.PCSStarter

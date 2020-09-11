@@ -48,23 +48,23 @@ public class GateEmulator extends GateHandler {
     //------------------------------------------------------------
     // start
     public void start() throws Exception {
-	Parent root;
-	myStage = new Stage();
-	FXMLLoader loader = new FXMLLoader();
-	String fxmlName = "GateEmulator.fxml";
-	loader.setLocation(GateEmulator.class.getResource(fxmlName));
-	root = loader.load();
-	gateEmulatorController = (GateEmulatorController) loader.getController();
-	gateEmulatorController.initialize(id, pcsStarter, log, this);
-	myStage.initStyle(StageStyle.DECORATED);
-	myStage.setScene(new Scene(root, 420, 470));
-	myStage.setTitle("Gate Emulator");
-	myStage.setResizable(false);
-	myStage.setOnCloseRequest((WindowEvent event) -> {
-	    pcsStarter.stopApp();
-	    Platform.exit();
-	});
-	myStage.show();
+		Parent root;
+		myStage = new Stage();
+		FXMLLoader loader = new FXMLLoader();
+		String fxmlName = "GateEmulator.fxml";
+		loader.setLocation(GateEmulator.class.getResource(fxmlName));
+		root = loader.load();
+		gateEmulatorController = (GateEmulatorController) loader.getController();
+		gateEmulatorController.initialize(id, pcsStarter, log, this);
+		myStage.initStyle(StageStyle.DECORATED);
+		myStage.setScene(new Scene(root, 420, 470));
+		myStage.setTitle("Gate Emulator");
+		myStage.setResizable(false);
+		myStage.setOnCloseRequest((WindowEvent event) -> {
+			pcsStarter.stopApp();
+			Platform.exit();
+		});
+		myStage.show();
     } // GateEmulator
 
 

@@ -47,19 +47,19 @@ public class PCSEmulatorStarter extends PCSStarter {
         public void start(Stage primaryStage) {
 			Timer timer = null;
 			PCSCore pcsCore = null;
-			GateEmulator gateEmulator = null;
+			//GateEmulator gateEmulator = null;
 			SensorEmulator sensorEmulator = null;
 
 			// create emulators
 			try {
 				timer = new Timer("timer", pcsEmulatorStarter);
 				pcsCore = new PCSCore("PCSCore", pcsEmulatorStarter);
-				gateEmulator = new GateEmulator("GateHandler", pcsEmulatorStarter);
-				//sensorEmulator = new SensorEmulator("SensorHandler", pcsEmulatorStarter);
+				//gateEmulator = new GateEmulator("GateHandler", pcsEmulatorStarter);
+				sensorEmulator = new SensorEmulator("SensorHandler", pcsEmulatorStarter);
 
 				// start emulator GUIs
-				gateEmulator.start();
-				//sensorEmulator.start();
+				//gateEmulator.start();
+				sensorEmulator.start();
 			} catch (Exception e) {
 				System.out.println("Emulators: start failed");
 				e.printStackTrace();
@@ -67,14 +67,14 @@ public class PCSEmulatorStarter extends PCSStarter {
 			}
 			pcsEmulatorStarter.setTimer(timer);
 			pcsEmulatorStarter.setPCSCore(pcsCore);
-			pcsEmulatorStarter.setGateHandler(gateEmulator);
-			//pcsEmulatorStarter.setSensorHandler(sensorEmulator);
+			//pcsEmulatorStarter.setGateHandler(gateEmulator);
+			pcsEmulatorStarter.setSensorHandler(sensorEmulator);
 
 			// start threads
 			new Thread(timer).start();
 			new Thread(pcsCore).start();
-			new Thread(gateEmulator).start();
-			//new Thread(sensorEmulator).start();
+			//new Thread(gateEmulator).start();
+			new Thread(sensorEmulator).start();
 		} // start
     } // Emulators
 
