@@ -1,0 +1,27 @@
+#Internal package file, do not edit.
+#Fri Sep 18 19:06:09 CST 2020
+2.base=Z\:\\app\\build\\intermediates\\transforms\\stripDebugSymbol\\debug\\0
+5.set=NATIVE_RESOURCE
+0.path=classes.dex
+2.baseType=DIRECTORY
+3.base=Z\:\\app\\build\\intermediates\\transforms\\stripDebugSymbol\\debug\\0
+2.set=NATIVE_RESOURCE
+1.path=lib/armeabi-v7a/libvrapi.so
+4.base=Z\:\\app\\build\\intermediates\\merged_assets\\debug\\mergeDebugAssets\\out
+count=6
+5.baseType=DIRECTORY
+2.path=lib/armeabi-v7a/libOVRPlugin.so
+5.base=Z\:\\app\\build\\intermediates\\transforms\\stripDebugSymbol\\debug\\0
+4.set=ASSET
+3.path=lib/armeabi-v7a/libgnustl_shared.so
+3.baseType=DIRECTORY
+1.set=NATIVE_RESOURCE
+4.path=UE4CommandLine.txt
+1.baseType=DIRECTORY
+5.path=lib/armeabi-v7a/libUE4.so
+0.base=Z\:\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.baseType=DIRECTORY
+3.set=NATIVE_RESOURCE
+1.base=Z\:\\app\\build\\intermediates\\transforms\\stripDebugSymbol\\debug\\0
+4.baseType=DIRECTORY
+0.set=DEX
