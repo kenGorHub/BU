@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Sep 18 19:06:09 CST 2020
+#Sun Sep 20 12:11:37 CST 2020
 2.base=Z\:\\app\\build\\intermediates\\transforms\\stripDebugSymbol\\debug\\0
 5.set=NATIVE_RESOURCE
 0.path=classes.dex

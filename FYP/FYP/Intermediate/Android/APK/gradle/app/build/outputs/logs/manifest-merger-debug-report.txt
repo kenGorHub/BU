@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from Z:\app\src\main\AndroidManifest.xml:1:1-56:12
-INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-56:12
-INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-56:12
-INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-56:12
+ADDED from Z:\app\src\main\AndroidManifest.xml:1:1-58:12
+INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-58:12
+INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-58:12
+INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-58:12
 MERGED from [com.google.android.gms:play-services-auth:11.8.0] C:\Users\ken\.gradle\caches\transforms-1\files-1.1\play-services-auth-11.8.0.aar\63595c767c750769895f4dd920961629\AndroidManifest.xml:17:1-39:12
 MERGED from [com.google.android.gms:play-services-games:11.8.0] C:\Users\ken\.gradle\caches\transforms-1\files-1.1\play-services-games-11.8.0.aar\3749b8cb57239862fe9463b7e44e679d\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-nearby:11.8.0] C:\Users\ken\.gradle\caches\transforms-1\files-1.1\play-services-nearby-11.8.0.aar\af90c043c4ba573f2b4c6e45af1538d3\AndroidManifest.xml:2:1-11:12
@@ -38,9 +38,9 @@ MERGED from [com.google.android.gms:play-services-base-license:11.8.0] C:\Users\
 MERGED from [com.google.android.gms:play-services-basement-license:11.8.0] C:\Users\ken\.gradle\caches\transforms-1\files-1.1\play-services-basement-license-11.8.0.aar\05afaa8a8038104080ea7b7dd8aa629c\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-tasks-license:11.8.0] C:\Users\ken\.gradle\caches\transforms-1\files-1.1\play-services-tasks-license-11.8.0.aar\fd1919a25e42511e149b51176bccdf09\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-drive-license:11.8.0] C:\Users\ken\.gradle\caches\transforms-1\files-1.1\play-services-drive-license-11.8.0.aar\57233b5cb332fecff920c25d461b77a1\AndroidManifest.xml:2:1-6:12
-INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-56:12
-INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-56:12
-INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-56:12
+INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-58:12
+INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-58:12
+INJECTED from Z:\app\src\main\AndroidManifest.xml:1:1-58:12
 	package
 		ADDED from Z:\app\src\main\AndroidManifest.xml:1:70-111
 		INJECTED from Z:\app\src\main\AndroidManifest.xml
@@ -218,9 +218,9 @@ ADDED from Z:\app\src\main\AndroidManifest.xml:22:5-89
 	android:name
 		ADDED from Z:\app\src\main\AndroidManifest.xml:22:16-69
 meta-data#com.epicgames.ue4.GameActivity.bHasOBBFiles
-ADDED from Z:\app\src\main\AndroidManifest.xml:23:5-98
+ADDED from Z:\app\src\main\AndroidManifest.xml:23:5-99
 	android:value
-		ADDED from Z:\app\src\main\AndroidManifest.xml:23:75-95
+		ADDED from Z:\app\src\main\AndroidManifest.xml:23:75-96
 	android:name
 		ADDED from Z:\app\src\main\AndroidManifest.xml:23:16-74
 meta-data#com.epicgames.ue4.GameActivity.BuildConfiguration
@@ -230,9 +230,9 @@ ADDED from Z:\app\src\main\AndroidManifest.xml:24:5-111
 	android:name
 		ADDED from Z:\app\src\main\AndroidManifest.xml:24:16-80
 meta-data#com.epicgames.ue4.GameActivity.CookedFlavors
-ADDED from Z:\app\src\main\AndroidManifest.xml:25:5-123
+ADDED from Z:\app\src\main\AndroidManifest.xml:25:5-99
 	android:value
-		ADDED from Z:\app\src\main\AndroidManifest.xml:25:76-120
+		ADDED from Z:\app\src\main\AndroidManifest.xml:25:76-96
 	android:name
 		ADDED from Z:\app\src\main\AndroidManifest.xml:25:16-75
 meta-data#com.epicgames.ue4.GameActivity.bValidateTextureFormats
@@ -367,6 +367,10 @@ uses-permission#android.permission.VIBRATE
 ADDED from Z:\app\src\main\AndroidManifest.xml:55:3-64
 	android:name
 		ADDED from Z:\app\src\main\AndroidManifest.xml:55:20-61
+supports-gl-texture#GL_KHR_texture_compression_astc_ldr
+ADDED from Z:\app\src\main\AndroidManifest.xml:57:3-77
+	android:name
+		ADDED from Z:\app\src\main\AndroidManifest.xml:57:24-74
 uses-sdk
 INJECTED from Z:\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from Z:\app\src\main\AndroidManifest.xml
