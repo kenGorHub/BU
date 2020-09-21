@@ -852,3 +852,385 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2020.09.21-07.48.16:745][419]LogContentValidation: Display: Validating World /Game/Map/Index.Index
 [2020.09.21-07.53.41:675][317]LogSlate: Window 'Project Settings' being destroyed
 [2020.09.21-07.53.41:680][317]LogSlate: Window 'Project Settings' being destroyed
+[2020.09.21-07.55.59:440][ 38]LogConcert: [Pending] Launching Unreal Multi-User Server...
+[2020.09.21-07.55.59:450][ 38]LogConcert: [Success] Launched Unreal Multi-User Server
+[2020.09.21-07.56.01:229][126]LogConcert: Display: Admin (3D3DC0F54FB3ECA99427089903AA1AF1): Remote endpoint '31512757410AEEC0B8BCEAB16F666914' discovered.
+[2020.09.21-07.56.01:239][127]LogConcert: Display: Server DESKTOP-KENGOR discovered.
+[2020.09.21-07.56.05:598][217]LogConcert: [Pending] Joining Session...
+[2020.09.21-07.56.05:598][217]LogConcert: [Pending] Joining Session... - Validating Workspace...
+[2020.09.21-07.56.05:859][219]LogConcert: [Pending] Joining Session... - Attempting Remote Connection...
+[2020.09.21-07.56.05:910][220]SourceControl: Source control is disabled
+[2020.09.21-07.56.05:910][220]SourceControl: Source control is disabled
+[2020.09.21-07.56.06:063][220]LogConcert: Display: Initialized Concert session 'ken' (Id: 1894DB3E4C89A3AA829D129D65FB04C6, Owner: ken).
+[2020.09.21-07.56.06:063][220]LogConcert: Display: Connecting to Concert session 'ken' (Id: 1894DB3E4C89A3AA829D129D65FB04C6, Owner: ken).
+[2020.09.21-07.56.06:092][221]LogConcert: Display: ken (BA7BEE054BD5D6CB47B9B4B9ECFA81D8): Remote endpoint '3E2433C149FB99418DA203A515ED95EB' discovered.
+[2020.09.21-07.56.06:149][222]LogConcert: Display: Connected to Concert session 'ken' (Id: 1894DB3E4C89A3AA829D129D65FB04C6, Owner: ken).
+[2020.09.21-07.56.06:176][225]LogConcert: Display: Synced activity '1' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken joined the session.
+[2020.09.21-07.56.06:176][225]LogConcert: Display: Synced activity '2' produced by endpoint '84C047A54965A0154AADB989EED5C1E9': ken joined the session.
+[2020.09.21-07.56.06:177][225]LogConcert: [Success] Joined Session 'ken'
+[2020.09.21-07.56.06:192][226]LogConcert: Display: Synced activity '3' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken added package /Game/Widget/StartScreen.
+[2020.09.21-07.56.06:192][226]LogConcert: Display: Synced activity '4' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken locked /Game/Widget/StartScreen.
+[2020.09.21-07.56.06:194][226]LogConcert: Display: Synced activity '5' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken added package /Game/Widget/MainScreen.
+[2020.09.21-07.56.06:195][226]LogConcert: Display: Synced activity '6' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken locked /Game/Widget/MainScreen.
+[2020.09.21-07.56.06:196][226]LogConcert: Display: Synced activity '7' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken added package /Game/Widget/Registry.
+[2020.09.21-07.56.06:197][226]LogConcert: Display: Synced activity '8' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken locked /Game/Widget/Registry.
+[2020.09.21-07.56.06:200][226]LogConcert: Display: Synced activity '9' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken added package /Game/Widget/ShopMenu.
+[2020.09.21-07.56.06:201][226]LogConcert: Display: Synced activity '10' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken locked /Game/Widget/ShopMenu.
+[2020.09.21-07.56.06:204][226]LogConcert: Display: Synced activity '11' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken added package /Game/Widget/AvatarMenu.
+[2020.09.21-07.56.06:205][226]LogConcert: Display: Synced activity '12' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken locked /Game/Widget/AvatarMenu.
+[2020.09.21-07.56.06:208][226]LogConcert: Display: Synced activity '13' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken added package /Game/Widget/SettingMenu.
+[2020.09.21-07.56.06:208][226]LogConcert: Display: Synced activity '14' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken locked /Game/Widget/SettingMenu.
+[2020.09.21-07.56.06:210][226]LogConcert: Display: Synced activity '15' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken saved package /Game/Map/Index.
+[2020.09.21-07.56.06:210][226]LogConcert: Display: Synced activity '16' produced by endpoint '84C047A54965A0154AADB989EED5C1E9': ken left the session.
+[2020.09.21-07.56.06:211][226]LogConcert: Display: Synced activity '17' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken saved package /Game/Map/Index.
+[2020.09.21-07.56.06:212][226]LogConcert: Display: Synced activity '18' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken unlocked /Game/Widget/StartScreen, plus 5 other resources.
+[2020.09.21-07.56.06:212][226]LogConcert: Display: Synced activity '19' produced by endpoint '94B20F834703B3519EF5F68F3C60CEE9': ken left the session.
+[2020.09.21-07.56.06:212][226]LogConcert: Display: Synced activity '20' produced by endpoint '0BF0E5BA4954BED6CE2CC7A56F6CBC03': ken joined the session.
+[2020.09.21-07.56.06:212][226]LogConcert: Display: Synced activity '21' produced by endpoint '0BF0E5BA4954BED6CE2CC7A56F6CBC03': ken left the session.
+[2020.09.21-07.56.06:213][226]LogConcert: Display: Synced activity '22' produced by endpoint '6C7C315C448E374976BE5F90BB8C9644': ken joined the session.
+[2020.09.21-07.56.06:213][226]LogConcert: Display: Synced activity '23' produced by endpoint '47EABC21448060C9E8EE6A86884FC045': ken joined the session.
+[2020.09.21-07.56.06:213][226]LogConcert: Display: Synced activity '24' produced by endpoint '6C7C315C448E374976BE5F90BB8C9644': ken left the session.
+[2020.09.21-07.56.06:215][226]LogConcert: Display: Synced activity '25' produced by endpoint '47EABC21448060C9E8EE6A86884FC045': ken saved package /Game/Map/Index.
+[2020.09.21-07.56.06:215][226]LogConcert: Display: Synced activity '26' produced by endpoint '47EABC21448060C9E8EE6A86884FC045': ken left the session.
+[2020.09.21-07.56.06:215][226]LogConcert: Display: Synced activity '27' produced by endpoint 'D07C5C8946BB44D07141D9A16AF6934F': ken joined the session.
+[2020.09.21-07.56.06:215][226]LogConcert: Display: Synced activity '28' produced by endpoint 'D07C5C8946BB44D07141D9A16AF6934F': ken left the session.
+[2020.09.21-07.56.06:216][226]LogConcert: Display: Synced activity '29' produced by endpoint '02FEEB5C4305D018832E6987D4F972B6': ken joined the session.
+[2020.09.21-07.56.06:216][226]LogConcert: Display: Synced activity '30' produced by endpoint '02FEEB5C4305D018832E6987D4F972B6': ken left the session.
+[2020.09.21-07.56.06:216][226]LogConcert: Display: Synced activity '31' produced by endpoint '1876DDD5476E106AC7CD238194C5C228': ken joined the session.
+[2020.09.21-07.56.06:217][226]LogConcert: Display: Synced activity '32' produced by endpoint '1876DDD5476E106AC7CD238194C5C228': ken saved package /Game/Map/Index.
+[2020.09.21-07.56.06:217][226]LogConcert: Display: Synced activity '33' produced by endpoint '1876DDD5476E106AC7CD238194C5C228': ken left the session.
+[2020.09.21-07.56.06:218][226]LogConcert: Display: Synced activity '34' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken joined the session.
+[2020.09.21-07.56.06:218][226]LogConcert: Display: Synced activity '35' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken locked /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:219][226]LogConcert: Display: Synced activity '36' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken locked /Game/Widget/Registry.
+[2020.09.21-07.56.06:220][226]LogConcert: Display: Synced activity '37' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:221][226]LogConcert: Display: Synced activity '38' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:223][226]LogConcert: Display: Synced activity '39' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:224][226]LogConcert: Display: Synced activity '40' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:225][226]LogConcert: Display: Synced activity '41' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:226][226]LogConcert: Display: Synced activity '42' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:227][226]LogConcert: Display: Synced activity '43' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:229][226]LogConcert: Display: Synced activity '44' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:230][226]LogConcert: Display: Synced activity '45' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:231][226]LogConcert: Display: Synced activity '46' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:240][227]LogConcert: Display: Synced activity '47' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken saved package /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:241][227]LogConcert: Display: Synced activity '48' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken unlocked /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:242][227]LogConcert: Display: Synced activity '49' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken saved package /Game/Widget/Registry.
+[2020.09.21-07.56.06:243][227]LogConcert: Display: Synced activity '50' produced by endpoint '41152D5144C80D38825836BD99E8D1E1': ken unlocked /Game/Widget/Registry.
+[2020.09.21-07.56.06:243][227]LogConcert: Display: Synced activity '51' produced by endpoint '2E2AAF264680CA8E9ABBDDB0486B8173': ken joined the session.
+[2020.09.21-07.56.06:244][227]LogConcert: Display: Synced activity '52' produced by endpoint '2E2AAF264680CA8E9ABBDDB0486B8173': ken locked /Game/Widget/MainScreen.
+[2020.09.21-07.56.06:245][227]LogConcert: Display: Synced activity '53' produced by endpoint '2E2AAF264680CA8E9ABBDDB0486B8173': ken saved package /Game/Widget/MainScreen.
+[2020.09.21-07.56.06:245][227]LogConcert: Display: Synced activity '54' produced by endpoint '2E2AAF264680CA8E9ABBDDB0486B8173': ken unlocked /Game/Widget/MainScreen.
+[2020.09.21-07.56.06:246][227]LogConcert: Display: Synced activity '55' produced by endpoint '2E2AAF264680CA8E9ABBDDB0486B8173': ken left the session.
+[2020.09.21-07.56.06:246][227]LogConcert: Display: Synced activity '56' produced by endpoint '7151FE234D0C5EC5C1A53BB2EAF9C448': ken joined the session.
+[2020.09.21-07.56.06:246][227]LogConcert: Display: Synced activity '57' produced by endpoint '7151FE234D0C5EC5C1A53BB2EAF9C448': ken left the session.
+[2020.09.21-07.56.06:246][227]LogConcert: Display: Synced activity '58' produced by endpoint 'E307C3B1485C2D6CCE7ED3AD6D9D65B3': ken joined the session.
+[2020.09.21-07.56.06:248][227]LogConcert: Display: Synced activity '59' produced by endpoint 'E307C3B1485C2D6CCE7ED3AD6D9D65B3': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:248][227]LogConcert: Display: Synced activity '60' produced by endpoint '2F5282754B7127E74E56D0A4294CA070': steven joined the session.
+[2020.09.21-07.56.06:248][227]LogConcert: Display: Synced activity '61' produced by endpoint 'D91B05BE497C04E230FBEC8498FBF73B': ken joined the session.
+[2020.09.21-07.56.06:248][227]LogConcert: Display: Synced activity '62' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven joined the session.
+[2020.09.21-07.56.06:250][227]LogConcert: Display: Synced activity '63' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven discarded changes to package /Temp/UEDPIE_0_Untitled_0.
+[2020.09.21-07.56.06:251][227]LogConcert: Display: Synced activity '64' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven discarded changes to package /Temp/UEDPIE_0_Untitled_0.
+[2020.09.21-07.56.06:251][227]LogConcert: Display: Synced activity '65' produced by endpoint '8F6D48074A1339FC58BF44A16C918C51': ken joined the session.
+[2020.09.21-07.56.06:252][227]LogConcert: Display: Synced activity '66' produced by endpoint 'D91B05BE497C04E230FBEC8498FBF73B': ken left the session.
+[2020.09.21-07.56.06:252][227]LogConcert: Display: Synced activity '67' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/fyp.
+[2020.09.21-07.56.06:254][227]LogConcert: Display: Synced activity '68' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven added package /Game/Video/fyp.
+[2020.09.21-07.56.06:254][227]LogConcert: Display: Synced activity '69' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/fyp.
+[2020.09.21-07.56.06:255][227]LogConcert: Display: Synced activity '70' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/fyp.
+[2020.09.21-07.56.06:257][227]LogConcert: Display: Synced activity '71' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Video/fyp.
+[2020.09.21-07.56.06:257][227]LogConcert: Display: Synced activity '72' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/fyp.
+[2020.09.21-07.56.06:259][227]LogConcert: Display: Synced activity '73' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven added package /Game/Video/MediaPlayer_Video.
+[2020.09.21-07.56.06:260][227]LogConcert: Display: Synced activity '74' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/MediaPlayer_Video.
+[2020.09.21-07.56.06:261][227]LogConcert: Display: Synced activity '75' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven added package /Game/Video/MediaPlayer.
+[2020.09.21-07.56.06:262][227]LogConcert: Display: Synced activity '76' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/MediaPlayer.
+[2020.09.21-07.56.06:263][227]LogConcert: Display: Synced activity '77' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Map/Index.
+[2020.09.21-07.56.06:264][227]LogConcert: Display: Synced activity '78' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Video/MediaPlayer.
+[2020.09.21-07.56.06:264][227]LogConcert: Display: Synced activity '79' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/MediaPlayer.
+[2020.09.21-07.56.06:265][227]LogConcert: Display: Synced activity '80' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Video/MediaPlayer_Video.
+[2020.09.21-07.56.06:265][227]LogConcert: Display: Synced activity '81' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/MediaPlayer_Video.
+[2020.09.21-07.56.06:267][227]LogConcert: Display: Synced activity '82' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven added package /Game/Widget/LoadPage.
+[2020.09.21-07.56.06:267][227]LogConcert: Display: Synced activity '83' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Widget/LoadPage.
+[2020.09.21-07.56.06:267][227]LogConcert: Display: Synced activity '84' produced by endpoint '8F6D48074A1339FC58BF44A16C918C51': ken locked /Game/Widget/StartScreen.
+[2020.09.21-07.56.06:271][227]LogConcert: Display: Synced activity '85' produced by endpoint '8F6D48074A1339FC58BF44A16C918C51': ken saved package /Game/Widget/StartScreen.
+[2020.09.21-07.56.06:271][227]LogConcert: Display: Synced activity '86' produced by endpoint '8F6D48074A1339FC58BF44A16C918C51': ken unlocked /Game/Widget/StartScreen.
+[2020.09.21-07.56.06:273][227]LogConcert: Display: Synced activity '87' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Video/MediaPlayer.
+[2020.09.21-07.56.06:274][227]LogConcert: Display: Synced activity '88' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Widget/LoadPage.
+[2020.09.21-07.56.06:274][227]LogConcert: Display: Synced activity '89' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Widget/LoadPage.
+[2020.09.21-07.56.06:276][227]LogConcert: Display: Synced activity '90' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Video/MediaPlayer_Video.
+[2020.09.21-07.56.06:277][227]LogConcert: Display: Synced activity '91' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven added package /Game/Video/LoadMediaPlayer_Video.
+[2020.09.21-07.56.06:277][227]LogConcert: Display: Synced activity '92' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/LoadMediaPlayer_Video.
+[2020.09.21-07.56.06:279][227]LogConcert: Display: Synced activity '93' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven added package /Game/Video/LoadMediaPlayer.
+[2020.09.21-07.56.06:279][227]LogConcert: Display: Synced activity '94' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/LoadMediaPlayer.
+[2020.09.21-07.56.06:281][227]LogConcert: Display: Synced activity '95' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven deleted package /Game/Video/LoadMediaPlayer_Video.
+[2020.09.21-07.56.06:281][227]LogConcert: Display: Synced activity '96' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/LoadMediaPlayer_Video.
+[2020.09.21-07.56.06:282][227]LogConcert: Display: Synced activity '97' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/MediaPlayer_Video.
+[2020.09.21-07.56.06:282][227]LogConcert: Display: Synced activity '98' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven deleted package /Game/Video/MediaPlayer_Video.
+[2020.09.21-07.56.06:283][227]LogConcert: Display: Synced activity '99' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/MediaPlayer_Video.
+[2020.09.21-07.56.06:284][227]LogConcert: Display: Synced activity '100' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven deleted package /Game/Video/LoadMediaPlayer.
+[2020.09.21-07.56.06:284][227]LogConcert: Display: Synced activity '101' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/LoadMediaPlayer.
+[2020.09.21-07.56.06:284][227]LogConcert: Display: Synced activity '102' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/MediaPlayer.
+[2020.09.21-07.56.06:285][227]LogConcert: Display: Synced activity '103' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven deleted package /Game/Video/MediaPlayer.
+[2020.09.21-07.56.06:286][227]LogConcert: Display: Synced activity '104' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/MediaPlayer.
+[2020.09.21-07.56.06:287][227]LogConcert: Display: Synced activity '105' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven added package /Game/Video/NewMediaPlayer_Video.
+[2020.09.21-07.56.06:287][227]LogConcert: Display: Synced activity '106' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/NewMediaPlayer_Video.
+[2020.09.21-07.56.06:289][227]LogConcert: Display: Synced activity '107' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven added package /Game/Video/NewMediaPlayer.
+[2020.09.21-07.56.06:290][227]LogConcert: Display: Synced activity '108' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/NewMediaPlayer.
+[2020.09.21-07.56.06:291][227]LogConcert: Display: Synced activity '109' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Video/NewMediaPlayer.
+[2020.09.21-07.56.06:292][227]LogConcert: Display: Synced activity '110' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/NewMediaPlayer.
+[2020.09.21-07.56.06:293][227]LogConcert: Display: Synced activity '111' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Video/NewMediaPlayer.
+[2020.09.21-07.56.06:293][227]LogConcert: Display: Synced activity '112' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/NewMediaPlayer.
+[2020.09.21-07.56.06:295][227]LogConcert: Display: Synced activity '113' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Video/NewMediaPlayer.
+[2020.09.21-07.56.06:295][227]LogConcert: Display: Synced activity '114' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/NewMediaPlayer.
+[2020.09.21-07.56.06:295][227]LogConcert: Display: Synced activity '115' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Widget/LoadPage.
+[2020.09.21-07.56.06:296][227]LogConcert: Display: Synced activity '116' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven deleted package /Game/Widget/LoadPage.
+[2020.09.21-07.56.06:297][227]LogConcert: Display: Synced activity '117' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Widget/LoadPage.
+[2020.09.21-07.56.06:298][227]LogConcert: Display: Synced activity '118' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Map/Index.
+[2020.09.21-07.56.06:299][227]LogConcert: Display: Synced activity '119' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven added package /Game/Widget/Loading.
+[2020.09.21-07.56.06:300][227]LogConcert: Display: Synced activity '120' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Widget/Loading.
+[2020.09.21-07.56.06:300][227]LogConcert: Display: Synced activity '121' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/NewMediaPlayer_Video.
+[2020.09.21-07.56.06:300][227]LogConcert: Display: Synced activity '122' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven locked /Game/Video/NewMediaPlayer_Video.
+[2020.09.21-07.56.06:301][227]LogConcert: Display: Synced activity '123' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Video/NewMediaPlayer_Video.
+[2020.09.21-07.56.06:302][227]LogConcert: Display: Synced activity '124' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Video/NewMediaPlayer_Video.
+[2020.09.21-07.56.06:306][227]LogConcert: Display: Synced activity '125' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven saved package /Game/Widget/Loading.
+[2020.09.21-07.56.06:306][227]LogConcert: Display: Synced activity '126' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven unlocked /Game/Widget/Loading.
+[2020.09.21-07.56.06:307][227]LogConcert: Display: Synced activity '127' produced by endpoint '381F136049C952F694986F8B760B9F5C': steven left the session.
+[2020.09.21-07.56.06:307][227]LogConcert: Display: Synced activity '128' produced by endpoint '8F6D48074A1339FC58BF44A16C918C51': ken left the session.
+[2020.09.21-07.56.06:307][227]LogConcert: Display: Synced activity '129' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken joined the session.
+[2020.09.21-07.56.06:308][227]LogConcert: Display: Synced activity '130' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/Widget/Registry.
+[2020.09.21-07.56.06:309][227]LogConcert: Display: Synced activity '131' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken saved package /Game/Widget/Registry.
+[2020.09.21-07.56.06:309][227]LogConcert: Display: Synced activity '132' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/Widget/Registry.
+[2020.09.21-07.56.06:309][227]LogConcert: Display: Synced activity '133' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/Widget/Registry.
+[2020.09.21-07.56.06:310][227]LogConcert: Display: Synced activity '134' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken saved package /Game/Widget/Registry.
+[2020.09.21-07.56.06:310][227]LogConcert: Display: Synced activity '135' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/Widget/Registry.
+[2020.09.21-07.56.06:311][227]LogConcert: Display: Synced activity '136' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:311][227]LogConcert: Display: Synced activity '137' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/Widget/Registry.
+[2020.09.21-07.56.06:312][227]LogConcert: Display: Synced activity '138' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:313][227]LogConcert: Display: Synced activity '139' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken saved package /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:314][227]LogConcert: Display: Synced activity '140' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:314][227]LogConcert: Display: Synced activity '141' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken renamed package /Game/BluePrint/GameInfoInstance to /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:315][227]LogConcert: Display: Synced activity '142' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:316][227]LogConcert: Display: Synced activity '143' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken added package /Game/BluePrints/UserSaveObject.
+[2020.09.21-07.56.06:316][227]LogConcert: Display: Synced activity '144' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/BluePrints/UserSaveObject.
+[2020.09.21-07.56.06:317][227]LogConcert: Display: Synced activity '145' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:318][227]LogConcert: Display: Synced activity '146' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken added package /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:318][227]LogConcert: Display: Synced activity '147' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:318][227]LogConcert: Display: Synced activity '148' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:319][227]LogConcert: Display: Synced activity '149' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken saved package /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:320][227]LogConcert: Display: Synced activity '150' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:320][227]LogConcert: Display: Synced activity '151' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:321][227]LogConcert: Display: Synced activity '152' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken saved package /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:321][227]LogConcert: Display: Synced activity '153' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:322][227]LogConcert: Display: Synced activity '154' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:323][227]LogConcert: Display: Synced activity '155' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken saved package /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:323][227]LogConcert: Display: Synced activity '156' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:323][227]LogConcert: Display: Synced activity '157' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:324][227]LogConcert: Display: Synced activity '158' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken saved package /Game/Widget/Registry.
+[2020.09.21-07.56.06:341][227]LogConcert: Display: Synced activity '159' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/Widget/Registry.
+[2020.09.21-07.56.06:342][227]LogConcert: Display: Synced activity '160' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken locked /Game/Widget/Registry.
+[2020.09.21-07.56.06:344][227]LogConcert: Display: Synced activity '161' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken saved package /Game/BluePrints/UserSaveObject.
+[2020.09.21-07.56.06:344][227]LogConcert: Display: Synced activity '162' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/BluePrints/UserSaveObject.
+[2020.09.21-07.56.06:345][227]LogConcert: Display: Synced activity '163' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken saved package /Game/Map/Index.
+[2020.09.21-07.56.06:346][227]LogConcert: Display: Synced activity '164' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken saved package /Game/Widget/Registry.
+[2020.09.21-07.56.06:346][227]LogConcert: Display: Synced activity '165' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/Widget/Registry.
+[2020.09.21-07.56.06:346][227]LogConcert: Display: Synced activity '166' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken unlocked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:347][227]LogConcert: Display: Synced activity '167' produced by endpoint 'C058C8CC4BCD5B0652E2C7A710F9EED9': ken left the session.
+[2020.09.21-07.56.06:347][227]LogConcert: Display: Synced activity '168' produced by endpoint '9736D142490089A3760708AC2928CD59': ken joined the session.
+[2020.09.21-07.56.06:347][227]LogConcert: Display: Synced activity '169' produced by endpoint '9736D142490089A3760708AC2928CD59': ken left the session.
+[2020.09.21-07.56.06:347][227]LogConcert: Display: Synced activity '170' produced by endpoint '41A5E93440638FC1F2AEB48DE41A0EC7': ken joined the session.
+[2020.09.21-07.56.06:348][227]LogConcert: Display: Synced activity '171' produced by endpoint '41A5E93440638FC1F2AEB48DE41A0EC7': ken saved package /Game/Map/Index.
+[2020.09.21-07.56.06:351][227]LogConcert: Display: Synced activity '172' produced by endpoint '41A5E93440638FC1F2AEB48DE41A0EC7': ken left the session.
+[2020.09.21-07.56.06:351][227]LogConcert: Display: Synced activity '173' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken joined the session.
+[2020.09.21-07.56.06:353][227]LogConcert: Display: Synced activity '174' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken saved package /Game/Widget/Registry.
+[2020.09.21-07.56.06:354][227]LogConcert: Display: Synced activity '175' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken saved package /Game/Widget/Registry.
+[2020.09.21-07.56.06:355][227]LogConcert: Display: Synced activity '176' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken saved package /Game/Widget/Registry.
+[2020.09.21-07.56.06:356][227]LogConcert: Display: Synced activity '177' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken saved package /Game/Widget/Registry.
+[2020.09.21-07.56.06:356][227]LogConcert: Display: Synced activity '178' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken locked /Game/Widget/Registry1.
+[2020.09.21-07.56.06:357][227]LogConcert: Display: Synced activity '179' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken added package /Game/Widget/Registry1.
+[2020.09.21-07.56.06:357][227]LogConcert: Display: Synced activity '180' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken unlocked /Game/Widget/Registry1.
+[2020.09.21-07.56.06:358][227]LogConcert: Display: Synced activity '181' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken locked /Game/Widget/Registry.
+[2020.09.21-07.56.06:358][227]LogConcert: Display: Synced activity '182' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken locked /Game/Widget/Registry2.
+[2020.09.21-07.56.06:358][227]LogConcert: Display: Synced activity '183' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken locked /Game/Widget/Registry1.
+[2020.09.21-07.56.06:358][227]LogConcert: Display: Synced activity '184' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken locked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:359][227]LogConcert: Display: Synced activity '185' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken saved package /Game/Widget/Registry2.
+[2020.09.21-07.56.06:360][227]LogConcert: Display: Synced activity '186' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken unlocked /Game/Widget/Registry2.
+[2020.09.21-07.56.06:360][227]LogConcert: Display: Synced activity '187' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken renamed package /Game/Widget/Registry to /Game/Widget/Registry2.
+[2020.09.21-07.56.06:361][227]LogConcert: Display: Synced activity '188' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken unlocked /Game/Widget/Registry.
+[2020.09.21-07.56.06:361][227]LogConcert: Display: Synced activity '189' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken locked /Game/Widget/Registry.
+[2020.09.21-07.56.06:361][227]LogConcert: Display: Synced activity '190' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken locked /Game/Widget/Registry2.
+[2020.09.21-07.56.06:362][227]LogConcert: Display: Synced activity '191' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken deleted package /Game/Widget/Registry2.
+[2020.09.21-07.56.06:362][227]LogConcert: Display: Synced activity '192' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken unlocked /Game/Widget/Registry2.
+[2020.09.21-07.56.06:363][227]LogConcert: Display: Synced activity '193' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken locked /Game/Widget/Registry2.
+[2020.09.21-07.56.06:364][227]LogConcert: Display: Synced activity '194' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken added package /Game/Widget/Registry2.
+[2020.09.21-07.56.06:364][227]LogConcert: Display: Synced activity '195' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken unlocked /Game/Widget/Registry2.
+[2020.09.21-07.56.06:365][227]LogConcert: Display: Synced activity '196' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken added package /Game/Widget/Registry2.
+[2020.09.21-07.56.06:366][227]LogConcert: Display: Synced activity '197' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken added package /Game/Widget/Registry2.
+[2020.09.21-07.56.06:367][227]LogConcert: Display: Synced activity '198' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken saved package /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:367][227]LogConcert: Display: Synced activity '199' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken unlocked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:368][227]LogConcert: Display: Synced activity '200' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken saved package /Game/Widget/Registry.
+[2020.09.21-07.56.06:368][227]LogConcert: Display: Synced activity '201' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken unlocked /Game/Widget/Registry.
+[2020.09.21-07.56.06:369][227]LogConcert: Display: Synced activity '202' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken saved package /Game/Widget/Registry2.
+[2020.09.21-07.56.06:370][227]LogConcert: Display: Synced activity '203' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken locked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:370][227]LogConcert: Display: Synced activity '204' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken locked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:371][227]LogConcert: Display: Synced activity '205' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken saved package /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:371][227]LogConcert: Display: Synced activity '206' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken unlocked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:372][227]LogConcert: Display: Synced activity '207' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken renamed package /Game/Widget/Registry1 to /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:373][227]LogConcert: Display: Synced activity '208' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken unlocked /Game/Widget/Registry1.
+[2020.09.21-07.56.06:374][227]LogConcert: Display: Synced activity '209' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken saved package /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:374][227]LogConcert: Display: Synced activity '210' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken unlocked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:374][227]LogConcert: Display: Synced activity '211' produced by endpoint '7DEE4815434AC1ACC5BACDB5C6F22B0F': ken left the session.
+[2020.09.21-07.56.06:374][227]LogConcert: Display: Synced activity '212' produced by endpoint '6D66A5BD4F31E272689674AE6CD71ECB': ken joined the session.
+[2020.09.21-07.56.06:375][227]LogConcert: Display: Synced activity '213' produced by endpoint '6D66A5BD4F31E272689674AE6CD71ECB': ken locked /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:376][227]LogConcert: Display: Synced activity '214' produced by endpoint '6D66A5BD4F31E272689674AE6CD71ECB': ken deleted package /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:376][227]LogConcert: Display: Synced activity '215' produced by endpoint '6D66A5BD4F31E272689674AE6CD71ECB': ken unlocked /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:376][227]LogConcert: Display: Synced activity '216' produced by endpoint '6D66A5BD4F31E272689674AE6CD71ECB': ken locked /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:377][227]LogConcert: Display: Synced activity '217' produced by endpoint '6D66A5BD4F31E272689674AE6CD71ECB': ken deleted package /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:377][227]LogConcert: Display: Synced activity '218' produced by endpoint '6D66A5BD4F31E272689674AE6CD71ECB': ken unlocked /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:378][227]LogConcert: Display: Synced activity '219' produced by endpoint '6D66A5BD4F31E272689674AE6CD71ECB': ken locked /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:379][227]LogConcert: Display: Synced activity '220' produced by endpoint '6D66A5BD4F31E272689674AE6CD71ECB': ken deleted package /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:379][227]LogConcert: Display: Synced activity '221' produced by endpoint '6D66A5BD4F31E272689674AE6CD71ECB': ken unlocked /Game/BluePrint/GameInfoInstance.
+[2020.09.21-07.56.06:379][227]LogConcert: Display: Synced activity '222' produced by endpoint '6D66A5BD4F31E272689674AE6CD71ECB': ken left the session.
+[2020.09.21-07.56.06:379][227]LogConcert: Display: Synced activity '223' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken joined the session.
+[2020.09.21-07.56.06:380][227]LogConcert: Display: Synced activity '224' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:381][227]LogConcert: Display: Synced activity '225' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:381][227]LogConcert: Display: Synced activity '226' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:381][227]LogConcert: Display: Synced activity '227' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:381][227]LogConcert: Display: Synced activity '228' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:382][227]LogConcert: Display: Synced activity '229' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/BluePrints/UserSaveObject.
+[2020.09.21-07.56.06:383][227]LogConcert: Display: Synced activity '230' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:383][227]LogConcert: Display: Synced activity '231' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/BluePrints/UserData.
+[2020.09.21-07.56.06:383][227]LogConcert: Display: Synced activity '232' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:385][227]LogConcert: Display: Synced activity '233' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/BluePrints/UserSaveObject.
+[2020.09.21-07.56.06:385][227]LogConcert: Display: Synced activity '234' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/BluePrints/UserSaveObject.
+[2020.09.21-07.56.06:386][227]LogConcert: Display: Synced activity '235' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:387][227]LogConcert: Display: Synced activity '236' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:387][227]LogConcert: Display: Synced activity '237' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:388][227]LogConcert: Display: Synced activity '238' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:388][227]LogConcert: Display: Synced activity '239' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:388][227]LogConcert: Display: Synced activity '240' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:389][227]LogConcert: Display: Synced activity '241' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:390][227]LogConcert: Display: Synced activity '242' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:390][227]LogConcert: Display: Synced activity '243' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:391][227]LogConcert: Display: Synced activity '244' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:391][227]LogConcert: Display: Synced activity '245' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:392][227]LogConcert: Display: Synced activity '246' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:393][227]LogConcert: Display: Synced activity '247' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:393][227]LogConcert: Display: Synced activity '248' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:394][227]LogConcert: Display: Synced activity '249' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:395][227]LogConcert: Display: Synced activity '250' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:396][227]LogConcert: Display: Synced activity '251' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:397][227]LogConcert: Display: Synced activity '252' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:398][227]LogConcert: Display: Synced activity '253' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:399][227]LogConcert: Display: Synced activity '254' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:411][227]LogConcert: Display: Synced activity '255' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:411][227]LogConcert: Display: Synced activity '256' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:412][227]LogConcert: Display: Synced activity '257' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Map/Index.
+[2020.09.21-07.56.06:413][227]LogConcert: Display: Synced activity '258' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:414][227]LogConcert: Display: Synced activity '259' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:414][227]LogConcert: Display: Synced activity '260' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/BluePrints/GameInfoInstance.
+[2020.09.21-07.56.06:415][227]LogConcert: Display: Synced activity '261' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:416][227]LogConcert: Display: Synced activity '262' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:416][227]LogConcert: Display: Synced activity '263' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:417][227]LogConcert: Display: Synced activity '264' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:418][227]LogConcert: Display: Synced activity '265' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:419][227]LogConcert: Display: Synced activity '266' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:420][227]LogConcert: Display: Synced activity '267' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:421][227]LogConcert: Display: Synced activity '268' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Map/Index.
+[2020.09.21-07.56.06:421][227]LogConcert: Display: Synced activity '269' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:422][227]LogConcert: Display: Synced activity '270' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:423][227]LogConcert: Display: Synced activity '271' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:423][227]LogConcert: Display: Synced activity '272' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:423][227]LogConcert: Display: Synced activity '273' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/MainScreen.
+[2020.09.21-07.56.06:423][227]LogConcert: Display: Synced activity '274' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:425][227]LogConcert: Display: Synced activity '275' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:426][227]LogConcert: Display: Synced activity '276' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:426][227]LogConcert: Display: Synced activity '277' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Widget/MainScreen.
+[2020.09.21-07.56.06:427][227]LogConcert: Display: Synced activity '278' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/Widget/MainScreen.
+[2020.09.21-07.56.06:428][227]LogConcert: Display: Synced activity '279' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:428][227]LogConcert: Display: Synced activity '280' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:429][227]LogConcert: Display: Synced activity '281' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Map/Index.
+[2020.09.21-07.56.06:430][227]LogConcert: Display: Synced activity '282' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:430][227]LogConcert: Display: Synced activity '283' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:431][227]LogConcert: Display: Synced activity '284' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:432][227]LogConcert: Display: Synced activity '285' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:433][227]LogConcert: Display: Synced activity '286' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:444][227]LogConcert: Display: Synced activity '287' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:444][227]LogConcert: Display: Synced activity '288' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:444][227]LogConcert: Display: Synced activity '289' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/RegistryScreen.
+[2020.09.21-07.56.06:444][227]LogConcert: Display: Synced activity '290' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken locked /Game/Widget/MainScreen.
+[2020.09.21-07.56.06:445][227]LogConcert: Display: Synced activity '291' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Map/Index.
+[2020.09.21-07.56.06:448][227]LogConcert: Display: Synced activity '292' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken saved package /Game/Widget/MainScreen.
+[2020.09.21-07.56.06:449][227]LogConcert: Display: Synced activity '293' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/Widget/MainScreen.
+[2020.09.21-07.56.06:450][227]LogConcert: Display: Synced activity '294' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken discarded changes to package /Game/Map/UEDPIE_0_Index.
+[2020.09.21-07.56.06:450][227]LogConcert: Display: Synced activity '295' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken unlocked /Game/BluePrints/GameInfoInstance, plus 1 other resource.
+[2020.09.21-07.56.06:450][227]LogConcert: Display: Synced activity '296' produced by endpoint 'BFC2265E439C3426DF6251A7A4C7277B': ken left the session.
+[2020.09.21-07.56.06:450][227]LogConcert: Display: Synced activity '297' produced by endpoint 'A0F1ACD14628A3DB14AF808CE47AB0F7': ken joined the session.
+[2020.09.21-07.56.06:450][227]LogConcert: Display: Synced activity '298' produced by endpoint 'FAC10CA14143290362D752B1EA353B1A': ken joined the session.
+[2020.09.21-07.56.06:451][227]LogConcert: Display: Synced activity '299' produced by endpoint 'FAC10CA14143290362D752B1EA353B1A': ken left the session.
+[2020.09.21-07.56.06:451][227]LogConcert: Display: Synced activity '300' produced by endpoint 'A0F1ACD14628A3DB14AF808CE47AB0F7': ken left the session.
+[2020.09.21-07.56.06:451][227]LogConcert: Display: Synced activity '301' produced by endpoint 'E9329FE54E717D7A4CBAB5BCD32AE846': ken joined the session.
+[2020.09.21-07.56.06:451][227]LogConcert: Display: Synced activity '302' produced by endpoint 'FC0E2308444CDC7EB4A059A281C0D313': ken joined the session.
+[2020.09.21-07.56.06:451][227]LogConcert: Display: Synced activity '303' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven joined the session.
+[2020.09.21-07.56.06:452][227]LogConcert: Display: Synced activity '304' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven locked /Game/Widget/LoadingScreen.
+[2020.09.21-07.56.06:452][227]LogConcert: Display: Synced activity '305' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven locked /Game/Video/NewMediaPlayer_Video.
+[2020.09.21-07.56.06:453][227]LogConcert: Display: Synced activity '306' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven saved package /Game/Video/NewMediaPlayer.
+[2020.09.21-07.56.06:454][227]LogConcert: Display: Synced activity '307' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven saved package /Game/Map/Index.
+[2020.09.21-07.56.06:456][227]LogConcert: Display: Synced activity '308' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven saved package /Game/Widget/LoadingScreen.
+[2020.09.21-07.56.06:457][227]LogConcert: Display: Synced activity '309' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven unlocked /Game/Widget/LoadingScreen.
+[2020.09.21-07.56.06:461][227]LogConcert: Display: Synced activity '310' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven saved package /Game/Map/Index.
+[2020.09.21-07.56.06:464][227]LogConcert: Display: Synced activity '311' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven saved package /Game/Video/NewMediaPlayer_Video.
+[2020.09.21-07.56.06:465][227]LogConcert: Display: Synced activity '312' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven unlocked /Game/Video/NewMediaPlayer_Video.
+[2020.09.21-07.56.06:465][227]LogConcert: Display: Synced activity '313' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven left the session.
+[2020.09.21-07.56.06:465][227]LogConcert: Display: Synced activity '314' produced by endpoint 'FC0E2308444CDC7EB4A059A281C0D313': ken left the session.
+[2020.09.21-07.56.06:465][227]LogConcert: Display: Synced activity '315' produced by endpoint 'BA7BEE054BD5D6CB47B9B4B9ECFA81D8': ken joined the session.
+[2020.09.21-07.56.06:507][227]LightingResults: New page: Lighting Build
+[2020.09.21-07.56.06:507][227]LogWorld: UWorld::CleanupWorld for Index, bSessionEnded=true, bCleanupResources=true
+[2020.09.21-07.56.06:507][227]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2020.09.21-07.56.06:508][227]MapCheck: New page: Map Check
+[2020.09.21-07.56.06:508][227]LightingResults: New page: Lighting Build
+[2020.09.21-07.56.06:583][227]LogUObjectHash: Compacting FUObjectHashTables data took   5.39ms
+[2020.09.21-07.56.06:590][227]LogAIModule: Creating AISystem for world Untitled
+[2020.09.21-07.56.06:679][227]LoadErrors: New page: New Map
+[2020.09.21-07.56.06:682][227]LogUObjectGlobals: Reloading 9 Package(s):
+	Asset Name: /Game/Widget/MainScreen
+	Asset Name: /Game/Widget/ShopMenu
+	Asset Name: /Game/Widget/AvatarMenu
+	Asset Name: /Game/Video/fyp
+	Asset Name: /Game/Widget/LoadingScreen
+	Asset Name: /Game/BluePrints/UserData
+	Asset Name: /Game/BluePrints/UserSaveObject
+	Asset Name: /Game/Widget/RegistryScreen
+	Asset Name: /Game/BluePrints/GameInfoInstance
+[2020.09.21-07.56.06:715][227]LogUObjectHash: Compacting FUObjectHashTables data took   2.77ms
+[2020.09.21-07.56.06:966][227]LogUObjectHash: Compacting FUObjectHashTables data took   4.52ms
+[2020.09.21-07.56.07:237][227]LogUObjectHash: Compacting FUObjectHashTables data took   4.17ms
+[2020.09.21-07.56.07:569][227]LogUObjectHash: Compacting FUObjectHashTables data took   4.40ms
+[2020.09.21-07.56.07:571][227]LogProperty: Error: UStructProperty::Serialize Loading: Property 'StructProperty /Game/BluePrints/UserSaveObject.UserSaveObject_C:S_UserData'. Unknown structure.
+[2020.09.21-07.56.07:571][227]LogClass: Warning: Property S_UserData of S_UserData has a struct type mismatch (tag STRUCT_REINST_UserData_0 != prop FallbackStruct) in package:  C:/Users/ken/Desktop/BU/FYP/FYP/Content/BluePrints/UserSaveObject.uasset. If that struct got renamed, add an entry to ActiveStructRedirects.
+[2020.09.21-07.56.07:572][227]LogClass: Warning: Property S_UserData of S_UserData has a struct type mismatch (tag FallbackStruct != prop UserData) in package:  FObjectReader. If that struct got renamed, add an entry to ActiveStructRedirects.
+[2020.09.21-07.56.07:601][227]LogUObjectGlobals: Warning: ReloadPackage failed to find a replacement object for 'RegistryScreen_C:ComponentDelegateBinding_1' in the new package '/Game/Widget/RegistryScreen'. Any existing references to this object will be nulled out.
+[2020.09.21-07.56.07:853][227]LogUObjectHash: Compacting FUObjectHashTables data took   5.18ms
+[2020.09.21-07.56.08:119][227]LogUObjectHash: Compacting FUObjectHashTables data took   3.99ms
+[2020.09.21-07.56.08:141][227]LogAIModule: Creating AISystem for world Index
+[2020.09.21-07.56.08:142][227]LogAssetEditorSubsystem: Opening Asset editor for World /Game/Map/Index.Index
+[2020.09.21-07.56.08:171][227]LogUObjectHash: Compacting FUObjectHashTables data took   4.14ms
+[2020.09.21-07.56.08:173][227]Cmd: MAP LOAD FILE="C:/Users/ken/Desktop/BU/FYP/FYP/Content/Map/Index.umap" TEMPLATE=0 SHOWPROGRESS=1 FEATURELEVEL=1
+[2020.09.21-07.56.08:173][227]LightingResults: New page: Lighting Build
+[2020.09.21-07.56.08:173][227]LoadErrors: New page: Loading map: Index.umap
+[2020.09.21-07.56.08:174][227]LogWorld: UWorld::CleanupWorld for Untitled, bSessionEnded=true, bCleanupResources=true
+[2020.09.21-07.56.08:174][227]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2020.09.21-07.56.08:174][227]MapCheck: New page: Map Check
+[2020.09.21-07.56.08:174][227]LightingResults: New page: Lighting Build
+[2020.09.21-07.56.08:208][227]LogUObjectHash: Compacting FUObjectHashTables data took   3.23ms
+[2020.09.21-07.56.08:208][227]LogWorld: Changing Feature Level (Enum) from 3 to 1
+[2020.09.21-07.56.08:338][227]LogEditorServer: Finished looking for orphan Actors (0.000 secs)
+[2020.09.21-07.56.08:372][227]LogUObjectHash: Compacting FUObjectHashTables data took   3.16ms
+[2020.09.21-07.56.08:385][227]Cmd: MAP CHECKDEP NOCLEARLOG
+[2020.09.21-07.56.08:386][227]MapCheck: Map check complete: 0 Error(s), 0 Warning(s), took 0.239ms to complete.
+[2020.09.21-07.56.08:386][227]LogFileHelpers: Loading map 'Index' took 0.214
+[2020.09.21-07.57.56:017][905]LogSlate: Window 'Project Settings' being destroyed
+[2020.09.21-07.57.56:023][905]LogSlate: Window 'Project Settings' being destroyed
+[2020.09.21-07.58.42:722][ 76]LogSlate: Window 'Project Settings' being destroyed
+[2020.09.21-07.58.42:727][ 76]LogSlate: Window 'Project Settings' being destroyed
+[2020.09.21-07.59.14:566][822]SourceControl: Source control is disabled
+[2020.09.21-07.59.16:843][968]LogSlate: Window 'Source Control Login' being destroyed
+[2020.09.21-07.59.20:987][366]SourceControl: fatal: D:/Program Files/UE_4.24/Engine/Content: 'D:/Program Files/UE_4.24/Engine/Content' is outside repository
+[2020.09.21-07.59.21:298][366]EditorErrors: Warning: No assets to check in!
