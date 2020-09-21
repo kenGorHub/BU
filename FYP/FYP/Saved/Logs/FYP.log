@@ -1868,3 +1868,76 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2020.09.21-07.17.50:615][508]LogShaderCompilers: Display: Worker (2/9): shaders left to compile 3
 [2020.09.21-07.17.50:615][508]LogShaderCompilers: Display: Worker (4/9): shaders left to compile 2
 [2020.09.21-07.17.50:682][512]LogShaderCompilers: Display: Worker (3/9): shaders left to compile 1
+[2020.09.21-07.18.36:717][ 38]LogConcert: Display: Admin (DC980C7C48060F839D1395A9C7021B17): Remote endpoint 'A89BA3D7443F6E1A4551AFB0CEF432A7' timed-out.
+[2020.09.21-07.21.19:291][155]LogSlate: Window 'Project Settings' being destroyed
+[2020.09.21-07.21.19:303][155]LogSlate: Window 'Project Settings' being destroyed
+[2020.09.21-07.21.37:146][197]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/Widget/LoadingScreen.LoadingScreen
+[2020.09.21-07.21.37:516][197]LogContentBrowser: Native class hierarchy updated for 'BlueprintGraph' in 0.0008 seconds. Added 121 classes and 0 folders.
+[2020.09.21-07.21.39:255][197]LogSlate: Took 0.000441 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2020.09.21-07.21.45:635][495]LogConcert: Display: Synced activity '304' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven locked /Game/Widget/LoadingScreen.
+[2020.09.21-07.23.03:491][572]LogSlate: Window 'Project Settings' being destroyed
+[2020.09.21-07.23.03:503][572]LogSlate: Window 'Project Settings' being destroyed
+[2020.09.21-07.23.55:899][384]LogAssetEditorSubsystem: Opening Asset editor for MediaTexture /Game/Video/NewMediaPlayer_Video.NewMediaPlayer_Video
+[2020.09.21-07.23.55:912][384]LogContentBrowser: Native class hierarchy updated for 'TextureEditor' in 0.0004 seconds. Added 1 classes and 2 folders.
+[2020.09.21-07.24.05:463][920]LogConcert: Display: Synced activity '305' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven locked /Game/Video/NewMediaPlayer_Video.
+[2020.09.21-07.24.06:916][ 14]LogSlate: Window 'NewMediaPlayer_Video' being destroyed
+[2020.09.21-07.24.06:929][ 14]LogSlate: Window 'NewMediaPlayer_Video' being destroyed
+[2020.09.21-07.24.06:934][ 14]LogWorld: UWorld::CleanupWorld for World_2, bSessionEnded=true, bCleanupResources=true
+[2020.09.21-07.24.06:934][ 14]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2020.09.21-07.24.06:973][ 14]LogWorld: UWorld::CleanupWorld for World_1, bSessionEnded=true, bCleanupResources=true
+[2020.09.21-07.24.06:973][ 14]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2020.09.21-07.24.07:936][ 83]LogAssetEditorSubsystem: Opening Asset editor for MediaPlayer /Game/Video/NewMediaPlayer.NewMediaPlayer
+[2020.09.21-07.24.08:048][ 83]LogMaterial: Display: Missing cached shader map for material Material_0, compiling. 
+[2020.09.21-07.24.08:076][ 83]LogMaterial: Display: Missing cached shader map for material Material_0, compiling. 
+[2020.09.21-07.24.08:114][ 83]LogShaderCompilers: Display: Worker (1/9): shaders left to compile 11
+[2020.09.21-07.24.08:114][ 83]LogShaderCompilers: Display: Worker (2/9): shaders left to compile 9
+[2020.09.21-07.24.08:114][ 83]LogShaderCompilers: Display: Worker (3/9): shaders left to compile 7
+[2020.09.21-07.24.08:114][ 83]LogShaderCompilers: Display: Worker (4/9): shaders left to compile 5
+[2020.09.21-07.24.08:114][ 83]LogShaderCompilers: Display: Worker (5/9): shaders left to compile 3
+[2020.09.21-07.24.08:115][ 83]LogShaderCompilers: Display: Worker (6/9): shaders left to compile 1
+[2020.09.21-07.24.08:198][ 83]LogShaderCompilers: Display: Worker (7/9): shaders left to compile 17
+[2020.09.21-07.24.08:198][ 83]LogShaderCompilers: Display: Worker (8/9): shaders left to compile 14
+[2020.09.21-07.24.08:309][ 83]LogContentBrowser: Verbose: The majority of assets in the view are of type: FileMediaSource
+[2020.09.21-07.24.08:813][102]LogShaderCompilers: Display: Worker (6/9): shaders left to compile 11
+[2020.09.21-07.24.09:217][113]LogShaderCompilers: Display: Worker (5/9): shaders left to compile 9
+[2020.09.21-07.24.09:361][118]LogShaderCompilers: Display: Worker (1/9): shaders left to compile 7
+[2020.09.21-07.24.09:393][119]LogShaderCompilers: Display: Worker (3/9): shaders left to compile 6
+[2020.09.21-07.24.09:452][121]LogShaderCompilers: Display: Worker (4/9): shaders left to compile 5
+[2020.09.21-07.24.09:642][127]LogShaderCompilers: Display: Worker (2/9): shaders left to compile 4
+[2020.09.21-07.24.09:878][133]LogShaderCompilers: Display: Worker (1/9): shaders left to compile 3
+[2020.09.21-07.24.09:941][135]LogShaderCompilers: Display: Worker (3/9): shaders left to compile 2
+[2020.09.21-07.24.10:045][138]LogShaderCompilers: Display: Worker (4/9): shaders left to compile 1
+[2020.09.21-07.24.18:959][609]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Video/NewMediaPlayer" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Video/NewMediaPlayer.uasset" SILENT=true
+[2020.09.21-07.24.18:988][609]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/NewMediaPlayer6AFEA1CE418DC3AE8171F39A52016A35.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Video/NewMediaPlayer.uasset'
+[2020.09.21-07.24.19:017][609]AssetCheck: New page: Asset Save: NewMediaPlayer
+[2020.09.21-07.24.19:017][609]LogContentValidation: Display: Validating MediaPlayer /Game/Video/NewMediaPlayer.NewMediaPlayer
+[2020.09.21-07.24.19:060][610]LogConcert: Display: Synced activity '306' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven saved package /Game/Video/NewMediaPlayer.
+[2020.09.21-07.24.20:646][687]LogSlate: Window 'NewMediaPlayer' being destroyed
+[2020.09.21-07.24.20:656][687]LogSlate: Window 'NewMediaPlayer' being destroyed
+[2020.09.21-07.24.33:811][561]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Map/Index" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Map/Index.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2020.09.21-07.24.33:979][561]LogUObjectHash: Compacting FUObjectHashTables data took   7.31ms
+[2020.09.21-07.24.34:314][561]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/IndexA2A089024C48578A9DA98A8E30AB3386.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Map/Index.umap'
+[2020.09.21-07.24.34:380][561]AssetCheck: New page: Asset Save: Index
+[2020.09.21-07.24.34:380][561]LogContentValidation: Display: Validating World /Game/Map/Index.Index
+[2020.09.21-07.24.34:415][562]LogConcert: Display: Synced activity '307' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven saved package /Game/Map/Index.
+[2020.09.21-07.24.39:038][961]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/Widget/LoadingScreen.LoadingScreen
+[2020.09.21-07.25.27:101][407]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Widget/LoadingScreen" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/LoadingScreen.uasset" SILENT=true
+[2020.09.21-07.25.27:135][407]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/LoadingScreen67A16E354EDC8B76CA9B228F9E4854E8.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/LoadingScreen.uasset'
+[2020.09.21-07.25.27:169][407]AssetCheck: New page: Asset Save: LoadingScreen
+[2020.09.21-07.25.27:170][407]LogContentValidation: Display: Validating WidgetBlueprint /Game/Widget/LoadingScreen.LoadingScreen
+[2020.09.21-07.25.27:301][412]LogConcert: Display: Synced activity '308' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven saved package /Game/Widget/LoadingScreen.
+[2020.09.21-07.25.27:302][412]LogConcert: Display: Synced activity '309' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven unlocked /Game/Widget/LoadingScreen.
+[2020.09.21-07.25.42:867][256]LogSlate: Window 'LoadingScreen' being destroyed
+[2020.09.21-07.25.42:877][256]LogSlate: Window 'LoadingScreen' being destroyed
+[2020.09.21-07.25.42:880][256]LogWorld: UWorld::CleanupWorld for World_4, bSessionEnded=true, bCleanupResources=true
+[2020.09.21-07.25.42:880][256]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2020.09.21-07.25.42:926][256]LogWorld: UWorld::CleanupWorld for World_3, bSessionEnded=true, bCleanupResources=true
+[2020.09.21-07.25.42:926][256]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2020.09.21-07.25.43:850][315]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Map/Index" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Map/Index.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2020.09.21-07.25.43:955][315]LogUObjectHash: Compacting FUObjectHashTables data took   6.52ms
+[2020.09.21-07.25.44:208][315]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/Index69890F0D486C404ED57DAFA1D364F0E2.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Map/Index.umap'
+[2020.09.21-07.25.44:273][315]AssetCheck: New page: Asset Save: Index
+[2020.09.21-07.25.44:273][315]LogContentValidation: Display: Validating World /Game/Map/Index.Index
+[2020.09.21-07.25.44:303][316]LogConcert: Display: Synced activity '310' produced by endpoint '189517FE46A2222EDA802E9BAB1E576F': steven saved package /Game/Map/Index.
+[2020.09.21-07.25.47:232][564]SourceControl: fatal: C:/Program Files/Epic Games/UE_4.24/Engine/Content: 'C:/Program Files/Epic Games/UE_4.24/Engine/Content' is outside repository at 'C:/Users/a7149/OneDrive/文件/GitHub/BU'
+[2020.09.21-07.25.47:675][564]EditorErrors: Warning: No assets to check in!
