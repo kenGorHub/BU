@@ -148,11 +148,6 @@ Windows.Engine:/Script/UnrealEd.UnrealEdEngine:PackagesToBeFullyLoadedAtStartup:
 Windows.Engine:/Script/UnrealEd.UnrealEdEngine:PackagesToBeFullyLoadedAtStartup:99=/Engine/EngineResources/M_StreamingPause
 Windows.Engine:/Script/UnrealEd.UnrealEdEngine:PackagesToBeFullyLoadedAtStartup:100=/Engine/EngineResources/WhiteSquareTexture
 Windows.Engine:/Script/UnrealEd.UnrealEdEngine:PackagesToBeFullyLoadedAtStartup:101=/Engine/EngineResources/GradientTexture0
-Windows.Engine:/Script/AndroidPlatformEditor.AndroidSDKSettings:SDKPath:0=(Path="")
-Windows.Engine:/Script/AndroidPlatformEditor.AndroidSDKSettings:NDKPath:0=(Path="")
-Windows.Engine:/Script/AndroidPlatformEditor.AndroidSDKSettings:JavaPath:0=(Path="")
-Windows.Engine:/Script/AndroidPlatformEditor.AndroidSDKSettings:SDKAPILevel:0=latest
-Windows.Engine:/Script/AndroidPlatformEditor.AndroidSDKSettings:NDKAPILevel:0=android-19
 Windows.Engine:/Script/LuminPlatformEditor.MagicLeapSDKSettings:MLSDKPath:0=(Path="")
 Windows.Engine:/Script/Concert.ConcertClientConfig:bIsHeadless:0=False
 Windows.Engine:/Script/Concert.ConcertClientConfig:bInstallEditorToolbarButton:0=True
@@ -162,7 +157,7 @@ Windows.Engine:/Script/Concert.ConcertClientConfig:DefaultServerURL:0=
 Windows.Engine:/Script/Concert.ConcertClientConfig:DefaultSessionName:0=
 Windows.Engine:/Script/Concert.ConcertClientConfig:DefaultSessionToRestore:0=
 Windows.Engine:/Script/Concert.ConcertClientConfig:DefaultSaveSessionAs:0=
-Windows.Engine:/Script/Concert.ConcertClientConfig:ClientSettings:0=(DisplayName="ken",AvatarColor=(R=1.000000,G=1.000000,B=1.000000,A=1.000000),DesktopAvatarActorClass=/ConcertSyncClient/DesktopPresence.DesktopPresence_C,VRAvatarActorClass=/ConcertSyncClient/VRPresence.VRPresence_C,DiscoveryTimeoutSeconds=5,SessionTickFrequencySeconds=1,LatencyCompensationMs=0.000000,Tags=)
+Windows.Engine:/Script/Concert.ConcertClientConfig:ClientSettings:0=(DisplayName="ken",AvatarColor=(R=0.000000,G=0.143019,B=1.000000,A=1.000000),DesktopAvatarActorClass=/ConcertSyncClient/DesktopPresence.DesktopPresence_C,VRAvatarActorClass=/ConcertSyncClient/VRPresence.VRPresence_C,DiscoveryTimeoutSeconds=5,SessionTickFrequencySeconds=1,LatencyCompensationMs=0.000000,Tags=)
 Windows.Engine:/Script/Concert.ConcertClientConfig:EndpointSettings:0=(bEnableLogging=False,PurgeProcessedMessageDelaySeconds=30,RemoteEndpointTimeoutSeconds=60)
 Windows.Engine:/Script/EngineSettings.GameMapsSettings:GameInstanceClass:0=/Game/BluePrint/GameInfoInstance.GameInfoInstance_C
 Windows.Engine:/Script/EngineSettings.GameMapsSettings:EditorStartupMap:0=/Game/Map/Index.Index
@@ -1175,8 +1170,8 @@ Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:SDKAPILevel
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:NDKAPILevelOverride:0=
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bEnableGooglePlaySupport:0=false
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bSupportAdMob:0=true
-Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bBuildForArmV7:0=true
-Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bBuildForArm64:0=false
+Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bBuildForArmV7:0=False
+Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bBuildForArm64:0=True
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bBuildForX86:0=false
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bBuildForX8664:0=false
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bBuildForES2:0=false
@@ -1188,7 +1183,7 @@ Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bPackageDat
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bUseExternalFilesDir:0=false
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bPublicLogFiles:0=true
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bCreateAllPlatformsInstall:0=false
-Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:Orientation:0=Landscape
+Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:Orientation:0=Portrait
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:InstallLocation:0=InternalOnly
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:DepthBufferPreference:0=Default
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:PackageName:0=com.EpicGames.AndroidQuickStart
@@ -1198,8 +1193,8 @@ Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:StoreVersio
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:StoreVersionOffsetX86:0=0
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:StoreVersionOffsetX8664:0=0
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:VersionDisplayName:0=1.0
-Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:MinSDKVersion:0=9
-Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:TargetSDKVersion:0=28
+Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:MinSDKVersion:0=21
+Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:TargetSDKVersion:0=21
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bEnableGradle:0=true
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bEnableLint:0=false
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bShowLaunchImage:0=true
@@ -1226,6 +1221,11 @@ Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bAllowIMU:0
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bUseDisplayCutout:0=False
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bEnableSnapshots:0=False
 Windows.Engine:/Script/AndroidRuntimeSettings.AndroidRuntimeSettings:bRestoreNotificationsOnReboot:0=False
+Windows.Engine:/Script/AndroidPlatformEditor.AndroidSDKSettings:SDKAPILevel:0=android-21
+Windows.Engine:/Script/AndroidPlatformEditor.AndroidSDKSettings:NDKAPILevel:0=android-21
+Windows.Engine:/Script/AndroidPlatformEditor.AndroidSDKSettings:SDKPath:0=(Path="C/NVPACK/android-sdk-windows")
+Windows.Engine:/Script/AndroidPlatformEditor.AndroidSDKSettings:NDKPath:0=(Path="C/NVPACK/android-ndk-r14b")
+Windows.Engine:/Script/AndroidPlatformEditor.AndroidSDKSettings:JavaPath:0=(Path="C/NVPACK/jdk1.8.0_77")
 Windows.Engine:/Script/MagicLeap.MagicLeapSettings:bEnableZI:0=False
 Windows.Engine:/Script/MagicLeap.MagicLeapSettings:bUseVulkanForZI:0=True
 Windows.Engine:/Script/MagicLeap.MagicLeapSettings:bUseMLAudioForZI:0=True

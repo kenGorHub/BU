@@ -81,7 +81,7 @@ int drawable common_google_signin_btn_text_light 0x7f06000f
 int drawable common_google_signin_btn_text_light_focused 0x7f060010
 int drawable common_google_signin_btn_text_light_normal 0x7f060011
 int drawable common_google_signin_btn_text_light_normal_background 0x7f060012
-int drawable downloadimageh 0x7f060013
+int drawable downloadimagev 0x7f060013
 int drawable googleg_disabled_color_18 0x7f060014
 int drawable googleg_standard_color_18 0x7f060015
 int drawable ic_plusone_medium_off_client 0x7f060016
@@ -101,7 +101,7 @@ int drawable notification_template_icon_bg 0x7f060023
 int drawable notification_template_icon_low_bg 0x7f060024
 int drawable notification_tile_bg 0x7f060025
 int drawable notify_panel_notification_icon_bg 0x7f060026
-int drawable splashscreen_landscape 0x7f060027
+int drawable splashscreen_portrait 0x7f060027
 int id action0 0x7f070000
 int id action_container 0x7f070001
 int id action_divider 0x7f070002

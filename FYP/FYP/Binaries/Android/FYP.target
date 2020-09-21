@@ -5,7 +5,7 @@
 	"TargetType": "Game",
 	"Architecture": "",
 	"Project": "../../FYP.uproject",
-	"Launch": "$(ProjectDir)/Binaries/Android/FYP-armv7-es2.so",
+	"Launch": "$(ProjectDir)/Binaries/Android/FYP-arm64-es2.so",
 	"Version": 
 	{
 		"MajorVersion": 4,
@@ -21,7 +21,7 @@
 	},
 	"BuildProducts": [
 		{
-			"Path": "$(ProjectDir)/Binaries/Android/FYP-armv7-es2.so",
+			"Path": "$(ProjectDir)/Binaries/Android/FYP-arm64-es2.so",
 			"Type": "Executable"
 		}
 	],

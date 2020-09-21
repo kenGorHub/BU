@@ -1,4 +1,4 @@
-// PCH for D:\Program Files\UE_4.24\Engine\Source\Runtime\Core\Public\CoreSharedPCH.h
+// PCH for C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Core\Public\CoreSharedPCH.h
 #define IS_PROGRAM 0
 #define UE_GAME 1
 #define ENABLE_PGO_PROFILE 0
@@ -43,7 +43,7 @@
 #define WITH_EDITOR 0
 #define USE_NULL_RHI 0
 #define PLATFORM_ANDROID_NDK_VERSION 140200
-#define PLATFORM_USED_NDK_VERSION_INTEGER 19
+#define PLATFORM_USED_NDK_VERSION_INTEGER 21
 #define PLATFORM_DESKTOP 0
 #define PLATFORM_CAN_SUPPORT_EDITORONLY_DATA 0
 #define WITH_OGGVORBIS 1
@@ -66,4 +66,4 @@
 #define CORE_API 
 #define TRACELOG_VTABLE 
 #define TRACELOG_API 
-#include "D:/Program Files/UE_4.24/Engine/Source/Runtime/Core/Public/CoreSharedPCH.h"
+#include "C:/Program Files/Epic Games/UE_4.24/Engine/Source/Runtime/Core/Public/CoreSharedPCH.h"

@@ -3,7 +3,7 @@ apply from: 'projects.gradle'
 android {
 	defaultConfig {
 		ndk {
-			abiFilter "armeabi-v7a"
+			abiFilter "arm64-v8a"
 		}
 	}
 	signingConfigs {

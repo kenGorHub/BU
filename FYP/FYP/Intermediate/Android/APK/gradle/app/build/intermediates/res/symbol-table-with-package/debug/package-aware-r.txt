@@ -82,7 +82,7 @@ drawable common_google_signin_btn_text_light
 drawable common_google_signin_btn_text_light_focused
 drawable common_google_signin_btn_text_light_normal
 drawable common_google_signin_btn_text_light_normal_background
-drawable downloadimageh
+drawable downloadimagev
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_plusone_medium_off_client
@@ -102,7 +102,7 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
-drawable splashscreen_landscape
+drawable splashscreen_portrait
 id action0
 id action_container
 id action_divider
