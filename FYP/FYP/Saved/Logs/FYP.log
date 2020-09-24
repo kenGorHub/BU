@@ -881,3 +881,91 @@ LogConfig: Setting CVar [[r.setres:1280x720]]
 [2020.09.24-08.44.00:018][928]LogWorld: UWorld::CleanupWorld for World_3, bSessionEnded=true, bCleanupResources=true
 [2020.09.24-08.44.00:018][928]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
 [2020.09.24-08.44.04:391][ 18]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/Widget/SettingMenu.SettingMenu
+[2020.09.24-08.46.07:517][984]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Widget/SettingMenu" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/SettingMenu.uasset" SILENT=true
+[2020.09.24-08.46.07:556][984]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/SettingMenuCF994843496599BD5A4430B6D731667F.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/SettingMenu.uasset'
+[2020.09.24-08.46.07:576][984]AssetCheck: New page: Asset Save: SettingMenu
+[2020.09.24-08.46.07:576][984]LogContentValidation: Display: Validating WidgetBlueprint /Game/Widget/SettingMenu.SettingMenu
+[2020.09.24-08.46.07:942][  4]BlueprintLog: New page: Compile SettingMenu
+[2020.09.24-08.46.08:012][  4]LogUObjectHash: Compacting FUObjectHashTables data took   3.37ms
+[2020.09.24-08.46.08:783][ 45]LogTemp: Repeating last play command: Mobile Preview ES3.1 (PIE)
+[2020.09.24-08.46.08:845][ 45]LogUObjectHash: Compacting FUObjectHashTables data took   4.02ms
+[2020.09.24-08.46.45:106][729]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Widget/SettingMenu" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/SettingMenu.uasset" SILENT=true
+[2020.09.24-08.46.45:140][729]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/SettingMenuDEB537CA4D8CDDFED60659A6719A124D.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/SettingMenu.uasset'
+[2020.09.24-08.46.45:157][729]AssetCheck: New page: Asset Save: SettingMenu
+[2020.09.24-08.46.45:157][729]LogContentValidation: Display: Validating WidgetBlueprint /Game/Widget/SettingMenu.SettingMenu
+[2020.09.24-08.47.46:906][357]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Widget/SettingMenu" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/SettingMenu.uasset" SILENT=true
+[2020.09.24-08.47.46:928][357]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/SettingMenuD472035C422C03E2943D6481CB7C4DA9.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/SettingMenu.uasset'
+[2020.09.24-08.47.46:947][357]AssetCheck: New page: Asset Save: SettingMenu
+[2020.09.24-08.47.46:947][357]LogContentValidation: Display: Validating WidgetBlueprint /Game/Widget/SettingMenu.SettingMenu
+[2020.09.24-08.47.47:342][380]BlueprintLog: New page: Compile SettingMenu
+[2020.09.24-08.47.47:402][380]LogUObjectHash: Compacting FUObjectHashTables data took   3.99ms
+[2020.09.24-08.49.38:281][313]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Map/Index" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Map/Index.umap" SILENT=true AUTOSAVING=false KEEPDIRTY=false
+[2020.09.24-08.49.38:328][313]LogUObjectHash: Compacting FUObjectHashTables data took   4.09ms
+[2020.09.24-08.49.38:547][313]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/Index6D943FD04391DFD3F1616A95018BDACF.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Map/Index.umap'
+[2020.09.24-08.49.38:601][313]AssetCheck: New page: Asset Save: Index
+[2020.09.24-08.49.38:601][313]LogContentValidation: Display: Validating World /Game/Map/Index.Index
+[2020.09.24-08.49.40:101][400]LogAssetEditorSubsystem: Opening Asset editor for WidgetBlueprint /Game/Widget/Container.Container
+[2020.09.24-08.59.38:474][812]LogUObjectHash: Compacting FUObjectHashTables data took   3.58ms
+[2020.09.24-08.59.38:475][812]LogFileHelpers: Editor autosave (incl. sublevels) for '/Game/Map/Index' took 0.045
+[2020.09.24-08.59.38:475][812]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/Widget/Container] ([1] browsable assets)...
+[2020.09.24-08.59.38:475][812]OBJ SavePackage: Finished generating thumbnails for package [/Game/Widget/Container]
+[2020.09.24-08.59.38:475][812]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Widget/Container" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/Autosaves/Game/Widget/Container_Auto1.uasset" SILENT=false AUTOSAVING=true
+[2020.09.24-08.59.38:486][812]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/Container_Auto1C015C460411D5E35BE1BEF956DDF250B.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/Autosaves/Game/Widget/Container_Auto1.uasset'
+[2020.09.24-08.59.38:487][812]LogFileHelpers: Auto-saving content packages took 0.012
+[2020.09.24-09.11.39:698][421]LogUObjectHash: Compacting FUObjectHashTables data took   9.75ms
+[2020.09.24-09.11.39:699][421]LogFileHelpers: Editor autosave (incl. sublevels) for '/Game/Map/Index' took 0.086
+[2020.09.24-09.11.39:700][421]OBJ SavePackage: Generating thumbnails for [0] asset(s) in package [/Game/Widget/Container] ([1] browsable assets)...
+[2020.09.24-09.11.39:700][421]OBJ SavePackage: Finished generating thumbnails for package [/Game/Widget/Container]
+[2020.09.24-09.11.39:700][421]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Widget/Container" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/Autosaves/Game/Widget/Container_Auto2.uasset" SILENT=false AUTOSAVING=true
+[2020.09.24-09.11.39:736][421]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/Container_Auto2B10C7FF14D7224BB49E7379BDE16C098.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/Autosaves/Game/Widget/Container_Auto2.uasset'
+[2020.09.24-09.11.39:737][421]LogFileHelpers: Auto-saving content packages took 0.038
+[2020.09.24-09.19.09:638][573]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Widget/SettingMenu" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/SettingMenu.uasset" SILENT=true
+[2020.09.24-09.19.09:684][573]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/SettingMenu67C49D324700DC0019698696288EDC97.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/SettingMenu.uasset'
+[2020.09.24-09.19.09:709][573]AssetCheck: New page: Asset Save: SettingMenu
+[2020.09.24-09.19.09:709][573]LogContentValidation: Display: Validating WidgetBlueprint /Game/Widget/SettingMenu.SettingMenu
+[2020.09.24-09.19.10:112][594]BlueprintLog: New page: Compile SettingMenu
+[2020.09.24-09.19.10:431][594]LogUObjectHash: Compacting FUObjectHashTables data took   4.22ms
+[2020.09.24-09.19.12:291][691]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Widget/Container" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/Container.uasset" SILENT=true
+[2020.09.24-09.19.12:305][691]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/Container723B73F7475BEF2039E54484D1C63672.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/Container.uasset'
+[2020.09.24-09.19.12:557][691]AssetCheck: New page: Asset Save: Container
+[2020.09.24-09.19.12:557][691]LogContentValidation: Display: Validating WidgetBlueprint /Game/Widget/Container.Container
+[2020.09.24-09.19.12:773][704]BlueprintLog: New page: Compile Container
+[2020.09.24-09.19.12:824][704]LogUObjectHash: Compacting FUObjectHashTables data took   3.88ms
+[2020.09.24-09.19.26:653][526]LogEditorTransaction: Undo Edit Top
+[2020.09.24-09.19.40:153][300]LogEditorTransaction: Undo Resize Widget
+[2020.09.24-09.20.52:989][342]LogEditorTransaction: Undo Remove Event Dispatcher
+[2020.09.24-09.20.53:463][355]LogEditorTransaction: Undo Add New Event Dispatcher
+[2020.09.24-09.20.53:931][378]LogEditorTransaction: Undo Delete current selection
+[2020.09.24-09.20.54:587][413]LogEditorTransaction: Undo Delete current selection
+[2020.09.24-09.21.06:141][ 68]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/BluePrints/GameInfoInstance" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/BluePrints/GameInfoInstance.uasset" SILENT=true
+[2020.09.24-09.21.06:195][ 68]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/GameInfoInstance19DE612C4D233775876F15933442ACA7.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/BluePrints/GameInfoInstance.uasset'
+[2020.09.24-09.21.06:213][ 68]AssetCheck: New page: Asset Save: GameInfoInstance
+[2020.09.24-09.21.06:213][ 68]LogContentValidation: Display: Validating Blueprint /Game/BluePrints/GameInfoInstance.GameInfoInstance
+[2020.09.24-09.21.58:270][150]BlueprintLog: New page: Compile Container
+[2020.09.24-09.21.58:327][150]LogUObjectHash: Compacting FUObjectHashTables data took   3.95ms
+[2020.09.24-09.21.58:941][172]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Widget/Container" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/Container.uasset" SILENT=true
+[2020.09.24-09.21.58:968][172]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/ContainerF32F63074F737A4B36548FB40204E998.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/Container.uasset'
+[2020.09.24-09.21.58:987][172]AssetCheck: New page: Asset Save: Container
+[2020.09.24-09.21.58:987][172]LogContentValidation: Display: Validating WidgetBlueprint /Game/Widget/Container.Container
+[2020.09.24-09.22.18:582][334]LogBlueprint: Warning: [Compiler ] Pasted node  CustomEvent   conflicted with  ShowServerMenu  and was replaced as a Custom Event!
+[2020.09.24-09.22.50:741][176]LogSlate: Prevented a slow task dialog from being summoned while a context menu was open
+[2020.09.24-09.22.59:254][602]BlueprintLog: New page: Compile GameInfoInstance
+[2020.09.24-09.22.59:326][602]LogUObjectHash: Compacting FUObjectHashTables data took   3.94ms
+[2020.09.24-09.23.32:030][438]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/BluePrints/GameInfoInstance" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/BluePrints/GameInfoInstance.uasset" SILENT=true
+[2020.09.24-09.23.32:088][438]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/GameInfoInstance73899DEA4A6E81FF3DAD00BC93171513.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/BluePrints/GameInfoInstance.uasset'
+[2020.09.24-09.23.32:111][438]AssetCheck: New page: Asset Save: GameInfoInstance
+[2020.09.24-09.23.32:111][438]LogContentValidation: Display: Validating Blueprint /Game/BluePrints/GameInfoInstance.GameInfoInstance
+[2020.09.24-09.23.33:003][486]BlueprintLog: New page: Compile GameInfoInstance
+[2020.09.24-09.23.33:070][486]LogUObjectHash: Compacting FUObjectHashTables data took   3.61ms
+[2020.09.24-09.23.41:409][970]LogSlate: WidgetSwitcher ('None') active index changed to 1
+[2020.09.24-09.23.42:622][ 43]LogSlate: WidgetSwitcher ('None') active index changed to 0
+[2020.09.24-09.23.44:704][167]LogSlate: WidgetSwitcher ('None') active index changed to 1
+[2020.09.24-09.23.45:205][197]LogSlate: WidgetSwitcher ('None') active index changed to 0
+[2020.09.24-09.23.45:619][220]LogSlate: WidgetSwitcher ('None') active index changed to 1
+[2020.09.24-09.23.46:122][250]LogSlate: WidgetSwitcher ('None') active index changed to 0
+[2020.09.24-09.23.47:164][307]Cmd: OBJ SAVEPACKAGE PACKAGE="/Game/Widget/Container" FILE="../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/Container.uasset" SILENT=true
+[2020.09.24-09.23.47:185][307]LogSavePackage: Moving '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Saved/Container1B7DDD5A423BB116C277E794EBE38F91.tmp' to '../../../../../../Users/a7149/OneDrive/文件/GitHub/BU/FYP/FYP/Content/Widget/Container.uasset'
+[2020.09.24-09.23.47:204][307]AssetCheck: New page: Asset Save: Container
+[2020.09.24-09.23.47:204][307]LogContentValidation: Display: Validating WidgetBlueprint /Game/Widget/Container.Container
+[2020.09.24-09.23.47:449][322]BlueprintLog: New page: Compile Container
+[2020.09.24-09.23.47:518][322]LogUObjectHash: Compacting FUObjectHashTables data took   4.09ms
