@@ -1,1 +1,1 @@
-../../../FYP/FYP.uproject  /Game/Map/Index -Messaging -SessionId=717D08044FEBD3ECC1C0D1BEE5070A28 -SessionOwner="a7149" -SessionName="Launch On Device" -iterative
+../../../FYP/FYP.uproject  /Game/Map/Index -Messaging -SessionId=54CDB4E94C813E15E53D6F9AEAE470A1 -SessionOwner="ken" -SessionName="Launch On Device" -iterative

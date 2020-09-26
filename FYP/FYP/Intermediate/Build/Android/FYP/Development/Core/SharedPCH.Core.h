@@ -1,4 +1,4 @@
-// PCH for C:\Program Files\Epic Games\UE_4.24\Engine\Source\Runtime\Core\Public\CoreSharedPCH.h
+// PCH for D:\Program Files\UE_4.24\Engine\Source\Runtime\Core\Public\CoreSharedPCH.h
 #define IS_PROGRAM 0
 #define UE_GAME 1
 #define ENABLE_PGO_PROFILE 0
@@ -66,4 +66,4 @@
 #define CORE_API 
 #define TRACELOG_VTABLE 
 #define TRACELOG_API 
-#include "C:/Program Files/Epic Games/UE_4.24/Engine/Source/Runtime/Core/Public/CoreSharedPCH.h"
+#include "D:/Program Files/UE_4.24/Engine/Source/Runtime/Core/Public/CoreSharedPCH.h"
