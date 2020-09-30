@@ -8,7 +8,6 @@ import org.springframework.web.servlet.HandlerMapping;
 @Controller
 public class MyController {
 
-	@Foos({@GetMapping("**"), @GetMapping("search")})
 	@GetMapping("**")
 	//@GetMapping("search")
 	@ResponseBody
@@ -18,6 +17,3 @@ public class MyController {
 	}
 }
 
-@interface Foos {
-	GetMapping[] value();
-}
